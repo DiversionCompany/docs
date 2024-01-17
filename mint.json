@@ -2,8 +2,8 @@
   "$schema": "https://mintlify.com/schema.json",
   "name": "Diversion Documentation",
   "logo": {
-    "dark": "https://assets-global.website-files.com/63f87bb83cad19e7393d4a98/63f8818137a3c16f7253da03_logo-w-bg.svg",
-    "light": "https://assets-global.website-files.com/63f87bb83cad19e7393d4a98/63f8818137a3c16f7253da03_logo-w-bg.svg"
+    "dark": "/logo/horizontal_logo_320x132_white.png",
+    "light": "/logo/horizontal_logo_320x132.png"
   },
   "favicon": "/favicon.png",
   "colors": {
@@ -46,11 +46,7 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": ["introduction", "quickstart", "development"]
-    },
-    {
-      "group": "Essentials",
-      "pages": ["essentials/markdown", "essentials/code", "essentials/images", "essentials/settings", "essentials/navigation"]
+      "pages": ["quickstart"]
     },
     {
       "group": "API Documentation",
