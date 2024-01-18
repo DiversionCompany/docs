@@ -1,0 +1,6 @@
+.bordered-image {
+    width: 90%;
+    border-radius: 1.5rem;
+    border: .3rem solid #555;
+    box-shadow: 0 0 1rem #888;
+}
