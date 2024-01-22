@@ -53,15 +53,6 @@
       "pages": ["api-reference/introduction"]
     },
   {
-    "group": "Authentication",
-    "pages": [
-      "api-reference/authentication/get-authcomplete",
-      "api-reference/authentication/get-authpoll",
-      "api-reference/authentication/get-authfetch_code",
-      "api-reference/authentication/test-token-validity-repo-write-access"
-    ]
-  },
-  {
     "group": "Repository Management",
     "pages": [
       "api-reference/repository-management/list-users-repositories",
