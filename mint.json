@@ -1,6 +1,11 @@
 {
   "$schema": "https://mintlify.com/schema.json",
   "name": "Diversion Documentation",
+  "analytics": {
+    "mixpanel": {
+      "projectToken": "c3706e610ea2343fb341bf4cd4fc2c18"
+    }
+  },
   "logo": {
     "dark": "/logo/horizontal_logo_320x132_white.png",
     "light": "/logo/horizontal_logo_320x132.png"
