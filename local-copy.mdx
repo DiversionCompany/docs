@@ -1,0 +1,88 @@
+---
+title: 'Working Locally'
+description: 'Continuously sync your work with the cloud'
+---
+
+## Download Diversion
+
+Download Diversion for your OS
+
+<Tabs>
+  <Tab title="Windows">
+    [Download the installer](https://dv-binaries.s3.us-east-2.amazonaws.com/windows_x86_64/diversion_windows_x86_64.exe) and follow the instructions
+  </Tab>
+  <Tab title="MacOS">
+    Open a terminal and run:
+      ```bash
+      curl -sL https://get.diversion.dev/unix | bash
+      ```
+  </Tab>
+  <Tab title="Linux">
+    Open a terminal and run:
+      ```bash
+      curl -sL https://get.diversion.dev/unix | bash
+      ```
+  </Tab>
+</Tabs>
+<sub>By installing Diversion you agree to the [Terms of Service](https://www.diversion.dev/terms-of-service)</sub>
+
+
+## Using the CLI
+
+Diversion offers two modes to work with the CLI, classic and interactive. In classic mode, use it as any other terminal
+tool - type the command with the appropriate arguments and execute it. To use the interactive mode, run `dv` and you will
+be presented with a friendly interface with suggestions and auto-completion, so you don't have to memorize commands.
+
+## Get a copy of your repo
+
+You can either create a new repo, or clone an existing repo. Clone means different things in different versioning systems,
+in Diversion clone means getting a local copy of some branch via a workspace, and keep this copy synced bidirectionally
+with the cloud.
+<AccordionGroup>
+  <Accordion icon="sparkles" title="Create a new repo">
+    `cd` to the directory where you want a new repo created (a new sub-directory will be created), then run:
+      ```bash
+      dv init [dir_name]
+      ```
+      which will create both a directory and a repo named `dir_name`. To use different directory and repo names:
+      ```bash
+      dv init [dir_name] [repo_name]
+      ```
+      If you're in interactive mode, the CLI will automatically `cd` to the new directory and you can start working.
+  </Accordion>
+  <Accordion icon="clone" title="Clone an existing repo">
+      If you have previously created a repo (either from the web app or the CLI on another machine), and want to sync it
+      locally, run:
+      ```bash
+      dv clone [repo_name]
+      ```
+      which will create a directory named `repo_name` where the contents will be synced to. To use a different name
+      for the directory, run:
+      ```bash
+      dv clone [repo_name] [dir_name]
+      ```
+  </Accordion>
+</AccordionGroup>
+
+## Commit your changes
+
+After uploading some content or making changes to a workspace, we probably want to commit and make the content
+accessible in the branch we are working on. Assuming all files are required for the commit, run:
+```bash
+dv commit -a -m "[commit message]"
+```
+Alternatively to only commit some of the files, run:
+```bash
+dv commit [[file1] [file2] ...] -m "[commit message"
+```
+
+## Share your repo with a collaborator
+
+Inviting someone to collaborate on a repo is simple even from the CLI:
+```bash
+dv invite user@example.org
+```
+which will grant write access to the repo to the invitee. To share with different permissions run:
+```bash
+dv invite -access [READ|WRITE|ADMIN|OWNER] user@example.org
+```
