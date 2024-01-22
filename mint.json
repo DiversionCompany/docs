@@ -4,6 +4,9 @@
   "analytics": {
     "mixpanel": {
       "projectToken": "c3706e610ea2343fb341bf4cd4fc2c18"
+    },
+    "ga4": {
+      "measurementId": "G-1W30D3D2HN"
     }
   },
   "logo": {
