@@ -236,7 +236,7 @@ paths:
       summary: Import a Git repo into this Diversion repo
       description: >-
         Import a Git repo with all history from a Git URL.
-        {repo_id} must have no commits and no branches, or be already marked as synced with the same git_url.
+        `repo_id` must have no commits and no branches, or be already marked as synced with the same `git_url`.
         The git repo URL must have http credentials embedded or otherwise hosted on Github and the owner has the Diversion Github app integration set up.
       requestBody:
         content:
