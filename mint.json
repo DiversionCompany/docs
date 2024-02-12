@@ -58,6 +58,14 @@
       "pages": ["quickstart", "local-copy"]
     },
     {
+      "group": "Basic Usage and Concepts",
+      "pages": ["basic/create-repo", "basic/use-existing-repo", "basic/import-from-git", "basic/workspaces"]
+    },
+    {
+      "group": "Command Reference",
+      "pages": ["cmd-ref/branch", "cmd-ref/cd", "cmd-ref/checkout", "cmd-ref/clone", "cmd-ref/commit", "cmd-ref/diff", "cmd-ref/feedback", "cmd-ref/help", "cmd-ref/import", "cmd-ref/init", "cmd-ref/invite", "cmd-ref/login", "cmd-ref/logout", "cmd-ref/ls", "cmd-ref/merge", "cmd-ref/reset", "cmd-ref/status", "cmd-ref/support", "cmd-ref/unregister", "cmd-ref/update", "cmd-ref/verify", "cmd-ref/view", "cmd-ref/workspace"]
+    },
+    {
       "group": "API Documentation",
       "pages": ["api-reference/introduction"]
     },

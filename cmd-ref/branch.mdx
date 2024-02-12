@@ -1,0 +1,22 @@
+---
+title: 'branch'
+description: 'Manage branches in the current repo'
+---
+
+## Create a branch
+
+To create a new branch, run:
+```bash
+dv branch -c <branch-name> [-no-checkout]
+```
+A new branch `branch-name` will be created. If the flag `-no-checkout` is _not_  passed, the new branch will be
+checked out.
+
+TODO: Elaborate about uncommitted changes.
+
+## Delete a branch
+To delete a branch, run:
+```bash
+dv branch -d <branch-name>
+```
+For convenient autocompletion of the branch name, run the CLI in interactive mode.
