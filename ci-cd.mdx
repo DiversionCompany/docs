@@ -17,8 +17,19 @@ description: 'Configure your CI/CD platform to use diversion'
   </Step>
 </Steps>
 
-## Provide the token to your CI/CD platform
+## Set up your CI/CD platform
 
+### Store the Diversion client ID in an Environment Variable
+Store it as Key: `USER_POOL_CLIENT_ID`, Value: `769th1pmk6r3d9t6ari1piu3ds`.<br/>
+It will be read and used by the `dv` client in the workflow.
+
+Here are some relevant docs for storing environment variables in popular CI/CD platforms:
+* [CircleCI](https://circleci.com/docs/set-environment-variable/#set-an-environment-variable-in-a-project)
+* [TravisCI](https://docs.travis-ci.com/user/environment-variables/)
+* [TeamCity](https://www.jetbrains.com/help/teamcity/typed-parameters.html#How+to+Create+a+New+Parameter)
+* [Bitrise](https://devcenter.bitrise.io/en/builds/environment-variables.html)
+
+### Store the API Token securely
 <Note>Don't store the API Token as a plain environment variable! If your CI/CD platform provides a secure
 secret storage, use it.</Note>
 Here are some relevant docs for storing secrets in popular CI/CD platforms:
@@ -52,7 +63,7 @@ dv status
 
 ```powershell Windows
 # Download Diversion client
-. ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://get.diversion.dev/win").Content))))
+& ([Scriptblock]::Create((Invoke-RestMethod "https://get.diversion.dev/win")))
 # Authenticate Diversion
 dv authenticate $API_TOKEN
 # Clone your repository and wait for sync to complete
