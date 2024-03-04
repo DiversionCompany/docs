@@ -54,19 +54,19 @@
   ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Getting started",
       "pages": [
         "quickstart",
-        "local-copy"
-      ]
-    },
-    {
-      "group": "Basic Usage and Concepts",
-      "pages": [
-        "basic/create-repo",
-        "basic/use-existing-repo",
-        "basic/import-from-git",
-        "basic/workspaces"
+        "local-copy",
+        {
+          "group": "Basic Usage and Concepts",
+          "pages": [
+            "basic/create-repo",
+            "basic/use-existing-repo",
+            "basic/import-from-git",
+            "basic/workspaces"
+          ]
+        }
       ]
     },
     {
@@ -99,9 +99,7 @@
     },
     {
       "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
+      "pages": ["api-reference/introduction"]
     },
     {
       "group": "Repository Management",
@@ -223,9 +221,7 @@
     },
     {
       "group": "Debug",
-      "pages": [
-        "api-reference/debug/check-server-is-alive"
-      ]
+      "pages": ["api-reference/debug/check-server-is-alive"]
     },
     {
       "group": "Support",
