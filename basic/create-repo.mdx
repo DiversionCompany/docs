@@ -1,0 +1,35 @@
+---
+title: 'Create a repo'
+description: 'Start using diversion'
+---
+
+<Tabs>
+  <Tab title="Web UI">
+    <Steps>
+        <Step title="Create a repo">
+            Click on Create New Repository
+            <img alt="Create Repo" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/create-repo.jpg" />
+        </Step>
+        <Step title="Name the repo">
+            Give your new repo a name and click Create
+            <img alt="Repo Name" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/repo-name.jpg" />
+        </Step>
+        <Step title="Use your new repo">
+            You will be taken to a tutorial that takes you through installation instructions, to work from your local machine. You can skip
+            those if you only want to use the webapp. Simply select the new repo from the dropdown menu at the top:
+            <img alt="Select Repo" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/select-repo.jpg" />
+        </Step>
+    </Steps>
+  </Tab>
+  <Tab title="CLI">
+    `cd` to the directory where you want a new repo created (a new sub-directory will be created), then run:
+      ```bash
+      dv init [dir_name]
+      ```
+      which will create both a directory and a repo named `dir_name`. To use different directory and repo names:
+      ```bash
+      dv init [dir_name] [repo_name]
+      ```
+      If you're in interactive mode, the CLI will automatically `cd` to the new directory and you can start working.
+  </Tab>
+</Tabs>

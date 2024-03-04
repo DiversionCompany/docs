@@ -3,7 +3,56 @@ title: 'Quickstart'
 description: 'Start using Diversion in under 5 minutes'
 ---
 
-## Create a repo using the webapp
+## Create an account
+You can start using Diversion without any installations!
+
+Creating a new account has to be done through our Web UI. Other actions can be done through the CLI or the Web UI.
+
+<Steps>
+  <Step title="Open the app">
+    Click the `Login` button at the top of this page, it will take you to https://app.diversion.dev.
+  </Step>
+  <Step title="Sign up">
+    Or, if you already have an account, login.
+  </Step>
+  <Step title="Welcome to your dashboard!">
+    This is the hub for all of your repositories and workspaces.
+  </Step>
+</Steps>
+
+## Download Diversion
+
+Download the Diversion CLI for your OS.
+
+<Tabs>
+  <Tab title="Windows">
+    [Download the installer](https://dv-binaries.s3.us-east-2.amazonaws.com/windows_x86_64/diversion_windows_x86_64.exe) and follow the instructions.
+  </Tab>
+  <Tab title="MacOS">
+    Open a terminal and run:
+      ```bash
+      curl -sL https://get.diversion.dev/unix | bash ; export PATH="$HOME/.diversion/bin:$PATH"
+      ```
+  </Tab>
+  <Tab title="Linux">
+    Open a terminal and run:
+      ```bash
+      curl -sL https://get.diversion.dev/unix | bash ; export PATH="$HOME/.diversion/bin:$PATH"
+      ```
+  </Tab>
+</Tabs>
+
+<sub>By installing Diversion you agree to the [Terms of Service](https://www.diversion.dev/terms-of-service)</sub>
+
+### Logging in with the CLI
+
+Open a new terminal window and run:
+```bash
+dv login
+```
+You'll be redirected to the login page. After logging in, you'll be redirected back to the terminal.
+
+{/* ## Create a repo using the webapp
 
 You can start using Diversion without any installations!
 
@@ -74,4 +123,4 @@ Inviting someone to collaborate on a repo is simple:
     <Step title="Invite via email">
         Enter your collaborator's email at the bottom of the modal, select the access level to grant, and click Send invite
     </Step>
-</Steps>
+</Steps> */}
