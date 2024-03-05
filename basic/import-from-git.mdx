@@ -1,0 +1,38 @@
+---
+title: 'Import from Git'
+description: 'How to get an existing repo from Git into Diversion'
+---
+
+import { Image } from '/snippets/image.mdx';
+
+Importing an existing repo from Git can get you quickly up and running with Diversion.
+
+<Tabs>
+  <Tab title="Web UI">
+    To import a repo using the Web UI, follow these steps:
+    <Steps>
+      <Step title="Enable Diversion Sync">
+        Go to the [Diversion Sync GitHub App page](https://github.com/apps/diversion-sync) and follow the instructions to install it.
+      </Step>
+      <Step title="Go to your dashboard">
+        It's [here](https://app.diversion.dev/dashboard).
+      </Step>
+      <Step title="Click the 'Import Git Repository' button">
+        <Image src={'/images/import-repo-button.jpg'} alt="Import repo button" />
+      </Step>
+      <Step title="You'll be prompted to choose your import options">
+        <Image src={'/images/import-repo-options.jpg'} alt="Import repo options modal" />
+
+        Choose whether you want to import your entire repo and keep all of its history, or just the latest commit from a specific branch.
+
+        If you choose to `Import all branches with history`, you'll have the option to `Enable continuous bi-directional sync`.
+        This will keep your Git repo and your Diversion repo in sync - this is a great way to take Diversion for a test ride with no commitment!
+      </Step>
+      <Steps title="Click the 'Import' button">
+        You should be greeted with a success message shortly.
+      </Steps>
+    </Steps>
+  </Tab>
+  <Tab title="CLI">
+  </Tab>
+</Tabs>
