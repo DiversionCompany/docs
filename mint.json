@@ -62,8 +62,7 @@
           "pages": [
             "basic/create-repo",
             "basic/use-existing-repo",
-            "basic/import-from-git",
-            "basic/workspaces"
+            "basic/import-from-git"
           ]
         }
       ]
