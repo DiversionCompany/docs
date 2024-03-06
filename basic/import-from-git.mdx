@@ -4,8 +4,12 @@ description: 'How to get an existing repo from Git into Diversion'
 ---
 
 import { Image } from '/snippets/image.mdx';
+import DvShellHowTo from '/snippets/dv-shell-how-to.mdx';
 
 Importing an existing repo from Git can get you quickly up and running with Diversion.
+You can also enable bi-directional sync between your Git repo and Diversion, so that
+changes made in either place are reflected in the other.
+This is a great way to take Diversion for a test drive with no commitment.
 
 <Tabs>
   <Tab title="Web UI">
@@ -26,15 +30,71 @@ Importing an existing repo from Git can get you quickly up and running with Dive
         Choose whether you want to import your entire repo and keep all of its history, or just the latest commit from a specific branch.
 
         If you choose to `Import all branches with history`, you'll have the option to `Enable continuous bi-directional sync`.
-        This will keep your Git repo and your Diversion repo in sync - this is a great way to take Diversion for a test ride with no commitment!
       </Step>
       <Step title="Enter the url for the repo you want to import">
       </Step>
       <Steps title="Click the 'Import' button">
-        You should be greeted with a success message shortly.
       </Steps>
+      <Step title="Wait for the import to complete">
+        This happens in the background, and depending on the size of your Git repo can take a few minutes.
+        You will receive an email when the import is complete.
+      </Step>
     </Steps>
   </Tab>
   <Tab title="CLI">
+    To import a repo using the CLI, follow these steps:
+    <Steps>
+      <Step title="Enable Diversion Sync">
+        Go to the [Diversion Sync GitHub App page](https://github.com/apps/diversion-sync) and follow the instructions to install it.
+      </Step>
+      <Step title="Open a CLI terminal">
+        Open your terminal of choice.
+
+        <DvShellHowTo />
+      </Step>
+      <Step title="Import">
+        Run the following command:
+        ```bash
+          dv import [git_url]
+        ```
+
+        This will start importing your repo into Diversion with the default name - the same as the repo's name in Git.
+
+        There are several optional arguments for the `import` command. You can always run `dv help import` to see them in the terminal.
+        <AccordionGroup>
+          <Accordion title="[repo-name]">
+            Passing a repo name to the `import command` will save the repo to Diversion with that name, instead of the repo's name in Git.
+            ```bash
+              dv import [git_url] [repo-name]
+            ```
+          </Accordion>
+          <Accordion title="--with-sync">
+            Enables bi-directional sync between your new Diverson repo and your Git repo. This means that any change you make to one repo will be reflected in the other.
+            
+            This is useful for testing Diversion or for keeping any Git-based pipelines you have in place.
+            
+            ```bash
+              dv import [git_url] --with-sync
+            ```
+          </Accordion>
+          <Accordion title="--git-branch">
+            By default, Diversion will import the latest commit from the default branch of your Git repo. If you want to import the latest commit from a different branch, you can use the `--git-branch` flag.
+            ```bash
+              dv import [git_url] --git-branch [branch-name]
+            ```
+          </Accordion>
+          <Accordion title="--with-history">
+            By default, Diversion will only import the latest commit from the default branch of your Git repo. If you want to import the entire repo with all of its history, you can use the `--with-history` flag.
+            ```bash
+              dv import [git_url] --with-history
+            ```
+          </Accordion>
+        </AccordionGroup>
+      </Step>
+      <Step title="Wait for the import to complete">
+        This happens in the background, and depending on the size of your Git repo can take a few minutes.
+        You will receive an email when the import is complete.
+      </Step>
+    </Steps>
   </Tab>
 </Tabs>
