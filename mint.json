@@ -64,12 +64,13 @@
             "basic/use-existing-repo",
             "basic/import-from-git"
           ]
-        }
+        },
+        "ci-cd"
       ]
     },
     {
       "group": "API Documentation",
-      "pages": ["api-reference/introduction"]
+      "pages": [ "api-reference/introduction" ]
     },
     {
       "group": "Repository Management",
@@ -191,7 +192,9 @@
     },
     {
       "group": "Debug",
-      "pages": ["api-reference/debug/check-server-is-alive"]
+      "pages": [
+        "api-reference/debug/check-server-is-alive"
+      ]
     },
     {
       "group": "Support",
