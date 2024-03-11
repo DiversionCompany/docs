@@ -1,7 +1,7 @@
 {
   "name": "diversion-docs",
   "version": "1.0.0",
-  "description": "Documentatino for diverion using mintlify",
+  "description": "Documentation for diverion using mintlify",
   "scripts": {
     "dev": "mintlify dev"
   }
