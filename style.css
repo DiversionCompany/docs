@@ -4,3 +4,8 @@
     border: .3rem solid #555;
     box-shadow: 0 0 1rem #888;
 }
+
+/* NOTE(omer schapiro): increasing tab font size */
+ul.not-prose>li.cursor-pointer>h2.text-sm {
+    font-size: 1.5rem;
+}
