@@ -13,7 +13,7 @@ If you want to use Source Control but don't want the hassle of installing and us
 
 ## Installation
 
-If you're here, then you should have received a `.zip` file from us. Unzip it, and take the `Diversion` folder (the folder and all of its contents, not just the folder) and put it in your Unreal Engine project's `Plugins` folder. Depending on your engine's version and where you installed it, it be something like this: `C:\Program Files\Epic Games\UE_5.3\Engine\Plugins`.
+If you're here, then you should have received a `.zip` file from us. Unzip it, and copy the `Diversion` folder (the folder and all of its contents, not just the folder) into Unreal Engine's `Plugins` folder. Depending on your engine's version and where you installed it, it should look something like this: `C:\Program Files\Epic Games\UE_5.3\Engine\Plugins`.
 
 In the future, the plugin will be available in the Unreal Engine Marketplace.
 
@@ -24,26 +24,32 @@ After installing the plugin, you'll need to configure it for each project to use
 
 <Steps>
   <Step title="Activate the plugin">
-    In the editor, go to `Edit` > `Plugins`. In the window that appears, search for `Diversion` and click on the checkbox to activate the plugin. If you're prompted to restart the editor, please do.
+    In the editor, go to `Edit` > `Plugins`. Search for `Diversion` and click on the checkbox to activate the plugin. If you're prompted to restart the editor, please do.
+    <img alt="Enable plugin" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/enable-diversion-plugin.png" />
   </Step>
   <Step title="Enable revision control">
-    After installing the plugin, click on the `Revision Control` button on the bottom-right. In the menu that appears, click on `Connect to Revision Control`.
+    With the plugin enabled, click on `Revision Control -> Connect to Revision Control` on the bottom-right.
+    <img alt="Revision control button" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unreal-engine-revision-control-button.png" />
   </Step>
   <Step title="Choose provider">
     In the window that appears, choose `Diversion` from the provider drop-down list.
+    <img alt="Choose Diversion provider" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unreal-plugin-choose-provider.png" />
+  </Step>
+  <Step title="Make sure you're logged in to Diversion">
+    The next step won't work if you're not. Check out [Quickstart](/quickstart) if you're not sure how to do that.
   </Step>
   <Step title="Initialize repository">
-    If you're not currently logged in to Diversion, please do so now. Check out [Quickstart](/quickstart) if you're not sure how to do that.
-    
     If your project's folder is not a Diversion repository, you'll be prompted to initialize it. Click on `Initialize project with Diversion` and the plugin will do the rest. If it looks like nothing happened, make sure you're logged in and try re-selecting Diversion from the provider drop-down list.
     The plugin will recognize the root of the repository and your Diversion user.
+    <img alt="Initialize repository" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unreal-diversion-plugin-initialize-repository.png" />
 
-    <img alt="Initialized Repository" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unreal-diversion-plugin-initialized-repository.png" />
+    <img alt="Initialized repository" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unreal-diversion-plugin-initialized-repository.png" />
   </Step>
-  <Step title="Accept settings"></Step>
+  <Step title="Accept settings">
+    And you're good to go!
+  </Step>
 </Steps>
 
-And you're good to go!
 
 ## Usage
 
@@ -53,57 +59,71 @@ For this, we'll be using a clean Unreal project with the plugin already installe
 
 ### Make a change
 
-This project will one day be our Multiplayer Open World RPG With Crafting and Building Mechanics&trade;.
+This project will one day be our Multiplayer Open World Survival RPG With Crafting and Building Mechanics&trade;.
 
 For that, we'll need a character. Let's create one. In your `Content Browser`, right-click and choose `Blueprint Class`.
 
 In the window that appears, choose `Character` and name it `MyCharacter`.
 
 You'll notice that the new file might not be what you're used to - it now has a yellow question mark on it. This is because Unreal Engine just created the file in-memory, and hasn't saved it to the disk yet, so Diversion doesn't know about it.
+<img alt="Character created" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unreal-plugin-my-character-created.png" />
 
 Let's fix that - double-click on the file to open it, and then click on the `Save` button on the top-left. Alternatively, you can press `Ctrl + S` while the file is selected in the Content Browser to save the file.
 
-The question mark should now be gone, and instead we have a green plus sign. This means that the file is now being tracked by Diversion, and it recognizes that this is a newly added file.
+The question mark will now be gone, and instead we have a green plus sign. This means that the file is now being tracked by Diversion, and it recognizes that this is a newly added file.
+<img alt="Character saved" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unreal-plugin-my-character-saved.png" />
 
 ### Commit the change
 
 We want to save this change to our repository, to have it backed up and to be able to share it with our team.
 
 Click again on the `Revision Control` button on the bottom-right, and then click on `Submit Content`.
+<img alt="Submit content" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unreal-engine-revision-control-submit-changes-button.png" />
 
-In the window that appears, you'll see a list of all the files that have changed since the last commit. In this case, you'll see `MyCharacter` with a green plus sign next to it. You should also see your `.uproject` file, since we made a change by enabling the Diversion plugin.
+In the window that appears, you'll see a list of all the files that have changed since the last commit. In this case, you'll see `MyCharacter` with a green plus sign next to it. You will also see your `.uproject` file, since Diversion recognizes this as a new file as well.
 
 In the text box labeled `Changelist Description`, write a brief description of the changes you're committing. In this case, you could write `Added MyCharacter`.
+<img alt="Changelist description" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unreal-plugin-changelist-description.png" />
 
 <Card title="Warning!" icon="triangle-exclamation" iconType="duotone" color="#ca8b04">
   Diversion does not endorse or encourage the use of vague, ambiguous, or laconic commit messages. This is for demonstration purposes only. Please write meaningful commit messages.
 </Card>
 
-Click on the `Submit` button, and the green plus will disappear, meaning that Diversion has committed the file.
+Click on the `Submit` button, and the green plus on `MyCharacter` will disappear, meaning that Diversion has committed the file.
+<img alt="Character committed" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unreal-plugin-my-character-committed.png" />
 
 ### Let's see this in the Web UI
 
 Open your browser and go to [Your dashboard](https://app.diversion.dev). Find your repository and click on `View Repo`. It should have the same name as your project's folder.
 
 You'll see the commit you just made, with the description you wrote, and the file you added. You can get a better look by clicking on the `History` button and selecting your commit.
+<img alt="Commit list" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unreal-plugin-commit-list-in-browser.png" />
 
 ### Make another change
 
 Our character is just an empty collider right now, so let's add a placeholder mesh so that we can see it.
 
 In the `MyCharacter` blueprint, click on the `Add Component` button on the top-left, and then search for `Cube` and add it. Now we can see our character.
+<img alt="Character cube" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unreal-plugin-add-cube-component.png" />
 But our character doesn't do anything. In your character's `Event Graph`, add a `Print String` node and connect it to the `Event Begin Play` node. Now our character has some basic functionality.
+<img alt="Character print" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unreal-plugin-add-print-begin-play.png" />
 
 Compile and save the file. Open your `Content Browser` and you'll see that `MyCharacter` now has a red checkmark next to it. This means that Diversion recognizes that the file has changed.
+<img alt="Character modified" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unreal-plugin-my-character-modified.png" />
 
 ### Make another commit
 
 Just like before, click on the `Revision Control` button on the bottom-right, and then click on `Submit Content`.
-You'll see the `MyCharacter` file with a red checkmark next to it. Double click on it to see the changes you've made in Unreal's diff tool.
+You'll see the `MyCharacter` file with a red checkmark next to it.
+<img alt="Changelist description 2" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unreal-plugin-changelist-description-2.png" />
+
+Double click the file to see the changes you've made in Unreal's diff tool.
 
 In this window, you can see the difference between your revision on the right, and the last committed revision on the left. You should see an entry called `Event Graph` in the list on the left.
 Clicking it will show you the changes you've made to the blueprint, and you you should see the `Print String` node you added.
 
+<img alt="Blueprint diff tool" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unreal-plugin-bp-difftool.png" />
+
 After reviewing your hard work, again, write a description of the changes you're committing. In this case, you could write `Adding placeholder mesh and basic functionality to MyCharacter`.
 
-Click on the `Submit` button, and the red checkmark will disappear, meaning that Diversion has committed the file.
+Click on the `Submit` button and the red checkmark will disappear, meaning that Diversion has committed the file.
