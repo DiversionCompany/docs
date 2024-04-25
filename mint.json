@@ -71,7 +71,31 @@
           "group": "CMD Reference",
           "pages": 
           [
-            "cmd-ref/branch"
+            "cmd-ref/branch",
+            "cmd-ref/cd",
+            "cmd-ref/checkout",
+            "cmd-ref/clone",
+            "cmd-ref/commit",
+            "cmd-ref/feedback",
+            "cmd-ref/help",
+            "cmd-ref/import",
+            "cmd-ref/init",
+            "cmd-ref/invite",
+            "cmd-ref/log",
+            "cmd-ref/login",
+            "cmd-ref/logout",
+            "cmd-ref/merge",
+            "cmd-ref/repo",
+            "cmd-ref/reset",
+            "cmd-ref/revert",
+            "cmd-ref/share",
+            "cmd-ref/status",
+            "cmd-ref/support",
+            "cmd-ref/tag",
+            "cmd-ref/unregister",
+            "cmd-ref/update",
+            "cmd-ref/view",
+            "cmd-ref/workspace"
           ]
         },
         "ci-cd"
