@@ -67,6 +67,13 @@
             "basic/repo-branch-workspace"
           ]
         },
+        {
+          "group": "CMD Reference",
+          "pages": 
+          [
+            "cmd-ref/branch"
+          ]
+        },
         "ci-cd"
       ]
     },
