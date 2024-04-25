@@ -1,28 +1,35 @@
 ---
-title: 'Repositories, branches, and workspaces'
-description: 'Understand the basics of repositories, branches, and workspaces'
+title: 'Repositories, Branches, and Workspaces'
+description: 'Understand the basics'
 ---
 
 **Repositories**
 
-A repository is your project's container; it hosts all the assets, including art, code, audio, etc. Multiple collaborators can work on the same repository contributing with new assets, or modifying existing ones.
+A repository is your project's container; it hosts all the assets, including art, code, audio, etc. Multiple collaborators can work on the same repository, contributing new assets or modifying existing ones.
+
+The repository’s admin and owners can invite collaborators.
 
 
 **Branches**
 
+A branch is a mechanism that allows you and your team to experiment, collaborate, test new features, and add fixes without disrupting the main project.
+
 Branches allow you to work safely on features, tests, etc., without disrupting the work of your collaborators. 
 
 The general workflow for branching is as follows:
-* Create a new branch from the main branch (ie. gameplay-test)
-* Work on changes, auditions, deletions and commit them to the branch.
-* Once ready, merge them to the main branch.
-* Delete the branch you created.
+Create a new branch from the main branch (i.e., gameplay-test)
+Work on changes, additions, and deletions and commit them to the branch.
+Once ready, merge them into the main branch.
+Delete the branch you created.
+
+Depending on your branching strategy, multiple collaborators can work on the same branch or even not branch at all (working on the main branch). Workspaces allow everyone to keep their uncommitted work private and synced.
 
 
 **Workspaces**
 
-Finally, workspaces. A workspace is a mechanism that allows each team member to keep their work synced across devices and with the cloud. For example, you’re modifying script Enemy.cs in your local machine, Diversion, will keep that file synced to the cloud (in your workspace), so even if you don’t commit it the file is already synced.
+Finally, workspaces. A workspace is a mechanism that allows each team member to keep their work synced across devices and with the cloud. For example, if you modify the script Enemy.cs on your local machine, Diversion will keep that file synced to the cloud (in your workspace), so even if you don’t commit it, the file is already synced.
 
-Repositories are unique to each contributor, and for now, can’t be shared.
+Workspaces are unique to each contributor and, for now, can’t be shared.
 
-A workspace is linked to branch, but you can switch the branch it is linked to.
+A workspace is linked to a branch, but you can switch the branch it is linked to.
+

@@ -63,7 +63,8 @@
             "basic/create-repo",
             "basic/use-existing-repo",
             "basic/import-from-git",
-            "basic/share-your-repo"
+            "basic/share-your-repo",
+            "basic/repo-branch-workspace"
           ]
         },
         "ci-cd"
