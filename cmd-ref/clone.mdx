@@ -1,4 +1,16 @@
 ---
 title: 'clone'
-description: 'TODO'
+description: 'Clone a repository into your local drive'
 ---
+
+```bash
+dv clone <repo_id> <path> [--workspace <workspace_id>] [--new_workspace]
+```
+
+If no path is provided, the cloned repository will be cloned under the current directory in a new folder with the same name as the repository.
+
+The `<workspace_id>` has to be the id that starts with ws., not the name.
+
+You can provide the workspace you want to use after the clone by providing the `<workspace_id>` with the `--workspace` flag.
+
+You can use the `--new_workspace` parameter to force the creation of a new workspace. If you don’t provide this parameter, Diversion will ask you to confirm.
