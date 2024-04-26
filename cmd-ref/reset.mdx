@@ -1,4 +1,18 @@
 ---
 title: 'reset'
-description: 'TODO'
+description: 'Reset the latest changes'
 ---
+
+It is possible to reset the current changes in the workspace to the latest commit’s state. 
+
+```bash
+dv reset <paths> [--all] [--f][--clean]
+```
+
+The `<paths>` parameter is the path for a file or directory you want to reset.
+
+You can specify to reset everything using the `[--all]` flag.
+
+If you want to remove the added files, provide the `[--clean]` flag.
+
+Using the `-f` flag will suppress the confirmation.
