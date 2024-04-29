@@ -1,4 +1,18 @@
 ---
 title: 'import'
-description: 'TODO'
+description: 'Bring your Git repository to Diversion'
 ---
+
+This command allows you to import your Git project (currently, only GitHub over HTTPS URL is supported).
+
+```bash
+dv import <git_url> <repo_name> [--with_sync] [--with_history] [--git_branch <git_branch>]
+```
+
+The `<git_url>` is the URL from your GitHub repository. Optionally, you can provide a `<repo_name>` if you want Diversion to name it differently than the repository you are importing.
+
+You can tell Diversion to keep your repository synced with the Git repository (changes in either will be propagated to the other). Use the `[--with_sync]` parameter if you need this.
+
+You can tell Diversion to import either the repository's head (the latest commit) or the entire repository’s history. Specify this using the `[—-with_history]` parameter.
+
+You can also indicate which branch you want to import or all the branches. By default, Diversion will import the default branch.
