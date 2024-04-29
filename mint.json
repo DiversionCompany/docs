@@ -71,6 +71,7 @@
           "group": "CMD Reference",
           "pages": 
           [
+            "cmd-ref/about-cmd",
             "cmd-ref/branch",
             "cmd-ref/cd",
             "cmd-ref/checkout",
