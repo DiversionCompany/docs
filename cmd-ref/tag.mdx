@@ -1,4 +1,28 @@
 ---
 title: 'tag'
-description: 'TODO'
+description: ''
 ---
+
+In Diversion, you can tag commits for easier reference of particular commits. 
+
+```bash
+dv tag [-sub-command] [--json]
+```
+
+To create a new tag:
+
+```bash
+dv tag -c <name> [-a <description>] [--ref <commit_id>]
+```
+
+The above command will create a new tag with the name `<name>`, and optionally, you can add a description `[-a “Tag description”]`.
+
+You can also provide the `commit_id` explicitly, or by default, the current commit will be tagged.
+
+To delete a tag:
+
+```bash
+dv tag -d <tag_id> [--f]
+```
+
+The tag ID must be Diversion’s ID, not the tag name.

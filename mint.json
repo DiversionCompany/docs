@@ -81,6 +81,7 @@
             "cmd-ref/import",
             "cmd-ref/init",
             "cmd-ref/invite",
+            "cmd-ref/ls",
             "cmd-ref/log",
             "cmd-ref/login",
             "cmd-ref/logout",
@@ -94,6 +95,7 @@
             "cmd-ref/tag",
             "cmd-ref/unregister",
             "cmd-ref/update",
+            "cmd-ref/verify",
             "cmd-ref/view",
             "cmd-ref/workspace"
           ]
