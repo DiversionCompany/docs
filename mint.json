@@ -12,7 +12,7 @@
   "logo": {
     "dark": "/logo/horizontal_logo_320x132_white.png",
     "light": "/logo/horizontal_logo_320x132.png",
-    "href": "https://diversion.dev/"
+    "href": "https://docs.diversion.dev"
   },
   "favicon": "/favicon.png",
   "colors": {
