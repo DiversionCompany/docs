@@ -1,0 +1,14 @@
+---
+title: 'init'
+description: 'TODO'
+---
+
+The init command initializes a Diversion repository from your local drive. Diversion will create a cloud project with the provided parameters.
+
+```bash
+dv init <path> <repo_name> [--f]
+```
+
+The path is the location where you want Diversion to initialize your project. If you want to initialize in the current directory, provide `.` as the parameter.
+
+You can define the repository's name (which will appear in the web dashboard). If no name is specified, Diversion will take the last path component of the directory.

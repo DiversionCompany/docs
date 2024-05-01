@@ -1,0 +1,14 @@
+---
+title: 'verify'
+description: ''
+---
+
+Verify the filesystem integrity compared to multiple sources of truth.
+
+```bash
+dv verify [--mirror <mirror>] [--intact]
+```
+
+`--mirror` is the path to an un-versioned local directory that should reflect the expected contents of the workspace.
+
+`--intact` if set, verify all items in tree are intact (without modifications).

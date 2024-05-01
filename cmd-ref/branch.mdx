@@ -3,6 +3,8 @@ title: 'branch'
 description: 'Manage branches in the current repo'
 ---
 
+The branch command allows you to manipulate branches: creating, deleting, and renaming.
+
 ## Create a branch
 
 To create a new branch, run:
@@ -12,7 +14,9 @@ dv branch -c <branch-name> [-no-checkout]
 A new branch `branch-name` will be created. If the flag `-no-checkout` is _not_  passed, the new branch will be
 checked out.
 
-TODO: Elaborate about uncommitted changes.
+The branch_name has to be a unique identifier, not named after any other existing branch.
+
+Uncommitted changes will be transferred to the newly created branch.
 
 ## Delete a branch
 To delete a branch, run:
@@ -20,3 +24,15 @@ To delete a branch, run:
 dv branch -d <branch-name>
 ```
 For convenient autocompletion of the branch name, run the CLI in interactive mode.
+
+This command deletes the branch with the given id as parameter, the ID in this case is the branch’s name.  
+
+The `–f` flag is optional and suppresses the confirmation dialog for deleting the branch.
+
+
+## Rename a branch
+```bash
+dv branch -r <branch_id> <new_name> 
+```
+
+The new name parameter has to be a unique identifier, not previously used for any other branch.

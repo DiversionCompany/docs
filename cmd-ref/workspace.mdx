@@ -1,0 +1,41 @@
+---
+title: 'workspace'
+description: 'Manage your workspace'
+---
+
+The workspace actions you can take with this command are create, delete, rename, and switch.
+
+If you want to list your workspaces, use the following:
+
+```bash
+dv workspace
+```
+
+To create a new workspace(with a default name) and switch to it:
+
+```bash
+dv workspace –-new
+```
+
+To create a new workspace with a specified name and switch to it:
+
+```bash
+dv workspace --named <name_of_new_workspace>
+```
+To rename your current workspace:
+
+```bash
+dv workspace --rename <new-name>
+```
+
+To delete the specified workspace:
+
+```bash
+dv <workspace_id> --delete
+```
+
+You cannot delete the current workspace. The `<workspace_id>` is not the workspace name but the id that starts with `dv.ws.xxxxx`
+
+To any action, you can add the `-f` flag to avoid getting asked to confirm.
+
+For more information about workspaces in Diversion, visit the [Repositories, Branches, and Workspaces](../basic/repo-branch-workspace) page.

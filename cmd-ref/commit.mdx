@@ -1,0 +1,22 @@
+---
+title: 'commit'
+description: 'Add changes to your active branch'
+---
+
+In Diversion, you call the commit command to add the changes in your active workspace to the active branch. 
+
+```bash
+dv commit <files> [-a] -m <commit_message> 
+```
+
+You can specify which files to commit individually or use the `[-a]` parameter to commit all the changes. 
+
+A commit message is required preceded by the `-m` flag. The commit message needs to be “surrounded by quotes.”
+
+An example on how to add all the files to a commit would be:
+
+```bash
+dv commit -a -m "Implemented running animations."
+```
+
+Once committed, the changes will be replicated across all users on the same branch.

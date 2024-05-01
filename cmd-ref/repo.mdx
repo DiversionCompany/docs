@@ -1,0 +1,22 @@
+---
+title: 'repo'
+description: 'Perform actions on your repository'
+---
+
+The repo command allows you to list the repositories you have cloned locally and those you’re a collaborator of. This will list your repositories.
+
+```bash
+dv repo
+``` 
+
+To delete a repository:
+
+```bash
+dv repo -d <repo_id> [-f]
+```
+
+The `-f` flag will suppress the confirmation message.
+
+This command will delete the repository from the cloud and unlink your local directory as a Diversion repository.
+
+Be careful with this action; there’s no way to recover deleted repositories.
