@@ -67,6 +67,7 @@
             "basic/repo-branch-workspace"
           ]
         },
+        "unreal-engine-plugin",
         {
           "group": "CMD Reference",
           "pages": 
