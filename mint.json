@@ -75,7 +75,6 @@
             "cmd-ref/about-cmd",
             "cmd-ref/branch",
             "cmd-ref/cd",
-            "cmd-ref/checkout",
             "cmd-ref/clone",
             "cmd-ref/commit",
             "cmd-ref/feedback",
