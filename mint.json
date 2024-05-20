@@ -63,6 +63,7 @@
             "basic/create-repo",
             "basic/use-existing-repo",
             "basic/import-from-git",
+            "basic/import-from-git-lfs",
             "basic/share-your-repo",
             "basic/repo-branch-workspace"
           ]

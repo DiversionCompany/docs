@@ -1,0 +1,39 @@
+---
+title: 'Import from Git LFS'
+description: 'How to get an existing repo that uses Git LFS into Diversion'
+---
+
+import { Image } from '/snippets/image.mdx';
+import DvShellHowTo from '/snippets/dv-shell-how-to.mdx';
+
+Importing an existing repo from Git with LFS configured is very similar to importing a regular Git repo, with a few
+small differences that will be explained below.
+
+## Importing a Git LFS repo
+The basic steps to import a Git LFS repo are the same as importing a regular Git repo.
+See the [Import from Git](/basic/import-from-git) page for more information.
+
+## Considerations for Git LFS
+When importing a Git LFS repo, there are a few things to keep in mind:
+
+### Supported storage backend
+Diversion currently only supports Github as a storage backend for Git LFS. If your files are hosted on a different
+Git LFS storage backend, please [contact us](https://www.diversion.dev/contact-us), drop in
+our [Discord server](https://discord.com/invite/HDAGJvgkuT) or [email us](mailto:hi@diversion.dev).
+
+### Cost considerations for initial import
+When importing a Git LFS repo, the files in the LFS storage will be downloaded to your Diversion repo. This might be
+counted against your LFS bandwidth quota, depending on your Git LFS storage provider.
+
+### Cost considerations for bidirectional sync
+If you choose to continuously sync your Diversion repo with your Git LFS repo, keep in mind that your Git LFS storage
+costs might increase, as you add more files to your Diversion repo. Consult with your LFS storage
+provider's pricing for cost estimation. To minimize costs, consider disabling bidirectional sync.
+
+### Performance considerations for bidirectional sync
+There is a key difference between how Diversion works and how Git LFS works. Diversion continuously syncs your files
+to the cloud, while Git uploads files only when you push changes. This means that if you have a large number of files
+to commit in your Diversion repo, with bidirectional sync turned OFF the operation is usually instantaneous - the files
+are usually already in the cloud by the time you commit them. With bidirectional sync turned ON, the files will have
+to be pushed to your Git LFS storage first, which might take a while. This is a server-to-server operation, so it might
+still be faster than pushing the files from your local machine, but it's something to keep in mind.
