@@ -1,0 +1,89 @@
+---
+title: 'Selective Sync'
+description: 'Only sync the files you need'
+---
+
+This one is for artists who don't want code, or for developers who aren't artistically inclined.
+
+## What is Selective Sync?
+
+Selective Sync is a feature that allows you to choose which folders you want to sync locally. This will allow you to only have the files you need to work on, saving space on your computer.
+
+## How to use Selective Sync
+
+Go to the workspace setting for your repo.
+
+<Steps>
+  <Step title="Open your repo">
+    From your local folder, run `dv view`, or click the View Repo button in the UI.
+
+    <img alt="Open repo" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/view-repo-button.png" />
+  </Step>
+  <Step title="Go to workspace settings">
+    Click on the gear icon next to your workspace's name.
+
+    <img alt="Open settings" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/workspace-settings.png" />
+  </Step>
+  <Step title="Welcome to Selective Sync.">
+  
+    <img alt="Selective Sync page" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/selective-sync-page.png" />
+  </Step>
+</Steps>
+
+### Unsyncing a folder
+
+Let's take a look at `folder 1`.
+
+In the UI:
+
+<img alt="Selective Sync ui full" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/selective-sync-folder1-full-ui.png" />
+
+And locally:
+
+<img alt="Selective Sync local full" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/selective-sync-folder1-full-local.png" />
+
+Let's unsync `folder 1.2`. Unselect the folder in the UI and hit Save.
+
+<img alt="Selective Sync removing folder 1.2" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/selective-sync-unselecting-1.2.png" />
+
+Locally, the folder disappears automatically.
+
+<img alt="Selective Sync removed folder 1.2 local" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/selective-sync-1.2-missing-local.png" />
+
+It's also missing in the UI.
+
+<img alt="Selective Sync removed folder 1.2 ui" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/selective-sync-1.2-missing-repo-ui.png" />
+
+### What about my uncommitted changes?
+
+Have no fear! If you have any uncommitted changes, you won't be able to change your selective sync settings. Let's see what that looks like.
+
+Inside `folder 1.1`, let's make changes to `text document 1.1.1.txt` and save.
+
+<img alt="Selective Sync editing 1.1.1.txt" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/selective-sync-editing-1.1.1.png" />
+
+Back in the workspace settings, let's try to unsync `folder 1.1`.
+
+<img alt="Selective Sync fail to unsync 1.1" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/selective-sync-trying-to-unsync-with-changes.png" />
+
+We got an error message! We'll have to commit or discard our changes before unsyncing the folder.
+
+<img alt="Selective Sync fail to unsync 1.1 error" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/selective-sync-trying-to-unsync-with-changes-error.png" />
+
+## Loose files
+
+Right now, we can only selectively sync folders. This means that files are handled differently, if they're not in a folder.
+
+Let's take a look at `folder 2`.
+
+<img alt="Selective Sync folder with loose file" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/selective-sync-folder-2-loose-file.png" />
+
+Notice that it has a file directly under it - `text document 2.1.txt`. In this situation, unsyncing `folder 2.1` will also unsync `text document 2.1.txt`! That's despite the file being a sibling of the folder and not a child of it. This is because `folder 2` will be marked as partially synced, so only explicitly synced folders (in this case, `folder 2.2`) will be kept.
+
+This still supports the main use-case of this feature:
+1. Artists who don't want to sync code locally can ignore the root `Source` folder, or equivalent.
+2. Developers who don't want to sync heavy assets can ignore the root `Content` folder, or equivalent.
+
+## Per workspace
+
+The selective sync feature works on a per-workspace basis. This means that you can have different selective sync settings for different workspaces. This is useful if you have multiple projects in the same repo, or if you're working on different parts of the same project.
