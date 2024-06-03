@@ -48,15 +48,20 @@ After installing the plugin, you'll need to configure it for each project to use
   <Step title="Make sure you're logged in to Diversion">
     The next step won't work if you're not. Check out [Quickstart](/quickstart) if you're not sure how to do that.
   </Step>
-  <Step title="Initialize repository">
-    If your project's folder is not a Diversion repository, you'll be prompted to initialize it. Click on `Initialize project with Diversion` and the plugin will do the rest. If it looks like nothing happened, make sure you're logged in and try re-selecting Diversion from the provider drop-down list.
-    The plugin will recognize the root of the repository and your Diversion user.
-    <img alt="Initialize repository" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unreal-diversion-plugin-initialize-repository.png" />
-    If your project is already a Diversion repository, like in the case of cloning or after clicking the initialization button, just click 'Accept Settings' to activate the plugin.
-    <img alt="Initialized repository" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unreal-diversion-plugin-initialized-repository.png" />
-  </Step>
-  <Step title="Accept settings">
-    And you're good to go!
+  <Step title="Set up Diversion Revision Control" >
+      <Accordion title="I want to create a new repo">
+          If your project's folder is not a Diversion repository, you'll be prompted to initialize it. 
+          Click on `Initialize project with Diversion` and the plugin will do the rest. If it looks like nothing happened, make sure you're logged in and try re-selecting Diversion from the provider drop-down list.
+          The plugin will recognize the root of the repository and your Diversion installation.
+          <img alt="Initialize repository" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unreal-diversion-plugin-initialize-repository.png" />
+          After initialization, you'll see this screen,
+          <img alt="Initialized repository" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unreal-diversion-plugin-initialized-repository.png" />
+          click on `Accept Settings` and you're good to go!
+      </Accordion>
+      <Accordion title="I’m connecting to an existing repo">
+          If your project is already a Diversion repository, like in the case of cloning a repo, just click on `Accept Settings` and you're good to go!
+          <img alt="Initialized repository" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unreal-diversion-plugin-initialized-repository.png" />
+      </Accordion>
   </Step>
 </Steps>
 
