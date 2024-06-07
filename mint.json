@@ -65,6 +65,7 @@
             "basic/import-from-git",
             "basic/import-from-git-lfs",
             "basic/share-your-repo",
+            "basic/initialize-from-existing-project",
             "basic/repo-branch-workspace"
           ]
         },
