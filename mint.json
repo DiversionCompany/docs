@@ -88,6 +88,7 @@
             "cmd-ref/login",
             "cmd-ref/logout",
             "cmd-ref/merge",
+            "cmd-ref/merge-preview",
             "cmd-ref/repo",
             "cmd-ref/reset",
             "cmd-ref/revert",
