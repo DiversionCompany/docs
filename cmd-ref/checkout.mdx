@@ -1,4 +1,28 @@
 ---
 title: 'checkout'
-description: 'TODO'
+description: ''
 ---
+
+Checkout a branch, commit, or tag to your current workspace.
+
+```bash
+dv checkout <ref> [--take-changes] [--shelve-changes] [--discard-changes] [--apply-shelf] [--ignore-shelf]
+```
+
+```<ref>``` is the only mandatory parameter and the options are:
+
+```<branch_name>```, or ```<branch_id>``` if you want to checkout a branch.
+
+```<commit_id>``` or ```<tag_id>```, if you're checking either of them.
+
+When checking out, there might be some local pending changes or incoming shelved changes. You can specify what to do in each case:
+
+```[--take-changes]``` If your worskpace contains any changes, take them with you to the checked out target.
+
+```[--shelve-changes]``` If your workspace contains any changes, shelve them for later use.
+
+```[--discard-changes]``` Discard any changes in the workspace.
+
+```[--apply-shelf]``` If the branch to be checked out contains any previously shelved changes, un-shelve them after check out.
+
+```[--ignore-shelf]``` If the branch to be checked out contains any previously shelved changes, ignore them and don't prompt to apply them.

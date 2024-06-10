@@ -79,6 +79,7 @@
             "cmd-ref/cd",
             "cmd-ref/clone",
             "cmd-ref/commit",
+            "cmd-ref/checkout",
             "cmd-ref/feedback",
             "cmd-ref/help",
             "cmd-ref/import",
