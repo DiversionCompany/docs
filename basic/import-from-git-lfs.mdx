@@ -19,13 +19,18 @@ Diversion currently only supports Github as a storage backend for Git LFS. If yo
 Git LFS storage backend, please [contact us](https://www.diversion.dev/contact-us), drop in
 our [Discord server](https://discord.com/invite/HDAGJvgkuT) or [email us](mailto:hi@diversion.dev).
 
+### Export to Git LFS
+When bidirectional sync is turned on, all files will be pushed to your Git repo, including files that are configured
+to be stored in Git LFS. This means that if you have a large number of files in your Diversion repo, you might hit
+the storage limits of your Git repo provider. To avoid this, consider importing without bidirectional sync.
+
 ### Cost considerations for initial import
 When importing a Git LFS repo, the files in the LFS storage will be downloaded to your Diversion repo. This might be
 counted against your LFS bandwidth quota, depending on your Git LFS storage provider.
 
 ### Cost considerations for bidirectional sync
-If you choose to continuously sync your Diversion repo with your Git LFS repo, keep in mind that your Git LFS storage
-costs might increase, as you add more files to your Diversion repo. Consult with your LFS storage
+If you choose to continuously sync your Diversion repo with your Git LFS repo, keep in mind that your Git storage
+costs might increase, as you add more files to your Diversion repo. Consult with your Git repo
 provider's pricing for cost estimation. To minimize costs, consider disabling bidirectional sync.
 
 ### Performance considerations for bidirectional sync
@@ -33,5 +38,5 @@ There is a key difference between how Diversion works and how Git LFS works. Div
 to the cloud, while Git uploads files only when you push changes. This means that if you have a large number of files
 to commit in your Diversion repo, with bidirectional sync turned OFF the operation is usually instantaneous - the files
 are usually already in the cloud by the time you commit them. With bidirectional sync turned ON, the files will have
-to be pushed to your Git LFS storage first, which might take a while. This is a server-to-server operation, so it might
+to be pushed to your Git repo first, which might take a while. This is a server-to-server operation, so it might
 still be faster than pushing the files from your local machine, but it's something to keep in mind.
