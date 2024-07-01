@@ -256,6 +256,12 @@
       ]
     }
   ],
+  "redirects": [
+    {
+      "source": "/ue-quickstart",
+      "destination": "/quickstart?utm_source=ue-plugin&utm_medium=plugin"
+    }
+  ],
   "footerSocials": {
     "twitter": "https://twitter.com/diversion_hq",
     "linkedin": "https://www.linkedin.com/company/diversion-company-inc/"
