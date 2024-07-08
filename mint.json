@@ -80,6 +80,7 @@
             "cmd-ref/clone",
             "cmd-ref/commit",
             "cmd-ref/checkout",
+            "cmd-ref/diff",
             "cmd-ref/feedback",
             "cmd-ref/help",
             "cmd-ref/import",
