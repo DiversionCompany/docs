@@ -1,57 +1,55 @@
 ---
 title: 'Quickstart'
-description: 'Start using Diversion in under 5 minutes'
+description: 'Set up Diversion as your version control system.'
 ---
 
-## Download Diversion
-
-Download Diversion for your operating system. 
-
-<Tabs>
-  <Tab title="Windows">
-    [Download the installer](https://get.diversion.dev/win) and follow the instructions.
-  </Tab>
-  <Tab title="MacOS">
-    Open a terminal and run:
-      ```bash
-      curl -sL https://get.diversion.dev/unix | bash ; export PATH="$HOME/.diversion/bin:$PATH"
-      ```
-  </Tab>
-  <Tab title="Linux">
-    Open a terminal and run:
-      ```bash
-      curl -sL https://get.diversion.dev/unix | bash ; export PATH="$HOME/.diversion/bin:$PATH"
-      ```
-  </Tab>
-</Tabs>
-
-<sub>By installing Diversion you agree to the [Terms of Service](https://www.diversion.dev/terms-of-service)</sub>
-
-## Create an account
-You can start using Diversion without any installations!
-
-Creating a new account has to be done through our Web UI. Other actions can be done through the CLI or the Web UI.
+We will be using the desktop app, but you can also interact with Diversion using the [Unreal Engine Plugin](https://www.unrealengine.com/marketplace/en-US/product/diversion), [CLI](/cmd-ref/about-cmd), , and the [WebUI](https://app.diversion.dev/).
 
 <Steps>
-  <Step title="Open the app">
-    Click the `Login` button at the top of this page, it will take you to https://app.diversion.dev.
+  <Step title="Install Diversion">
+
+    Choose your operating system.
+
+    <Tabs>
+      <Tab title="Windows">
+        [Download the installer](https://get.diversion.dev/win) and follow the instructions.
+      </Tab>
+      <Tab title="MacOS">
+        Open a terminal and run:
+        ```bash
+        curl -sL https://get.diversion.dev/unix | bash ; export PATH="$HOME/.diversion/bin:$PATH"
+        ```
+      </Tab>
+      <Tab title="Linux">
+      Open a terminal and run:
+        ```bash
+        curl -sL https://get.diversion.dev/unix | bash ; export PATH="$HOME/.diversion/bin:$PATH"
+        ```
+      </Tab>
+    </Tabs>
+    <sub>By installing Diversion you agree to the [Terms of Service](https://www.diversion.dev/terms-of-service)</sub>
+
+    After installing it, launch the Diversion desktop application. Regardless of the operating system, the workflow is the same.
   </Step>
-  <Step title="Sign up">
-    Or, if you already have an account, login.
+
+  <Step title="Create an account and login">
+    You now need to create a new account (or sign up using a Google one).
+
+    <img src="/images/quickstart/DV_Install_01.png" alt="Create Repo" style={{width: '80%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
+  
+    After creating your account, or if you had one already, login.
   </Step>
-  <Step title="Welcome to your dashboard!">
-    This is the hub for all of your repositories and workspaces.
+
+  <Step title="Create a new repository">
+
+    Diversion will show you an option to create a new repository if you don't have any. Click on `New Repository`.
+    <img src="/images/quickstart/DV_NewRepo_04.png" alt="Create Repo" style={{width: '80%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
+
+    You have an option to create a repository from an existing folder or to create a new folder. Choose `Create New Folder` and specify the directory in your computer where you want your repository to be saved at.
+    <img src="/images/quickstart/DV_NewRepo_03.png" alt="Create Repo" style={{width: '80%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
+
+    Your newly created repository is now listed both in the Cloned Repositories and All Repositories sections. Cloned, means it exists in your machine and you can start using it locally.
+    <img src="/images/quickstart/DV_RepoList_05.png" alt="Create Repo" style={{width: '80%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
   </Step>
 </Steps>
-
-<img src="/images/quickstart/DV_Install_01.png" alt="Create Repo" style={{width: '50%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
-
-
-### Logging in with the CLI
-
-Open a new terminal window and run:
-```bash
-dv login
-```
-You'll be redirected to the login page. After logging in, you'll be redirected back to the terminal.
 
