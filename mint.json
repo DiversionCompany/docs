@@ -66,7 +66,8 @@
             "basic/import-from-git-lfs",
             "basic/share-your-repo",
             "basic/initialize-from-existing-project",
-            "basic/repo-branch-workspace"
+            "basic/repo-branch-workspace",
+            "basic/sync-pause-resume"
           ]
         },
         "unreal-engine-plugin",
