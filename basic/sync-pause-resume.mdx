@@ -1,0 +1,21 @@
+---
+title: 'Pause/Resume sync'
+description: 'Pause and resume your background sync'
+---
+
+Diversion's agent keeps you up to date with the latest changes in your repos by syncing them in the background. Whenever you save a change, it's automatically uploaded to your workspace and you're always backed-up.
+
+### Auto-pause
+
+In some error cases, such as network issues, the agent will automatically pause syncing. You can continue working normally. When committing, make sure your sync is active so you commit the most recent changes.
+
+To resume the sync through the desktop app, click the "resume" button on the repo, or run the `dv workspace resume` command in the repo's folder through the CLI.
+<img src="/images/cloned-repo-to-resume.png" alt="Resume sync" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
+
+### Manual Pause/Resume
+
+You might not want to be auto-synced, for example if you're making many small changes in a very large file, or if you're on a slow network connection.
+
+In order to pause sync for a repo, you first need to have it fully synced, like in the image below. Resuming the sync is done in the same way mentioned above.
+
+<img src="/images/cloned-repo-to-pause.png" alt="Pause sync" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
