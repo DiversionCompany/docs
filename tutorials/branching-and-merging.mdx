@@ -1,0 +1,48 @@
+---
+title: 'Branching and Merging'
+description: ''
+---
+
+Branching is a mechanism used in a version control system that allows you to work in a separate environment from the main workstream. For more information on this, visit the [Repositories, Branches, and Workspaces](/concepts/repo-branch-workspace page).
+
+In this tutorial, you will learn how to create branches, work on them, merge them, solve merge conflicts, and how to delete a branch.
+
+We will be using the Diversion Desktop App, but the workflow is the same regardless of wheter you are using the CLI or the web UI.
+
+I assume you have already created a repository and invited your collaborators, if not, follow the [quickstart guide]().
+
+1) Select your workspace at the bottom, and in the options click on "Create new Branch"
+
+<img src="/images/tutorials/DV_Branching_01.png" alt="Create Repo" style={{width: '80%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
+
+2) Give a descriptive name to your branch and confirm its creation.
+
+<img src="/images/tutorials/DV_Branching_02.png" alt="Create Repo" style={{width: '80%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
+
+The dialog window, will give you detals about the branch you're branching out from, as well as the comit that will be the base of your newly created branch. In this case, we are branching from "main" and the latest commit was "dv.commit.2"
+
+3) Your branch is ready, the next step is to switch the current branch in the workspace, to the one you just created.
+
+In the same workspace menu, click the hamburger icon next to the branch you just created and then click "Switch to branch".
+
+<img src="/images/tutorials/DV_Branching_03.png" alt="Create Repo" style={{width: '80%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
+
+Confirm your selection, and then your workspace will be now linked to the new branch.
+
+All the commits you perform now, will be part of the new branch, and people working on the same branch will get the changes as you commit them. 
+
+4) Now, it is time to merge our changes from our branch, into the main branch (it couuld be the other way around too).
+
+Back to the workspace menu, select a branch not checked out, and you will see two options:
+
+- Mege "main" -> "gameplay-test"
+- Merge "gameplay-test" -> "main"
+
+In our case, we want to merge the changes from our new branch into main.
+
+<img src="/images/tutorials/DV_Branching_04.png" alt="Create Repo" style={{width: '80%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
+
+For this tutorial, there won't be any conflicts, but in a real scenario you will get asked to solve the conflicts before you can merge.
+
+5) Lastly, depending on your branching strategy, you can delete the branch you created, or merge from a different branch, into yours to get the latest changes other team members might have added.
+
