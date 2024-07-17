@@ -58,7 +58,7 @@
       "pages": [
         "quickstart",
         {
-          "group": "Basic Usage and Concepts",
+          "group": "Basic Usage",
           "pages": [
             "basic/create-repo",
             "basic/use-existing-repo",
@@ -66,8 +66,19 @@
             "basic/import-from-git-lfs",
             "basic/share-your-repo",
             "basic/initialize-from-existing-project",
-            "basic/repo-branch-workspace",
             "basic/sync-pause-resume"
+          ]
+        },
+        {
+          "group": "Concepts",
+          "pages": [
+            "concepts/repo-branch-workspace"
+          ]
+        },
+        {
+          "group": "Tutorials",
+          "pages": [
+            "tutorials/branching-and-merging"
           ]
         },
         "unreal-engine-plugin",
