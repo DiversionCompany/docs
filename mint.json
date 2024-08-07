@@ -64,12 +64,13 @@
           "group": "Basic Usage",
           "pages": [
             "basic/create-repo",
-            "basic/use-existing-repo",
+            "basic/initialize-from-existing-project",
             "basic/clone-repo",
+            "basic/share-your-repo",
+            "basic/undo-pending-changes",
             "basic/import-from-git",
             "basic/import-from-git-lfs",
-            "basic/share-your-repo",
-            "basic/initialize-from-existing-project",
+            "basic/use-existing-repo",
             "basic/sync-pause-resume"
           ]
         },
