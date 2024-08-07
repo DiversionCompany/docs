@@ -4,5 +4,8 @@
   "description": "Documentation for diverion using mintlify",
   "scripts": {
     "dev": "mintlify dev"
+  },
+  "devDependencies": {
+    "mintlify": "^4.0.192"
   }
 }
