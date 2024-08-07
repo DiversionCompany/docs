@@ -68,6 +68,7 @@
             "basic/clone-repo",
             "basic/share-your-repo",
             "basic/undo-pending-changes",
+            "basic/undo-previous-commit",
             "basic/import-from-git",
             "basic/import-from-git-lfs",
             "basic/use-existing-repo",
