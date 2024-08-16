@@ -26,7 +26,7 @@ description: 'Configure your CI/CD platform to use diversion'
 
 <Steps>
   <Step title="Store the Diversion client ID">
-    Store it as an environment variable named `USER_POOL_CLIENT_ID` with the value `769th1pmk6r3d9t6ari1piu3ds`.<br/>
+    Store it as an environment variable named `USER_POOL_CLIENT_ID` with the value `j084768v4hd6j1pf8df4h4c47`.<br/>
     It will be read and used by the `dv` client in the workflow.
 
     Here are some relevant docs for storing environment variables in popular CI/CD platforms:
@@ -72,7 +72,7 @@ dv status
 
 ```powershell Windows
 # Download Diversion client
-& ([Scriptblock]::Create((Invoke-RestMethod "https://get.diversion.dev/win")))
+. ([Scriptblock]::Create((([System.Text.Encoding]::ASCII).getString((Invoke-WebRequest -Uri "https://get.diversion.dev/win-ci").Content))))
 # Authenticate Diversion
 dv authenticate $API_TOKEN
 # Clone your repository and wait for sync to complete
