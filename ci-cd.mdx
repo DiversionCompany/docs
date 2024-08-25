@@ -96,3 +96,66 @@ is important, or else the clone command will prompt for user input and block. Se
 
 That's it. You're all set to use your Diversion repo in your CI/CD workflow. You can also use any CLI commands you would
 use with `dv` when running locally.
+
+## A Jenkins example
+Be sure to replace the placeholders with your actual values. Also note that this syntax is for a Windows node, so you may need to adjust it for your specific setup.
+
+```groovy
+pipeline 
+{
+    agent 
+    {
+        any
+    }
+
+    environment
+    {
+        USER_POOL_CLIENT_ID = "j084768v4hd6j1pf8df4h4c47"
+        DV_WORKSPACE = "<Workspace ID>" //Found in Diversion using 'dv workspace' command
+        DV_REPO = "<Diversion Repository Name>" //Your repository name
+    }
+
+    stages
+    {
+        stage('Sync Repository')
+        {
+            steps
+            {
+                script
+                {
+                    // Checking if Diversion CLI is installed and installing from API if not
+                    if (!fileExists("${USERPROFILE}\\.diversion\\bin\\dv.exe"))
+                    {
+                        echo "Diversion not installed at ${USERPROFILE}\\.diversion\\bin\\dv.exe, installing..."
+                        powershell 'iwr https://get.diversion.dev/win-ci | iex'
+                    }
+
+                    //Authenticating Diversion CLI
+                    withCredentials([string(credentialsId: '<Jenkins Credential ID>', variable: 'API_TOKEN')]) //Insert your credential ID found in Jenkins Credentials
+                    {
+                        echo "Diversion CLI installed, authenticating..."
+                        bat "dv authenticate %API_TOKEN%"
+                    }
+
+                    //Cloning repository if it is not already cloned
+                    if (!fileExists("${WORKSPACE}\\${DV_REPO}\\.diversion"))
+                    {                           
+                        echo "Diversion authenticated, empty folder found, cloning repository..."
+                        bat "dv clone ${DV_REPO} -workspace ${DV_WORKSPACE}"
+                    }
+
+                    //Pulling latest changes if repository is already cloned
+                    else
+                    {
+                        echo "Diversion repository already cloned, pulling latest changes..."
+                        bat "cd ${WORKSPACE}\\${DV_REPO} && dv update"
+                    }
+
+                    //Displaying status of repository until tasks complete (so we do not start more tasks until it is done)
+                    bat "cd ${WORKSPACE}\\${DV_REPO} && dv status"
+                }
+            }
+        }
+    }
+}
+```
