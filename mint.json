@@ -87,7 +87,13 @@
             "tutorials/branching-and-merging"
           ]
         },
-        "unreal-engine-plugin",
+        {
+          "group": "Unreal Engine",
+          "pages": [
+            "unreal/unreal-engine-plugin",
+            "unreal/ue-plugin-merge-conflicts"
+          ]
+        },
         {
           "group": "CMD Reference",
           "pages": 
@@ -279,6 +285,10 @@
     {
       "source": "/ue-quickstart",
       "destination": "/quickstart?utm_source=ue-plugin&utm_medium=plugin"
+    },
+    {
+      "source": "/unreal-engine-plugin",
+      "destination": "/unreal/unreal-engine-plugin"
     }
   ],
   "footerSocials": {
