@@ -16,7 +16,7 @@ In the desktop app, go to your repo. On the left, under `Workspace`, you should 
 Each change is marked with an icon and a color. You can always hover over the icon to see what change was made - added, modified, deleted, or moved (which includes renaming).
 
 The buttons on the top let you change the way you see your list of changes. Choose one you like.
-<img src="/images/changes-view-workspace.png" alt="View changes in workspace" />
+<img src="/images/changes-view-buttons.png" alt="Change view buttons" />
 
 When you click on a file you changed, if it's in a supported format, it will open in the main panel. Right now Diversion supports text files and images.
 Use the button on the top to switch to `Diff View` to see the changes you made.
@@ -43,3 +43,14 @@ You should try to keep your commits small and focused, and your commit messages 
 When you're ready, hit the commit button! Your changes are now saved in your repository.
 
 ## Undo your changes
+
+If you don't like your changes and want to undo them, you can `Reset` them. This will revert the files to the state they were in when you last committed them.
+
+You can reset files using the red `Reset` button on the top right. Using this method you can reset multiple files at once.
+<img src="/images/changes-reset-files-using-the-red-button.png" alt="Reset files with the red button" />
+
+Alternatively, you can reset individual files using the file's context menu.
+<img src="/images/changes-reset-individual-files-context-menu.png" alt="Reset individual files with the context menu" />
+
+By default, when resetting changes, any new files you've added won't be deleted. If you want to delete new files, make sure to check the `Delete new files` checkbox in the confirmation dialog.
+<img src="/images/changes-reset-discard-new-files.png" alt="Discard new files when resetting" />
