@@ -1,0 +1,43 @@
+---
+title: 'Working in parallel'
+description: 'Branching and merging'
+---
+
+You want to work on a project with your team, but you don't want to step on each other's toes.
+No worries! There's a way to work on your project in parallel without interfering with each other's work, and then recombine it all together when you're done.
+It's called branching and merging.
+
+## Branching
+You can think of a branch as a separate version of your project. 
+When you create a branch, you're creating a copy of your project at that point in time.
+
+### Creating a new branch
+<Steps>
+  <Step title="Click the 'new branch' button'">
+    This is in your workspace view.
+    <img src="/images/branching-and-merging-create-new-branch-button.png" alt="The new branch button" />
+  </Step>
+  <Step title="Choose a branch name">
+    Give your branch a name that describes what you're working on.
+    Also, pay attention to the commit you're branching from - this will be the base for our new branch.
+    You can automatically switch to the new branch after creating it by leaving the checkbox checked, it is by default.
+    <img src="/images/branching-and-merging-create-new-branch-modal.png" alt="The new branch modal window" />
+    Hit 'Create' when you're ready.
+  </Step>
+</Steps>
+
+### Switching branches
+In your workspace view, you can see a list of your branches.
+You can see the branch you're currently on at the top of the list.
+Click the menu for the branch you want, and select "Switch to branch".
+<img src="/images/branching-and-merging-switch-branch.png" alt="Switch branch" />
+If you have any changes in your workspace that you haven't committed, they will move with you to the new branch, if possible (see Conflicts below).
+
+### Important things to remember
+1. Working on any branch is just like working on your main branch. Making changes, committing, syncing - it's all the same.
+2. Branches are visible to anyone in your repo, and anyone can switch to any branch.
+3. The committed changes on the branch are only available to team members who are on the same branch.
+
+## Merging
+When you're done working on your branch, you can merge it back into your main branch.
+Merging takes all of the changes from one branch and applies them to another.
