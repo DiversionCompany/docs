@@ -3,6 +3,8 @@ title: 'Working in parallel'
 description: 'Branching and merging'
 ---
 
+{/* TODO(omer s) redirect from tutorials/branching-and-merging */}
+
 You want to work on a project with your team, but you don't want to step on each other's toes.
 No worries! There's a way to work on your project in parallel without interfering with each other's work, and then recombine it all together when you're done.
 It's called branching and merging.
@@ -31,7 +33,13 @@ In your workspace view, you can see a list of your branches.
 You can see the branch you're currently on at the top of the list.
 Click the menu for the branch you want, and select "Switch to branch".
 <img src="/images/branching-and-merging-switch-branch.png" alt="Switch branch" />
-If you have any changes in your workspace that you haven't committed, they will move with you to the new branch, if possible (see [Merge conflicts](#merge-conflicts) below).
+If you have any changes in your workspace that you haven't committed, you can choose to discard them or take them with you to the new branch, if possible (see [Merge conflicts](#merge-conflicts) below).
+
+Switching a branch changes the files on your computer. For some game engines, like Unreal Engine, you might need to restart the editor to see the changes.
+
+### Branch graph
+You can see a graph of your branches in the workspace view. Click the button in the top bar. If you have a lot of branches, this can help you understand how they relate to each other.
+<img src="/images/branching-and-merging-branch-graph.png" alt="Branch graph" />
 
 ### Important things to remember
 1. Working on any branch is just like working on your main branch. Making changes, committing, syncing - it's all the same.
@@ -51,3 +59,31 @@ If there are no conflicts, you should see a new merge commit in your branch hist
 ### Merge conflicts
 Sometimes, the changes you made on your branch conflict with the changes someone else made on another branch.
 When you try to merge these branches together, you'll have to decide how to handle these conflicting changes.
+If you have conflicting changes and follow the steps in [How to merge](#how-to-merge), you'll see a screen that shows you the conflicting files instead of the successful merge commit.
+<img src="/images/branching-and-merging-conflict-window.png" alt="The merge conflict window" />
+The conflict window has 4 parts:
+1. A list of files with conflicting changes.
+2. For each file on the list:
+    1. The incoming file. This is a readonly version of the file that's on the branch you're trying to merge from.
+    2. The current file. This is a readonly version of the file that's on the branch you're trying to merge into.
+    3. The outcome file. This is what the file will look like after you resolve the conflict. This is editable.
+
+To resolve a conflict, you need to decide which changes to keep and which to discard. You can choose either the incoming version, the current version, or a combination of both.
+And, as mentioned above, you can edit the outcome file directly.
+
+If you want to make the same choice for many files, you can select them using their checkboxes and use the buttons at the bottom.
+
+When you're done, type a commit message and hit 'Commit'.
+
+#### Merging non-text files
+Non-text files, like images, 3d models, spritesheets, animations, etc., can't be merged. This merge process works because text files are human-readable and can be compared line by line.
+If you have a merge conflict with a non-text file you have 2 options:
+1. If you have a specific tool that can merge these files, you can use it to resolve the conflict. One example is [Unreal Engine's built-in merge tool](/unreal/ue-plugin-merge-conflicts)
+which you can use if you have [our plugin](/unreal/unreal-engine-plugin).
+2. Choose one version to keep and discard the other.
+
+### Merge conflict warning
+Diversion has a feature that warns you about files that are being edited by other team members, and might cause a merge conflict.
+If you see the merge warning icon on a file, you can click on it and get info about who's editing the file. Be sure to communicate before working on it to prevent merge conflicts.
+As mentioned above, this is crucial when working on non-text files.
+<img src="/images/branching-and-merging-merge-warning-icon.png" alt="The merge warning icon" />
