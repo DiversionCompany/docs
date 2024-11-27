@@ -31,7 +31,7 @@ In your workspace view, you can see a list of your branches.
 You can see the branch you're currently on at the top of the list.
 Click the menu for the branch you want, and select "Switch to branch".
 <img src="/images/branching-and-merging-switch-branch.png" alt="Switch branch" />
-If you have any changes in your workspace that you haven't committed, they will move with you to the new branch, if possible (see Conflicts below).
+If you have any changes in your workspace that you haven't committed, they will move with you to the new branch, if possible (see [Merge conflicts](#merge-conflicts) below).
 
 ### Important things to remember
 1. Working on any branch is just like working on your main branch. Making changes, committing, syncing - it's all the same.
@@ -41,3 +41,13 @@ If you have any changes in your workspace that you haven't committed, they will 
 ## Merging
 When you're done working on your branch, you can merge it back into your main branch.
 Merging takes all of the changes from one branch and applies them to another.
+
+### How to merge
+In the same workspace view, you can choose the branch you want to merge and choose the option you want from the menu.
+<img src="/images/branching-and-merging-merge.png" alt="Merge branches" />
+If there are no conflicts, you should see a new merge commit in your branch history.
+<img src="/images/branching-and-merging-a-new-merge-commit.png" alt="A successful merge commit" />
+
+### Merge conflicts
+Sometimes, the changes you made on your branch conflict with the changes someone else made on another branch.
+When you try to merge these branches together, you'll have to decide how to handle these conflicting changes.
