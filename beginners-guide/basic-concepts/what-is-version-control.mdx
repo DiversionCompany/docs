@@ -1,0 +1,216 @@
+---
+title: 'What is version control, and why should I use it?'
+description: "The basics on version control and why its needed in modern projects."
+---
+
+Before you embark on the world of version control, its best if you understand
+what actually _is_, why this exists, and what can help you with on your files
+and projects. Here we describe a brief store in version control for projects,
+and a series of examples that show you how version control can be useful to you.
+
+## A brief history of version control in software and beyond
+
+We have always lived in a world where the need to collaborate within a team on a
+project. As you might expect, working on teams on a single project can be
+complicated. It can be tricky to manage, since each team member will be on an
+individual machine, and can take up a lot if time (time of which you'd want to
+be actually developing your project, not managing all the conflicts, and keeping
+every team member updated with the latest version of the project).
+
+Managing digital projects is a common occurrence, and many solutions have been
+created to solve this problem. Around the 1960s, the solution was without
+software. The idea was to, literally, go to the "Source Control Department",
+where they would pick up your changes, carefully watch was updated from every
+employee, and solve conflicts with other employees. They would then gather a new
+version of the software and distribute it for everyone the next day. They would
+also keep a history of the project in case someone needed to go back to a
+specific day of changes.
+
+We have improved much since then though, we now have the Internet, which helps
+us to do this automated distribution automatically, and we have created tools
+that automate and streamline this process for us (for which Diversion is one of
+these).
+
+The necessities of users have dramatically changed. Originally, it was called
+source control, because it only involved programmer's code (which are mostly
+plain text files). But nowadays, other people like artists and musicians need to
+use these kinds of tools, and many users also need to deal with files that are
+not just text. Images, audio, other specialized format are also part of complex
+projects, and this cannot be ignored in enormous project, like video games or
+any kind of interactive projects.
+
+It's because of this that the term "version control" nowadays is a more accepted
+term, to encompass all the current needs that need to be met by the users.
+
+### So... what is version control then?
+
+_In a nutshell, version control is the practice of organizing, storing, and
+administrating your project changes of a given digital project. This is usually
+done within a team of developers, but its is also acceptable (and welcome) to do
+this in a solo project. This practice has evolved to be supported by specialized
+tools that help you manage file changes, history and conflicts with other team
+members._
+
+
+## Examples of problems that version control can help you with
+
+It is normal to ask why and how version control can help you. There can be some
+examples. We can list at the very least three important things for which version
+control can help you with:
+
+### Keep a backup of your files
+
+Most of us have experienced a problem in our computers that threaten your files.
+A blackout, a power surge, malware or something similar can happen to your
+computer and compromise your data integrity. This can spell disaster for entire
+teams, especially when you are in a big project with a tight deadline. Version
+control can fulfill this problem and keep your files safely stored in a separate
+computer and, if something happens to your local machine, you can be safe on
+knowing a version your files are stored somewhere, and you can recover with
+minimal damage (maybe losing only the files for that specific day, when disaster
+struck).
+
+Some people use cloud services as a solution. Typical examples of clouds
+services are Dropbox or OneDrive or Microsoft Sharepoint. Others do regular
+backups on external drives. And although both of these solutions are fine (and
+we do recommend to back up your files regularly!), there is another advantage
+for version control that normal backups cannot do.
+
+### Keep a history of your files
+
+You may have been in this situation: 
+
+Suppose you are making a presentation for someone and are working on a typical
+presentation program. You decide that you are happy with the current version you
+have and decide to make an experiment, trying to bring the slides in a new
+direction. After a couple of hours, you feel disappointed in the attempt and
+want to go back to the previous idea you had. 
+
+If you did not save an alternate file saved before this attempt, you have lost
+the original version, and you now have to manually retrace the steps (and Ctrl+z
+can only do so much sometimes). This is a mild example, but there are nightmare
+scenarios: 
+
+Your computer can have a problem, and you did not back up the many versions and
+attempts you made on the last week, and you have lost a bunch of work. Or even
+worse, you may have a power surge and your file then becomes corrupted and
+impossible to open again, losing your actual work without possibility of having
+ti back. 
+
+Many users, especially artists and creative types have long learned this lesson
+and are used to keep lots of versions of a single file and save regularly. Other
+applications even have automated save periods and keep several versions of the
+same file to have an escape hatch if the program fails.
+
+Version control helps you here by not only saving your file, but also keeping a
+history of the changes you make. Every time you _commit_ a file to the version
+control system. It will mark that version as the most recent, but also keep a
+numbered history if all your changes. This happens for every group of file you
+commit to the server, and detects all state changes (that is, moving, deleting,
+creating, etc.) This means that you can keep any version of your work and be
+able to recover and check on previous versions if needed.
+
+Sometimes keeping a file history is not enough. There is a very common problem
+that can occur when you are working with a teammate.
+
+### Be able to warn and solve conflicts in your files.
+
+This is another issue that can happen with teammates:
+
+Imagine you are working with a teammate on an offline text document. You and
+your friend tend to work in the same file, but you have to be very careful that
+you don't end up working on the same file, and overwrite it by accident in your
+shared cloud space. 
+
+But sometimes it will just happen, both of you will work on the same file. And
+you will have to both talk and try to deal what changes they made and what
+changes you made, and try to deal with a unified image that "merges" both of
+your contributions. And you will have to be very careful on overwriting the
+file, as you don't want to unwittingly delete the work your colleague did.
+
+In version control, this is called a conflict, and current version control tools
+have automated ways o deal about this. For plain text files, there are way to
+deal with merges automatically, and will show you a specialized window that deal
+with conflicting merges so you can choose what goes in and what goes out in the
+final file.
+
+For binary files (like images, audio, 3d models, etc.), this is more difficult
+to handle for computers, but some systems do offer you warnings and safeguards
+to avoid working on files that somebody else is working on. It's still an
+unsolved problem for these types of files, but the safeguards will definitely
+help you to deal with these kinds of problems. And it definitely beats tracking
+all of this by hand.
+
+
+### Avoiding storing unnecessary files
+
+Modern digital and software projects usually tend to create a lot of temporary
+files that are only needed at a very specific point in time to 
+
+In a normal cloud storage system, you cannot filter out these files, which will
+not only create unnecessary bloat in your project, but it can generate serious
+problems when collaborating with others, since these files tend to be unique and
+exclusive for each collaborator and overwriting these fills will cause problems
+when exporting or finalizing a project in the long run.
+
+Version control systems have a specialized system designed to exclusively filter
+these kinds of files and folders, giving you a clean and functional repository
+for you and every teammate in your projects.
+
+Now, there is a final advantage of using version control that is often
+overlooked by some, but when it happens, you wish you had known before.
+
+### Branching and merging
+
+Sometimes, you find yourself on a project that needs a serious change in some
+areas. A process that will involve modifying a lot of files and a whole
+restructure of the project. But doing this can be a hindrance to your team, and
+you don't want to slow the down.
+
+You can also be experimenting a new feature, but you are not sure if this new
+feature will be worth it, and it could be very disrupting for your team if you
+do this on the project itself. So what can you do?
+
+The usual naive solution would be to copy the entire project on a separate place
+and start the changes. If you fail or want to backtrack. Then its easy, you
+delete your project copy and that's it. But if the feature or the rework is
+complete, you now need to do the painful process of merging that copy back to
+the original work of others. It can be complicated and dangerous if done wrong,
+especially when your team has already put their own work since you copied the
+original project.
+
+Version control systems have created an automated way to solve this, called
+branching. You can have a digital copy of a specific version of your project and
+create a new copy of it (a branch) from the main base. You then can work
+separately (or with teammates assigned to this task). The branch copies are
+smart and usually only contains changes, so you are not duplicating the entire
+project. But also it can keep its own history, and can get the benefit of
+merging. When you finish your tasks, you can then "merge" back to the main
+project, and the system will sue its merging tool set to keep everything tidy
+and up to date with your teammates work, and help you deal with conflicts.
+
+We will explain later how branching works more specifically, but for now,
+understand that this is one of the more powerful feature of any version control
+system.
+
+
+## Conclusion
+
+Whether you'll start a project solo, or are you going to work with a team,
+version control will become an important part of your tool set to bring projects
+to fruition successfully. Version control is not only to keep a faithful backup
+of the state of a project, but also to solve conflicts, detect who, when and why
+a person made changes to the project, keep a history of the evolution of the
+project, and being able to revert to previous version of files if the need
+arises.
+
+Version control systems have been created to help you optimize processes to
+develop your project and offer a centralized finalized state of the whole
+project at a given time.
+
+Diversion is one of such systems, with features designed specifically for users
+that need something that "just works", and want something that works "out of the
+box" without and complex setup procedures or complicated and confusing commands.
+But also for feature that power users will appreciate when doing heavy-duty
+work.
+

@@ -1,0 +1,145 @@
+---
+title: 'Basic terminology'
+description: "Some essential terminology used in diversion."
+---
+
+Source control systems, as they grow in complexity, also grow a set of
+terminologies that can be daunting for new users to understand when encountering
+them for the first time. This section will cover the basics of some words that
+are used in diversion version control. It is not necessary to read this at once,
+as this is designed to be a reference. Feel free to use this list as a reference
+when you are reading this guide. 
+
+Keep also in mind that some terms might be different on different version
+control systems, so be wary about this if you come from another version control
+system.
+
+## Term list
+
+* Repository: Also shortened as *repo*, is the group of files and folders that
+  constitute a project that is uploaded in the diversion cloud infrastructure.
+  The remote project hosted in the diversion servers is called like this. You,
+  and all your teammates will usually work on the same repository of a given
+  project by modifying, creating or deleting assets from it. 
+
+* Collaborator: Any other person that is not the repository creator with a
+  Diversion account that has been given access to a specific repository is
+  called a collaborator. Collaborators must be invited by the repository
+  creator, and multiple collaborators can be added to contribute to a
+  repository. The creator of a repository is also considered a collaborator.
+  Collaborator can have different privileges according to the access provided by
+  the creator of the repository, from read-only to admin style access.
+
+* Workspace: A workspace is both a local copy of the remote repository, and a
+  local cloud space created for you only. The local and cloud workspace its
+  exclusive to you only you can see effect modifications on it. A workspace is
+  created every time you clone a repository, so you can have multiple workspaces
+  for a specific repository. Every collaborator that clones a repository will
+  also create a workspace associated with it.
+
+* Branch: A branch is a copy of the state of a repository at a given point in
+  time. Created by either the creator or a collaborator. You can create, rename,
+  delete and merge branches with either other branches or the "main" branch. The
+  "main" branch is usually considered the default branch of a repository.
+
+* Commit: Every file change, or group of file changes saved to a repository by a
+  collaborator is called a commit. This is an active command done by any
+  collaborator. Usually, commits have a short description explaining what were
+  the changes and why they were made.
+
+* Pending changes: Any change done in your local workspace that has not yet been
+  saved and persisted in a commit command.
+
+* History: Also known as "commit history" or "commit log", is the series of
+  commits created by all collaborators on a repository. Every branch has a
+  separate commit history.
+
+* Head: Also known as tip or top. The last entry of a repository.
+
+* Tag: Commits can have a special "tag" that help them identify them easily.
+  This is usually done to mark an important milestone of a project that is worth
+  to keep in order to easily reference it later.
+
+* Conflict: A conflict is a situation where different collaborators make and
+  commit changes to the same file or asset, It must the be_resolved_ by
+  combining the changes or selecting which change will be preserved in favor of
+  the other.
+
+* Diff: Short for "difference". When comparing two versions of a plain text
+  file, either between commit history entries or within a conflict, is the
+  specific set of lines that have changed, added or removed between the two
+  versions.
+
+* Clone: The act of cloning a repository is to get a copy of the remote
+  repository to a local machine.
+
+* Reset: When you have modified files in diversion and got synced in the cloud,
+  you may want to restore them to their original state. You can then select
+  those files and reset them in your workspace. They will be restored to its
+  last commit state and will look as if you have never modified them in your
+  workspace. This will not affect the commit history, only the local workspace.
+
+* Revert: Also known as "undo". Sometimes a collaborator decides that a given
+  commit was a mistake and want to restore those changes. This is called a
+  "revert", and it will bring those changed files back to the workspace and
+  change them to the restored state. You can revert files to the state of any
+  commit history.
+
+* Merge: When you bring the state of a given branch and decide to apply all the
+  changes of that branch to a target branch is called a merge. This will be
+  marked as a commit history entry every-time you make one on the merged branch.
+
+* Checkout: When you set a specific workspace to the state of a project at any
+  other point on the commit history of a given branch. You usually create a
+  checkout on branch, plus a commit ID, which is usually the latest commit
+  entry.
+
+* Status: The current status of a given workspace, including its sync state,
+  branch and commit you are in, and its currently modified but not yet committed
+  files.
+
+* Sync: One of the key features of Diversion is the ability to sync a project
+  automatically. Each time you make modifications on a workspace, this changes
+  will get synced automatically to your workspace cloud space. Syncing also
+  means that every time someone commits a change, and you happen to be in the
+  same branch, the changes will sync automatically with your current workspace.
+  The sync process can be paused and resumed, but you must have sync enabled if
+  you want to eventually commit files.
+
+* Selective sync: In Diversion, it is possible to select only certain files and
+  folder to be automatically synced. This can be useful for people who only care
+  for a specific part of a repository and don't want to interact with the rest.
+
+* Reattach workspace: When a workspace get moved around, diversion will lose its
+  tracking reference to it. You can then "reattach" the workspace from the
+  desktop client so it reorients the workspace correctly to the desktop app and
+  be able to continue working on the new location.
+
+* Support bundle: If you ever encounter an issue with Diversion, we'd love to
+  hear about it! We usually request a support bundle, which compiles a series of
+  log files that can be used for us to check the status of diversion and check
+  for error or warning messages.
+
+* Text files: Some files are simple plain text files that you can open with a
+  standard text editor. There are called text files and have special status in
+  version control systems.
+
+* Binary files: As opposed to text files, these are files that need specialized
+  programs to be opened, and cannot be easily understood by opening them in a
+  simple text editor. Binary files also have a special distinction and treatment
+  in version control systems.
+
+* Intermediary files: Files that are generated in the course of a project but
+  are not needed to keep integrity of a project. They are considered transient,
+  temporary and usually locally generated by each collaborator in a project.
+
+* Ignore file: A specialized file that is designed to add file and folder patter
+  for version control systems to ignore. There are especially useful to ignore
+  unnecessary temporary and intermediate files so it won't bloat the project and
+  avoid trouble when collaborating with others.
+
+* Mono-repo: A term used for a style of projects that has a fixed number of
+  collaborators for a given time, and don't usually receive collaboration from
+  the public. Monorepos are usually repositories handled by companies who have
+  fixed projects that come and go. Usually companies like game development or
+  simple private applications work in a mono-repo style of work.

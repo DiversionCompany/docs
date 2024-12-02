@@ -1,0 +1,147 @@
+---
+title: Differences between similar version control systems
+description: "Comparison between similar systems"
+---
+
+Diversion is not the only version control system out there. But its is also not
+the only way to keep and track files on the internet. Here we do a small
+comparison between other systems to understand why diversion is different from
+other systems.
+
+## Basic cloud storage (Dropbox, One Drive, etc.)
+
+Cloud storage systems are probably the most commonly used system to keep copies
+of files right now. These are simple to use, these are just simple storage
+services where you can save any important files or data, not unlike using an
+external storage system on your local computer.
+
+Although this is the simplest way to save and keep backups of your files, they
+are not very good to work on complex projects. They don't have any file history
+capabilities (or if they have it, its very limited), and keeping track of file
+changes and working with others can be complicated even with a small amount of
+files and collaborators. A file can be updated or deleted without your
+knowledge, and it can be very hard to reason why or who made a change in the
+project.
+
+And finally, usually large projects have lots of intermediary files that every
+user will locally generate. This means that every collaborator who tries to work
+on your project will generate their own temporary files. You can have serious
+problems when you keep overwriting these files, since they are useful only to
+the user that generated them at the time.
+
+## Version control systems
+
+Now its is very uncommon for projects to use simple storage systems on their
+projects. It is more common to actually have a specialized system to work with
+others.
+
+But even for version control systems there are different types of these,
+handling different philosophical models and technical features.
+
+### Centralized systems (SVN, Plastic SCM, Perforce, etc.)
+
+Centralized version control systems have a central server that holds all the
+repository information. A repository is your project's container; it hosts all
+the assets, but also all the branches and commit history of every collaborator. 
+
+Multiple collaborators work on the same repository, contributing new assets or
+modifying existing ones by uploading.
+
+These were the first types of systems created and still used very widely.
+
+### Distributed systems (Git, Mercurial, etc.)
+
+Distributed systems are newer, relatively speaking and have a different way of
+behaving.
+
+### Other Version control features
+
+#### Branching
+
+Branching is a way for users to have separate copies of a repository state to
+work separately in a specific feature or experimenting with a new idea without
+having to disrupt the main collaborators work. Branches keep its own commit
+history, and can be deleted or merged with other branches.
+
+Most modern version control systems have some support of branch creation, merge
+and deletion.
+
+
+#### Binary file management
+
+Historically, because of their origins from software development, version
+control system only deal with text files. Binary files are different and can be
+very difficult to manage if the system is not designed to handle these. Treating
+binary files as text can be dangerous, since they can in fact corrupt the file,
+thinking of it as a simple plain text file.
+
+Most modern version control systems should have a basic understanding of binary
+files and ways to deal with them accordingly.
+
+#### Large files management
+
+There are similar problems with large files. By large files we are talking about
+files starting from a couple of hundred megabytes, up to hundreds of gigabytes.
+
+For the same reason explained before, old source control systems are not used to
+handle large files, less so large binary files, since they only focused on small
+text files.
+
+This is one of the main problem of current modern version control systems, and
+many old systems have ad-hoc solutions to these, with many warts and issues that
+come along with it. You can actually note a different between version control
+system in the way they handle large binary files, and in recent times new
+version control systems have been created specifically to handle projects that
+need to deal with these kinds of files (like Diversion!).
+
+#### Self-hosted or cloud managed
+
+Some advanced users want to have full control a repository system and usually
+want to install the system on a personal or company owned server. This feature
+is called self-hosting. 
+
+Some systems offer a way to do this, others don't. The main advantage for expert
+users is gaining full control and isolation from the system on trusted sources.
+But it comes with a need to know how to use it and deal with any problems on
+your own if something happens.
+
+Cloud managed systems are handled by other users, usually the creator of the
+system or third party companies, that help you deal with this, taking the server
+and data problems from you, so you can only concentrate on developing your
+projects.
+
+#### Pull or merge request
+
+Projects that are specially collaborative (such as open source projects) usually
+expect collaborators from anywhere. The nature of open source makes that some
+people come and go contributing on open source projects and there are not many
+permanent contributors. For these types of projects, it's important for the main
+members to keep a way to receive and approve or deny requests.
+
+This feature is called a pull or merge request, and it's basically a commit, or
+series of commits somebody create in a separate branch, and its asks the main
+members of the project to merge their changes with a description and
+justification on the change and why the collaborator wants to merge this.
+
+Usually mono-repo projects are not designed for collaboration with strangers on
+the internet, and their collaborators and contributions to the main project are
+well known since they tend to be permanent members for the whole duration (or at
+least a huge part) of the project. Such style of repository management usually
+does not need feature like pull requests
+
+## So what is Diversion?
+
+Well, according to these definitions, Diversion is:
+
+* A centralized version control system
+* Supports branching
+* Support for binary and large files
+* Cloud managed
+* Designed for mono-repo style repositories
+
+Diversion was designed for holding large project with many and very big binary
+files, and for work with multiple collaborators.
+
+Diversion does not have a pull or merge request system, but it has a way to check the
+results of a merge via a merge preview command,
+

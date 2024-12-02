@@ -57,6 +57,19 @@
   ],
   "navigation": [
     {
+      "group": "Beginner's Guide",
+      "pages": [
+        "beginners-guide/welcome",
+        {
+          "group": "Basic Concepts", 
+          "pages": [
+            "beginners-guide/basic-concepts/what-is-version-control",
+            "beginners-guide/basic-concepts/basic-terminology"
+          ]
+        }
+      ]
+    },
+    {
       "group": "Getting started",
       "pages": [
         "quickstart",
@@ -96,8 +109,7 @@
         },
         {
           "group": "CMD Reference",
-          "pages": 
-          [
+          "pages": [
             "cmd-ref/about-cmd",
             "cmd-ref/branch",
             "cmd-ref/cd",
@@ -135,7 +147,9 @@
     },
     {
       "group": "API Documentation",
-      "pages": [ "api-reference/introduction" ]
+      "pages": [
+        "api-reference/introduction"
+      ]
     },
     {
       "group": "Repository Management",
