@@ -63,15 +63,15 @@
         {
           "group": "Basic Usage",
           "pages": [
-            "basic/create-repo",
-            "basic/initialize-from-existing-project",
-            "basic/clone-repo",
-            "basic/share-your-repo",
+            "basic/start-using-diversion",
+            "basic/get-existing-project",
+            "basic/add-people-to-your-project",
+            "basic/what-to-do-with-your-changes",
+            "basic/working-in-parallel",
             "basic/undo-pending-changes",
             "basic/undo-previous-commit",
             "basic/import-from-git",
             "basic/import-from-git-lfs",
-            "basic/use-existing-repo",
             "basic/sync-pause-resume"
           ]
         },
@@ -79,12 +79,6 @@
           "group": "Concepts",
           "pages": [
             "concepts/repo-branch-workspace"
-          ]
-        },
-        {
-          "group": "Tutorials",
-          "pages": [
-            "tutorials/branching-and-merging"
           ]
         },
         {
@@ -289,6 +283,30 @@
     {
       "source": "/unreal-engine-plugin",
       "destination": "/unreal/unreal-engine-plugin"
+    },
+    {
+      "source": "/basic/create-repo",
+      "destination": "/basic/start-using-diversion"
+    },
+    {
+      "source": "/basic/initialize-from-existing-project",
+      "destination": "/basic/start-using-diversion"
+    },
+    {
+      "source": "/basic/clone-repo",
+      "destination": "/basic/get-existing-project"
+    },
+    {
+      "source": "/basic/share-your-repo",
+      "destination": "/basic/add-people-to-your-project"
+    },
+    {
+      "source": "/basic/use-existing-repo",
+      "destination": "/basic/what-to-do-with-your-changes"
+    },
+    {
+      "source": "/tutorials/branching-and-merging",
+      "destination": "/basic/working-in-parallel"
     }
   ],
   "footerSocials": {
