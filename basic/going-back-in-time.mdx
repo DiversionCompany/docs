@@ -1,0 +1,34 @@
+---
+title: 'Going back in time'
+description: 'Reverting to or branching from a previous commit'
+---
+
+You've been working on your project for a while, and you realize that you made a mistake a few commits ago. Or maybe you want to start a new feature based on an older version of your project. No worries! You can go back in time to a previous commit.
+
+## Reverting to a previous commit
+One way to go back in time is to revert to a previous commit. This will create changes in your workspace that undo all of the commits from the commit you've chosen to revert to up to the current commit. This does not create a new commit!
+
+<Steps>
+  <Step title="Make sure you have no pending changes">
+    Since this action will automatically create changes in your workspace, it must be clean beforehand. Undo or commit any changes you have.
+  </Step>
+  <Step title="Revert the chosen commit">
+    In the `History` view, click on the menu for the commit you want to revert to and select `Revert to this commit`.
+    <img src="/images/going-back-in-time-menu-button.png" alt="The button to revert to a previous commit" />
+  </Step>
+  <Step title="Review the changes and commit">
+    You'll be redirected to the `Workspace` view where you'll see the changes that will be made.
+  </Step>
+</Steps>
+
+## Branching from a previous commit
+Another way to go back in time is to create a new branch from a previous commit. This will create a new branch with the commit you've chosen as the base.
+
+<Steps>
+  <Step title="Choose which commit you want as the base for your new branch">
+    <img src="/images/going-back-in-time-create-branch-from-previous.png" alt="The button to create a branch from a previous commit" />
+  </Step>
+  <Step title="Create a branch">
+    Follow the steps to create a new branch, as described in [Working in parallel](/basic/working-in-parallel#creating-a-new-branch).
+  </Step>
+</Steps>
