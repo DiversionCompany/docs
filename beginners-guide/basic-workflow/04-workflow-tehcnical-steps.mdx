@@ -1,0 +1,144 @@
+---
+title: 'Diversion workflow technical steps'
+description: "The basics on version control and why its needed in modern projects."
+---
+
+In Diversion, and in verison control in general, there are recommended ways to
+work in order to get the best fo what you can achieve with these types of
+software. Thsi section of this guide will explain what are the technical Steps
+
+First, we must understand what a basic workflow in Diversion looks like. You cna
+check this diagram to understand the basics.
+
+## Diversion Workflow Steps Explained
+
+### Modify files
+
+Given a task you have at hand in your project, you wil add, delete or modify
+files or elements in your project.
+
+### Sync
+
+This is an important step in Diversion and the ones that makes the difference
+between other systems. Your project will exists locally in your computer, but it
+will also exists ina a cloud space created by diversion. 
+
+This will auto-sync and update/delete/modfiy items that you have done yourself
+locally, or items that haven changed by other users __and committed them to the
+project__.
+
+This can have great advantages, including the fact that if yourcomputer has a
+local problem, the remote worksapce will keep your local modified files and
+won't be lost. The sync step is automatic (to be more precise, it preform a
+check every 5 second to see what files Diversion needs to sync), you don't have
+to do anything for it to happen.
+
+You can pause/resme syncing if for any reason you don't want to have auto sync
+to work. But you must always have sync enabled in order to commit.
+
+There can be other reasons for Diversion to automatically pause the sync proces,
+whic are explaind in another section-
+
+### Commit
+
+The commmit step is the step where any change you have donde in your project
+will be recorded in Diversion, and add it to a history log of your project.
+
+You must add a comment to the commit, explaining briefly what you changed in the
+project for others (and yourself) to be able to see later what the changes were.
+
+## The main difference between Diversion and other version control systems
+
+The main difference between Diversion and other control systems is the __sync__
+step. The fact that it is automatic and will constalyt update your projectas
+others commit.
+
+In other version control systems, there is no sycn step and they do one of two
+things, depending on the software:
+
+* You commit directly to the repository space.
+* You "stage and your changes" locally in your computer, then you upload your
+  changes to the space (usually called "push").
+
+Both workflows won't let you commit your changes unless you download (or _pull_)
+changes first. This means to donwload first the commits created by others before
+you can commit yours. The automatic sync system in Diversion will do this step
+automatically for you.
+
+### Automatic syncing and collaboration
+
+Diversion, by defualt, will always auto sync your workspace with the cloud space
+on the branch that you are the
+following:
+
+* Any local changes you do on the project.
+* Any __commits__ and __merges__ you, or your collaborators effect on that
+  branch.
+
+This step is always automatic. Sync check ocurr aproximately every 5-10 seconds
+your machine and, unless there is a conflict or your system blocks files, this
+will auto update your workspace.
+
+Some people find thisa very convenientes process on collaborating, particularly
+artsis working with image assets and using Diversion as a sort of cloud space
+depot. But some people do find this intrusive and want only to receive updates
+one a task they set themselves is done and want to avoid intrivuse files popping
+in your current work
+
+### Pause/resume sync
+
+You can manually pause syncing, this will stop you and then resume sync. Fro
+some this can help them concentrat eonly on the feature they are working on and
+then update everything
+
+// TODO: GRAPHIC
+
+Although pausing/sincyng is a thing you can do in Diverison. We recommned doing
+things in a different manner, involvng the use of branching. You can read our
+[Diversion recommended collaboration strategies](___) to learn more about it.
+
+### Other reasons for a paused workspace
+
+Sometimes the automatic syncing process will stop on a given workspace. There
+are several reasons of why might happen:
+
+* You have manually paused syncing.
+* There are files that mayb be blocked by a specific application, preventing
+  them to be manipulaed by the syncing agent.
+* There was a failure in the internet connection for a while.
+* There is something wrong either with our syncing features. Usually this might
+  pause your worksapces as a protective measure.
+* Some other potential unknown problem
+
+The first two points can be handled by you. You can either resume syncing, of
+try tofind what application might be locking some files so they cannot be read
+or modified by anone else. Game Engines, like Unreal for example, are known for
+doing this, so trying to close the application, or specific panels that might be
+sugin the blocked files might help you resume syncing.
+
+You may also try to "rescan" your project. This sometimes ghelps the sync agent
+find files that might have been ommitted for some reason (for example, fast hard
+drive interactions removing and adding temporary files might confuse the agent
+trying to sync files that are not there anymore).
+
+// TODO: GRAPHIC
+
+The last three points might be something out of your control. I those case, it
+might be usfule to contact us either via email or the discord server to aks for
+help. We will do our best then to troubleshoot your isues and find a
+satisfactory solution for you.
+
+### Selective syncing
+
+Some collaborators may only wan to work on certain parts of a given project and
+don't want tosnc every piece of data of a specific project. A common example of
+this are artiss that onyl work on raw assets loalted ina  special folder in the
+repository, wheres they won't, or don't want to interatce with the resto fot eh
+project.
+
+You can configure a specific worksapce to only sync specific folder witihn the
+Diversion Desktop app. By selecting the workspace settingsin your app you ca
+select onyl the folder you want to sync. Th rest will be ignored and wont' be
+accounted when syncing, merging and committing.
+
+// TODO: GRAPHIC

@@ -1,0 +1,86 @@
+---
+title: 'The Diversion toolset'
+description: 'A basic explanation of the Diversion tools'
+---
+
+Starting from here, we will focus more on how Diversion actually works and
+understandding the different technical elements are in your system. All of these
+elements interact with each other and form part of the main Diverison local
+toolset.
+
+// TODO: GRAPHIC
+
+## The Diversion local agent
+
+The local Diversion agent, also known as dv (asthe name of the executable
+dv.exe) is the main element of all things Diverison related. The agent usually
+automatically starts when your computer starts and works in the background. 
+
+The local agent main functions focus on making all diversion elements work, mainly:
+
+* Scanning your unpaused workspaces for any files changes.
+* Syncing these workspace changes with their respective remote cloud space
+* Downloading any new files that come from commits on the current branch your
+  workspace is in.
+
+Diversion will always keep working in the background, and no element of
+Diverison will be able to function is the local agent is not running.
+
+Ususally the local agent will update itself and auto restart. So to keep it up
+to date usually don't have to do anything, with the exception of maybe
+ocasionally reboot your system in case an update cannot be installed wihile the
+agent is running.
+
+If the agent crahes or fails for any reason, it will also atempt to restart
+itself. This is not alway succesful though but the main dEsktop application will
+always try to check if the agent is running and warn you if it's not. Running
+the CLi will always start the agent if the agent is down.
+
+## The Command Line Interface, or CLI
+
+The Diversion command line interface, or CLI, is the interactive part of the
+local agent process. You can run it by opening a terminal in your operative
+system and simply typing _dv_.
+
+// TODO: GRAPHIC
+
+The dv is the active user part fo our toolset. You can perform every single
+command that Diverison allows you to, incuding:
+
+* Create repositories from scratch, or clone exisiting ones
+* Commiting files
+* Create, renameand destroy branches
+* Merge a given branch onto another
+* Check the status of a given workspace
+* And many more features
+
+The CLI has a terminal interface that can help you with a list of available
+commands, with explanation on what it does and the parameters it receives. 
+
+Its is important to not that the list of commands available will change depdngin
+fi you are inside a worksapce or not. If you are inside a workspac you will be
+able to perform different commands that you won't be able to do outside and vice
+versa. In other words, the dv CLI is sensitive to the folder you are in and
+only some commands will work if you are inside a repsoitroy folder
+
+// TODO: GRAPHIC SHOWIG DIFF IN COMMANDS 
+
+If you want ot now more about the commands what they doe, you can also look at
+the CLI API docs.
+
+// TODO URL TO API
+
+Now for a regular user, the CLI can be a bit complicated to use, so we have
+created various frontends that can help you use a grpahical interfaceto deal
+with these commands in a friendly maner. All the graphical forntends will
+interact with the CLI internally so you don't need to rely on it for every task.
+
+## The Desktop app
+
+The first piece of forntend we will look the the Desktop app. Thsi will be
+probably the tool you will use the most, and its the main point of entry for
+Diversion as a whole.
+
+// TODO :GRAPHIC
+
+You will do most of your operations here, and you will receive

@@ -63,8 +63,8 @@
         {
           "group": "Basic Concepts", 
           "pages": [
-            "beginners-guide/basic-concepts/what-is-version-control",
-            "beginners-guide/basic-concepts/basic-terminology"
+            "beginners-guide/basic-concepts/01-what-is-version-control",
+            "beginners-guide/basic-concepts/02-basic-terminology"
           ]
         }
       ]

@@ -47,12 +47,39 @@ the assets, but also all the branches and commit history of every collaborator.
 Multiple collaborators work on the same repository, contributing new assets or
 modifying existing ones by uploading.
 
-These were the first types of systems created and still used very widely.
+These were the first types of systems created and still used very widely. The
+biggest problem that these types of version control systems have is that if a
+collaborator breaks something in the repository, everyone will be affected by it
+
+Modern centralized version control system have a lot of checks and safeguards
+that help avoid having unexpected results. But It's still important for users to
+be careful when working and collaborating on complex projects.
 
 ### Distributed systems (Git, Mercurial, etc.)
 
 Distributed systems are newer, relatively speaking and have a different way of
 behaving.
+
+Instead of everyone working towards a single centralized repository. Each user
+has a local repository on their own. A user will locally commit, add and remove
+files on their own without interrupting the remote repository.
+
+When you are satisfied with the changes you then "push" the repository changes
+to the remote version keeping then everyone updated.
+
+Other users will then need to "pull the changes" to updated changes done by
+everyone else.
+
+This is the most common way of repository systems right now. And it has the
+great advantage that if someone messes up their local repository, it won't
+affect others users, and it can be fixed locally or just clone again the main
+repo-worst case scenario.
+
+The biggest drawback though, is that you will literally have a copy of the
+remote repository in your local drive, thus essentially bloating the file size
+of your project greatly. This can be a serious problem for projects that use
+many large assets, and it's usually a big stopper for these kinds of project to
+use these version control systems.
 
 ### Other Version control features
 
@@ -142,6 +169,7 @@ Well, according to these definitions, Diversion is:
 Diversion was designed for holding large project with many and very big binary
 files, and for work with multiple collaborators.
 
-Diversion does not have a pull or merge request system, but it has a way to check the
-results of a merge via a merge preview command,
+Diversion does not have a pull or merge request system, but it has a way to
+check the results of a merge before actually committing to the merge via a merge
+preview command,
 

@@ -1,0 +1,178 @@
+---
+title: 'Diversion recommended collaboration strategies'
+description: "What strategies do we recommend when collaborating in Diversion"
+---
+
+Diversion is, in essence, a collaboration tool. And given our experiencies, and
+others on software projects we have devised some recomended strategies that can
+be useful on your work with other with Diversion.
+
+Although these strategies are recommended for gorup works, they can also be
+really useful to work on a solo project and have a good sense of how to interact
+with others, in case you ever need to work in a collaborative environment.
+
+## Are these strategies requiered in Diversion?
+
+None of these strategies are requiered to use Diversion, you can implement any
+style of collaboration you want. We mention this becuase thisis something we
+have seen work, epsecially on large project with lots of collaborators.
+
+Many teams use mor than one stratewgy and do some mix and match of these
+strategies, depending on the situation and the project. We recommend you read
+this section with the knowloedge that you can chose either, al, or none of them,
+or try to find your own strategy based on what you read here.
+
+## Branching as a fundamental element of workflow
+
+All of the strategies we offer in this guide involve the use of branching.
+Branching a fundamental and very useful feature of almost every single verison
+control software. Branching not only gives ways tocontrol your code, but also to
+control the history of features and tasks being done on separate elements. This
+also helps bring stability on a project by letting tohers test sideas or try new
+features wtohut breaking the main project.
+
+This means the the main, definitve version fo yoru project should remain in the,
+well, __main__ branch. Instead of everyone collaborating on a specific branch,
+increasing the complexitiy and the potential problems of everyone working on the
+same pot, we can separate and structure responsibilites that, once fullfilled by
+team members, we can then jopin everytinhg in the main branch only.
+
+In essence, the idea of branching in all of our startegies, independnt if you
+chose one (or usa a emix of all fo theme) will be:
+
+* Keep the __main__ branch as a definite, always working, not broken repository.
+  The main is the consolidated effor of all your collaboratos inot one qworking
+  project.
+
+* Use alternative branches to fullfil tasks of your main project, and evenutally
+  merge them into the main one.
+
+Having said that, let's briefly explore some potential strategies.
+
+## Strategy one: Each branch is a task
+
+This idea comes from agile software development. in essence what you do is:
+
+1. Break up a given characteristic of a project a series of independent tasks
+2. Assign tasks to different collaborators
+3. You or someone esle creates a branch for each task
+4. Assigned collaborator work on their respective branches
+5. Whenever a given task is finished, merge it back to the main branch
+
+The fundamental concept of a task is that a specific task should be small,
+independent and quick to implement, relatively pseaking. Usually very concrete
+and actionable elements are qualified as tasks. 
+
+Examples of tasks can be:
+
+* Bug fixes
+* Code Refactoring
+* Simple quality of life features
+* Etc.
+
+This workflow tends to work in very large project with actionable items. But
+smetimes a specific feature cannot be easily identifiable by a series of tasks,
+or you may be experimenting with something that myta, or may not work. This is
+when its best ot think of feature branches.
+
+The names of these branches tend to be very specific and refer to another piece
+of document, like a feautre name or a bug number id. For example "Bugifx-2140"
+or "Task-2210" tend to be names for these. These name yb themsevle do to mean
+much, and you usally refer to external notes or dcoumentaiton to track the state
+of these changes.
+
+## Strategy two: Each branch is a feature
+
+A feature is a much large task that may have propeties like the follwing:
+
+* A complex elemtn that touches many places in the main project
+* An ongoin elements of the project that will take various iterations to finish
+* Some element of the project that could, or could not wor, and you'd rather try
+  it as an expriment.
+* Implement it might require more than just one collaborator
+
+This, then instead of a simple task, becomes a full feature that need nultiple
+revisions and mrges and will not necesarily be complete soon.
+
+Feature branches sometimes involve multiple collaborators and are more involved
+than simple tasks. Sometimes a feaure might never be finished or deemed not
+suiable for the current project and may be abandonde. This is normal as  part of
+the development of a project, but the good news is that since everything is in a
+branch, you simply don't need to merge it to main and won't disrupt the main
+development branch.
+
+## Strategy three: Each branch is a collaborator
+
+Some smaller teams prefer to have each collaborator work on their own branch,
+rather than have feaures or tasks.
+
+There are multiple reasons for having collaborator branches. Some reason can be
+the follwing:
+
+* The collaborator's work is different enough between the main project and the
+  main branch that he can work on their own features without disrupting other
+  workflow, even wthout branching. Think for examples, and artist that only
+  creates art assets for promotionla materials onl yand has little invovlemtne
+  on the main project.
+
+* The team is small enough, that simply talking between each project memebr is
+  enough to have each role clear and will not likely have conflicts betweeen
+  them, so eahc one having their own branch can work well in these types of
+  teams.
+
+* A collaborator want's no disruption from other team members and wants only to
+  work on their own branch uitl they have soething to show. In this workflow
+  usually the collaborator will then create a task or feature branch from their
+  own branch once they want to merge on main, and then keep working on their own
+  branch.
+
+There is nothing special between a collabrotato branch an other branches, other
+tan the verbal tacit agreement that this is the collaortor brahcn and them (and
+only them) can modify their branch.
+
+The collaborator's responsibility then, is to keep their branch up to date with
+the main branch, just in case there are multiple conflicts that need to be
+resolved, and not updating the main branch for too long can create disruptions
+on their own branch. The difference here though, is thatthey control that
+process, insted of the automatic syncin element of Diverison.
+
+## What happens on the merge step? Who is in charge of "merging"?
+
+Once the collaboratos have finished their work, wh soughld merge it back to
+main? Well, the answer depends a lot on the strucutre of your team. Some teams
+lik eto hvae a designeted person to do all the merging. That person will revise,
+check and ensure all tasks, collavorator or feature branches are up to task to
+be mergedto the main brancha dn do it themsevles.
+
+## What happnes to a branch once its merged to main?
+
+Nothing special happens to the branch, you can keep it around for safekeeping
+pruposes, or in case you want to keep working on ti for some reason.
+
+But usually some teams decide when a branch is not useful anymore, they just
+delete it from the repository. This can be useful to save space in the
+repository, and also to keep the reapository clean of potentially too many
+branches that can make work in general mroe complicated.
+
+In general, in a branch-as-a-task strategy, the task are quickly delted, since
+these branches are small, simple and d not teally have ani improtant information
+once they are merge onto main.
+
+Feature brahcnes tend to take longer to get deleted, usually because feaues are
+longer tasks, and will probably need many iterations before its considered
+irrelvant enoigh to be delted.
+
+And finally collaborator branches, since are exclusive for each memebr of the
+team, might exists along the whole project lifetiem or until the collavorator
+finishes and merges their last work onot the main branch.
+
+## Conclusions
+
+Although it is possible to have every collaborator work on the main branch or,
+if you are a solo developer, you don't really need all of this. It is
+recommended to have some sort of branchign strategy to us ein your projects.
+
+These strategies will help you have a better collaboration structure and help
+you have a better organized project in the long run, so you can have a good work
+environment with your peers and have a better run project in the end.
+
