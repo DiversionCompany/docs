@@ -16,7 +16,8 @@ The local Diversion agent, also known as dv (asthe name of the executable
 dv.exe) is the main element of all things Diverison related. The agent usually
 automatically starts when your computer starts and works in the background. 
 
-The local agent main functions focus on making all diversion elements work, mainly:
+The local agent main functions focus on making all diversion elements work,
+mainly:
 
 * Scanning your unpaused workspaces for any files changes.
 * Syncing these workspace changes with their respective remote cloud space
@@ -60,8 +61,8 @@ commands, with explanation on what it does and the parameters it receives.
 Its is important to not that the list of commands available will change depdngin
 fi you are inside a worksapce or not. If you are inside a workspac you will be
 able to perform different commands that you won't be able to do outside and vice
-versa. In other words, the dv CLI is sensitive to the folder you are in and
-only some commands will work if you are inside a repsoitroy folder
+versa. In other words, the dv CLI is sensitive to the folder you are in and only
+some commands will work if you are inside a repsoitroy folder
 
 // TODO: GRAPHIC SHOWIG DIFF IN COMMANDS 
 
@@ -83,4 +84,65 @@ Diversion as a whole.
 
 // TODO :GRAPHIC
 
-You will do most of your operations here, and you will receive
+You will do most of your operations here and will the control center of all
+Diversion operations related, including the interaction of all your local
+workspaces.
+
+There is a more in depth explanation of the Desktop App in this [section]()
+
+## The Web UI
+
+There is an alternative to teh desktop application, and its the Web UI. You can
+access this UI through the Diversion website, ad requieres the same credentials
+as the desktop app.
+
+The UI and operatiosn are almost the same. The main difference though is that,
+since its a web ui app ony, you cannot do specific ooperations realted to local
+workspaces. But the rest of functionality is available within the Web
+application.
+
+## Integrations plugins
+
+Diversion has aditional plugins that can connect to additional services or
+programs. These are designed to give additional support specific to a certain
+platform of software tools.
+
+Read the section fo integratiosn to know more about the eixsing integrations
+plugins.
+
+## The .dvignore file
+
+This is a particular element of the Diverion toolset because this is not a tool
+per se, but a file located in your main wrokspace and repository project.
+
+Sometimes, projects that use certain applicatiosn will generate a lot of files
+that are only necesary in a limited situation and are temporary. Think of
+interemdiate files, build settings, elements that are generated when building,
+etc.
+
+These files can generate unnecesary conflicts with other collaborators since
+they tend to be unique per computer and can actually cause mor hamr if they are
+synced between collaborators. Not to mention that they cause bloat and thus
+severely increase the size and bandwith of your repository.
+
+This means that version control systems need to devise a way to "filter out"
+unwanted or unneded files and only leave the essential in the repository.
+Diversion is no exception to this and that is why we created the dvignor file.
+
+This is a file that every repository will create at the start called ".dvignore"
+(notice the dot at the beginning). This has a list if files, folders and pattern
+to ignore before committing anything.
+
+The syntax is identical to github's with some additions.  So a good
+recommnedatio it to read how the .gitingroe file works (TODO: Add gitignore
+syntax link)
+
+The dvignore file that Diversion creates already has patterns for some popular
+game engines (i.e. Unity, Unreal and Godot), but depending on your type of
+project, you may need to actively edit this file before comitting files on your
+repository.
+
+If you have already committed files and the want to ignore them after the fact.
+You will need to edit the dvignore files and then _you must delete the comitted
+files_. Comitted files will never be applied by the dvignore filter unless they
+are removed from the repository itself.
