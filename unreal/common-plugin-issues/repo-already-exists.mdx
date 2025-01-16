@@ -1,0 +1,15 @@
+---
+title: 'UE Plugin - Repo already exists'
+description: '"You already have a repository with the same name"'
+---
+
+If you're trying to initialize a Diversion repository in your Unreal Engine project, but you already have a repository with the same folder name, you'll see following error:
+
+<img src="/images/plugin-issue-repo-exists-init-modal.png" alt="Repo exists in path modal with error" />
+
+You have a few options to resolve this.
+1. If you don't want the existing remote repo, you can delete it. Be careful! This cannot be undone.
+2. If you don't want the new local project, you can instead clone the repo using the desktop app.
+3. If you want to keep both, you can rename the new local project's root directory and try again. In this case, you should also rename your `.uproject` file and [regenerate your project files](https://dev.epicgames.com/documentation/en-us/unreal-engine/how-to-generate-unreal-engine-project-files-for-your-ide).
+
+You can always [reach out to us in Discord](https://discord.com/invite/HDAGJvgkuT) for any further assistance.

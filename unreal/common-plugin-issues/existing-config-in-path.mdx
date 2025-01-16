@@ -1,0 +1,14 @@
+---
+title: 'UE Plugin - Existing .diversion config'
+description: '"Plugin initiazation failed due to existing .diversion config in this project path"'
+---
+
+If you're trying to initialize a Diversion repository in your Unreal Engine project, but you previously had a Diversion workspace in the same folder, you'll see following error:
+
+<img src="/images/plugin-issue-config-exists-error-popup.png" alt="Config exists in path popup error" />
+
+This error means that our agent recognizes a `.diversion` folder in your project path, but does not recognize a corresponding repository in our servers. There are 2 possible causes for this:
+1. Your project is stored in a detachable drive. This means that you expect the repo to exist. In this case, you should try to reattach the workspace through the button in the desktop app.
+2. You deleted the remote repo but not the local `.diversion` folder. This means that you expect the repo to not exist. In this case, you should delete the `.diversion` folder and try again.
+
+You can always [reach out to us in Discord](https://discord.com/invite/HDAGJvgkuT) for any further assistance.
