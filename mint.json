@@ -71,6 +71,7 @@
             "basic/going-back-in-time",
             "basic/undo-pending-changes",
             "basic/undo-previous-commit",
+            "basic/organization-management",
             "basic/import-from-git",
             "basic/import-from-git-lfs",
             "basic/sync-pause-resume"

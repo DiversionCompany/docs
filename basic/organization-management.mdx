@@ -3,25 +3,26 @@ title: 'Organization management'
 description: 'Managing your organization and its members'
 ---
 
-In Diversion, an organization is a group of users who share repositories, making it easier to collaborate and manage projects.
+In Diversion, an organization is a group of users who share repositories, making it easier to collaborate and manage projects. You can find your organizations under `Your Profile` in the user menu.
+
+<img src="/images/org-mgmt-profile-menu-item.png" alt="Profile button" />
 
 ## Creating an organization
 
-Right now, an organization is created automatically for you when you cross into a paying tier.
-For the Indie tier, an organization will be created when you invite the 5th collaborator (6th user) to a repository.
-For the Educational License, an organization will be created when you invite the 10th collaborator (11th user) to a repository.
-Pro tier users always have an organization.
+Right now, an organization is created automatically for you when you cross into a paying tier, which is different depending on who you are (indie/educational). Pro tier users always have an organization.
 
 ## Managing an organization
 
-Each organization has an owner. The owner can invite other users to join the organization, giving them access to the organization's repositories.
-When you add a user to your organization, they will have access to all the repositories owned by the organization.
+Each organization has an owner. The owner can invite other users to join the organization.
+When you add a user to your organization, they won't have access to all of your repositories and you can still manage access on a per-repo basis.
 
 When inviting a user, the owner can decide if the user should have admin privileges. Admins can also manage users, same as the owner.
 
 The difference between the owner and an admin is that billing for the organization is managed through the owner's Diversion account.
 
-[IMAGE]
+<img src="/images/org-mgmt-invite-user.png" alt="Invite user modal window" />
+
+If you send an invite to someone who doesn't have a Diversion account, they will be prompted to create one.
 
 ### Removing users
 
@@ -29,11 +30,11 @@ The owner or admins can also remove users from the organization. When removing a
 
 This means that the Diversion agent will no longer sync these repositories with the user's workspace. This also means that the user will keep stale copies of the repositories that were previously cloned locally.
 
-[IMAGE]
+<img src="/images/org-mgmt-remove-user.png" alt="Remove user confirmation modal window" />
 
 Removing a user that owns repositories is currently not supported through the app. You'll have to contact support to transfer ownership of those repositories before removing the user.
 
-[IMAGE]
+<img src="/images/org-mgmt-unable-to-remove-user.png" alt="Unable to remove user who owns repos" />
 
 ## Working in an organization
 
@@ -45,4 +46,4 @@ Other than that, working as part of an organization is exactly the same as worki
 
 ### What happens to my repositories if I'm a member of multiple organizations?
 
-From reviewing our user base, this is a pretty rare case. If you're a member of multiple organizations, when you create a new repository, it won't be automatically assigned to any repo. Right now, if you want to assign a repository to an organization, you'll have to contact support.
+If you're a member of multiple organizations, when you create a new repository, it won't be automatically assigned to any repo. Right now, if you want to assign a repository to an organization, you'll have to contact support.
