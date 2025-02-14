@@ -1,0 +1,61 @@
+---
+title: 'The .divignore file'
+description: 'Safely ignore files not needed in your repository'
+---
+
+The `.dvignore` file is used by Diversion to specify files and directories that should be ignored when tracking changes. This helps keep the repository clean by excluding unnecessary or automatically generated files, such as build artifacts, temporary files, and cached data.
+
+### Purpose
+
+Using a `.dvignore` file ensures that only relevant files are committed to the repository. This helps:
+
+- Prevent clutter from unnecessary files.
+- Improve performance by avoiding tracking large or frequently changing temporary files.
+- Avoid committing sensitive or auto-generated files.
+
+### File Structure
+
+The `.dvignore` file consists of patterns defining which files or directories to exclude. It typically follows these rules:
+
+- Lines starting with `#` are comments.
+- Wildcards `(*)` match multiple characters.
+- Directories ending with `/` ignore all contents inside.
+- Negations `(!)` explicitly include files that might otherwise be ignored.
+
+For game engine-specific projects, `.divignore` ignores:
+
+#### Unreal
+```
+Build/*               # Unreal Engine build files
+Saved/*               # Saved game states and config files
+Intermediate/*        # Compiled intermediate files
+DerivedDataCache/*    # Editor cache files
+```
+
+#### Unity
+```
+/[Ll]ibrary/          # Unity Library
+/[Tt]emp/             # Temporary files
+/[Oo]bj/              # Object files
+/[Bb]uild/            # Build directories
+/[Uu]ser[Ss]ettings/  # User-specific settings
+```
+
+#### Godot
+
+```
+.godot/               # Godot internal directory
+.import/              # Import cache folder
+export.cfg            # Export settings
+export_presets.cfg    # Export presets
+*.translation         # Auto-generated translation files
+```
+
+You can modify the `.dvignore` file based on your project needs. If you work with additional tools or frameworks, consider adding their cache or temporary directories to improve repository management.
+
+For example, if you use a custom build system, you might add:
+
+```
+/build_output/
+/temp_build_files/
+```
