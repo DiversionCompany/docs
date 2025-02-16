@@ -1,5 +1,5 @@
 ---
-title: 'The .divignore file'
+title: 'The .dvignore file'
 description: 'Safely ignore files not needed in your repository'
 ---
 
@@ -22,7 +22,7 @@ The `.dvignore` file consists of patterns defining which files or directories to
 - Directories ending with `/` ignore all contents inside.
 - Negations `(!)` explicitly include files that might otherwise be ignored.
 
-For game engine-specific projects, `.divignore` ignores:
+For game engine-specific projects, `.dvignore` ignores:
 
 #### Unreal
 ```
@@ -59,3 +59,12 @@ For example, if you use a custom build system, you might add:
 /build_output/
 /temp_build_files/
 ```
+
+<Note>
+IMPORTANT NOTE: Files and directories that are already committed, will NOT be ignored by .dvignore.
+
+1. If you wish to ignore a committed path, you need to first delete it and commit the deletion. If the content of that path can’t be auto-generated, you should back it up somewhere else and copy back after committing the deletion.
+2. Notify your collaborators to backup their copies before committing the deletion, because updating with that commit will delete their copies too.
+3. Example of auto-generated paths: build artifacts and intermediates, auto-generated code.
+4. Example of non-auto-generated paths: credentials files, local configuration files.
+</Note>

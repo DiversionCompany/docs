@@ -75,7 +75,7 @@
             "basic/import-from-git",
             "basic/import-from-git-lfs",
             "basic/sync-pause-resume",
-            "basic/divignore"
+            "basic/dvignore"
           ]
         },
         {
