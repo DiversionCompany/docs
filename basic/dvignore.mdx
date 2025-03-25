@@ -17,7 +17,8 @@ Using a `.dvignore` file ensures that only relevant files are committed to the r
 
 The `.dvignore` file consists of patterns defining which files or directories to exclude. It typically follows these rules:
 
-- Lines starting with `#` are comments.
+- A line starting with `#` serves as a comment. Put a backslash `\` in front of the first hash for patterns that begin with a hash.
+- Don't mix comments and patterns on the same line. **Mixing them will cause the pattern to not have any effect.**
 - Wildcards `(*)` match multiple characters.
 - Directories ending with `/` ignore all contents inside.
 - Negations `(!)` explicitly include files that might otherwise be ignored.
@@ -26,29 +27,43 @@ For game engine-specific projects, `.dvignore` ignores:
 
 #### Unreal
 ```
-Build/*               # Unreal Engine build files
-Saved/*               # Saved game states and config files
-Intermediate/*        # Compiled intermediate files
-DerivedDataCache/*    # Editor cache files
+# Unreal Engine build files
+Build/*               
+# Saved game states and config files
+Saved/*               
+# Compiled intermediate files
+Intermediate/*        
+# Editor cache files
+DerivedDataCache/*    
 ```
 
 #### Unity
 ```
-/[Ll]ibrary/          # Unity Library
-/[Tt]emp/             # Temporary files
-/[Oo]bj/              # Object files
-/[Bb]uild/            # Build directories
-/[Uu]ser[Ss]ettings/  # User-specific settings
+# Unity Library
+/[Ll]ibrary/          
+# Temporary files
+/[Tt]emp/             
+# Object files
+/[Oo]bj/              
+# Build directories
+/[Bb]uild/            
+# User-specific settings
+/[Uu]ser[Ss]ettings/  
 ```
 
 #### Godot
 
 ```
-.godot/               # Godot internal directory
-.import/              # Import cache folder
-export.cfg            # Export settings
-export_presets.cfg    # Export presets
-*.translation         # Auto-generated translation files
+# Godot internal directory
+.godot/               
+# Import cache folder
+.import/              
+# Export settings
+export.cfg            
+# Export presets
+export_presets.cfg    
+# Auto-generated translation files
+*.translation         
 ```
 
 You can modify the `.dvignore` file based on your project needs. If you work with additional tools or frameworks, consider adding their cache or temporary directories to improve repository management.
