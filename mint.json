@@ -70,7 +70,7 @@
             "basic/working-in-parallel",
             "basic/going-back-in-time",
             "basic/undo-pending-changes",
-            "basic/undo-previous-commit",
+            "basic/changing-the-past",
             "basic/organization-management",
             "basic/import-from-git",
             "basic/import-from-git-lfs",
@@ -310,6 +310,10 @@
     {
       "source": "/tutorials/branching-and-merging",
       "destination": "/basic/working-in-parallel"
+    },
+    {
+      "source": "/basic/undo-previous-commit",
+      "destination": "/basic/changing-the-past"
     }
   ],
   "footerSocials": {
