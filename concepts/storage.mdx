@@ -1,0 +1,36 @@
+---
+title: 'Storage'
+description: 'How we calculate your storage usage'
+---
+
+Diversion stores your projects and their histories in the cloud. This is what allows you to access your projects from any device and to collaborate with your team.
+However, this also means that you need to be aware of how much storage you are using and how it is calculated.
+
+<Card title="When is storage calculated?" icon="triangle-exclamation" iconType="duotone" color="#ca8b04">
+  Storage is calculated daily. If you've made changes and don't see them reflected in your storage usage, wait until the next day and check again.
+</Card>
+
+
+## For each file
+Diversion keeps a history of the files in your repository, one version per commit that includes that file.
+This means that if you have a file that is 1 MB in size and you have made 10 commits that include that file, it will count as 10 MB of storage usage.
+
+If you delete that file, it will still count as 10 MB of storage usage, since the history of that file is still stored in the repository
+ and you can always revert to a previous commit that includes that file, or download it from the history.
+
+A feature that will allow removing these older versions, and freeing up space, is on our roadmap.
+
+New files, or files with changes that are not yet committed, are also counted towards your storage quota, since they are synced to the cloud.
+These are easier to remove, since you can just `reset` them from your workspace and they will be removed from the cloud as well, and will no longer count towards your storage.
+
+## For each repository
+For each repository, you can see how much storage you are using in the app's home page. This is the total size of all the files in the repository, including all the versions of each file.
+<img src="/images/storage-per-repository.png" alt="Storage per repository" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
+
+## For each organization
+For an organization, all of the repositories assigned to that organization are counted. The storage quota is calculated for the owner of the organization.
+
+If an owner or admin of an organization invites a new member, and that member has repositories that are not assigned to any organization, those repositories will be automatically added to the
+ inviting user's organization and their storage will be counted towards the storage quota of the organization. To avoid this, you can create a separate Diversion account to use in the organization.
+
+For any help, contact support.
