@@ -82,7 +82,8 @@
           "group": "Concepts",
           "pages": [
             "concepts/repo-branch-workspace",
-            "concepts/storage"
+            "concepts/storage",
+            "concepts/syncing"
           ]
         },
         {
