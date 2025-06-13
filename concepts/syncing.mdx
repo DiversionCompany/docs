@@ -1,0 +1,70 @@
+---
+title: 'Syncing'
+description: 'Understand how to pause/resume and selectively sync your repositories'
+---
+
+**Repositories**
+
+By default your workspaces are synced in full, but there will be cases when you might want to:
+
+- pause temporarily the syncing of your workspace.
+- just sync a subset of your workspaces.
+
+
+**Pause workspace sync**
+
+You can temporarily pause syncing for any workspace through the desktop app:
+
+Go to Settings
+<img src="/images/syncing/SettingsMenu.png" alt="Diversion's Desktop App Settings Button" />
+
+Pause sync
+<img src="/images/syncing/PauseSyncMenu.png" alt="Diversion's Desktop App Pause Sync" />
+
+Confirm to pause syncing for the current workspace
+<img src="/images/syncing/ConfirmPauseSyncMenu.png" alt="Diversion's Desktop App Confirm Pause Sync" />
+
+While paused:
+
+Your local changes are preserved and you can continue working
+Remote commits from other team members won't sync to your workspace
+Your commits won't be pushed to the repository
+
+This is useful when you need to work offline or want to prevent interruptions during intensive work sessions. Remember to resume syncing when you're ready to collaborate again.
+
+**Selective sync**
+
+Control exactly which folders sync to your local workspace through Settings.
+<img src="/images/syncing/SettingsMenu.png" alt="Diversion's Desktop App Settings Button" />
+
+Selective sync
+<img src="/images/syncing/SelectiveSyncMenu.png" alt="Diversion's Desktop App Selective Sync" />
+
+Check (for sync) or uncheck (for unsync) the desired directories
+<img src="/images/syncing/ConfirmSelectiveSyncMenu.png" alt="Diversion's Desktop App Confirm Selective Sync" />
+
+How it works:
+
+Checked folders: Contents sync locally, including all subfolders
+Unchecked folders: Won't sync locally
+Partially checked folders: Only checked subfolders will sync
+Previously synced folders: Will be deleted locally if unchecked
+
+Important notes:
+
+Selective sync settings apply only to the current workspace
+Settings cannot be changed while you have pending changes—commit or stash first
+Each workspace can have different selective sync configurations
+
+This feature is particularly useful for large repositories where you only need specific assets or code sections for your current task.
+
+**Sync Conflict Detection**
+
+We’ve introduced a new mechanism to help you manage sync conflicts more smoothly.
+
+If your workspace was paused or out of sync while others made commits to the same branch—and you edited the same file without syncing—your version of the file will now be automatically backed up locally with a .dv-conflict suffix.
+
+To resolve these changes, simply use your preferred local diff tool to compare the versions, apply your edits to the original file path, and commit once you’re ready.
+
+This helps ensure you don’t lose your changes and keeps your workflow efficient.
+
