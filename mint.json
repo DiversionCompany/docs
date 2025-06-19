@@ -137,148 +137,171 @@
       "pages": [ "api-reference/introduction" ]
     },
     {
-      "group": "Repository Management",
-      "pages": [
-        "api-reference/repository-management/list-users-repositories",
-        "api-reference/repository-management/create-a-repo"
-      ]
-    },
-    {
-      "group": "Repository Manipulation",
-      "pages": [
-        "api-reference/repository-manipulation/get-details-of-an-existing-repo",
-        "api-reference/repository-manipulation/delete-a-repo",
-        "api-reference/repository-manipulation/import-a-git-repo-into-this-diversion-repo",
-        "api-reference/repository-manipulation/check-if-a-git-repo-could-be-imported-to-diversion",
-        "api-reference/repository-manipulation/sync-a-git-repo-to-this-diversion-repo",
-        "api-reference/repository-manipulation/get-file-tree-snapshot-either-one-of-workspace-branch-or-commit-id-needs-to-be-specified-as-ref-id",
-        "api-reference/repository-manipulation/get-file-tree-snapshot-for-a-nested-tree-path-either-one-of-workspace-branch-or-commit-id-needs-to-be-specified-as-ref-id",
-        "api-reference/repository-manipulation/get-object-history-in-a-ref-by-its-latest-path",
-        "api-reference/repository-manipulation/get-file-entry-either-tree-or-blob-either-one-of-workspace-branch-or-commit-id-needs-to-be-specified",
-        "api-reference/repository-manipulation/get-blob-contents-snapshot-either-one-of-workspace-branch-or-commit-id-needs-to-be-specified",
-        "api-reference/repository-manipulation/get-blob-contents-using-storage-information-as-retrieved-from-other-apis"
-      ]
-    },
-    {
-      "group": "Repository Commit Manipulation",
-      "pages": [
-        "api-reference/repository-commit-manipulation/get-repos-commits",
-        "api-reference/repository-commit-manipulation/get-repos-commitsbulk",
-        "api-reference/repository-commit-manipulation/get-repos-commits-1",
-        "api-reference/repository-commit-manipulation/post-repos-workspaces-commit",
-        "api-reference/repository-commit-manipulation/revert-commit"
-      ]
-    },
-    {
-      "group": "Repository Workspace Manipulation",
-      "pages": [
-        "api-reference/repository-workspace-manipulation/get-repos-workspaces",
-        "api-reference/repository-workspace-manipulation/create-a-workspace",
-        "api-reference/repository-workspace-manipulation/get-repos-workspaces-1",
-        "api-reference/repository-workspace-manipulation/update-workspace-name",
-        "api-reference/repository-workspace-manipulation/workspace-checkout-ref",
-        "api-reference/repository-workspace-manipulation/get-updates-needed-to-be-applied-by-the-client-to-this-workspace",
-        "api-reference/repository-workspace-manipulation/get-status-of-changes-in-workspace",
-        "api-reference/repository-workspace-manipulation/reset-changes-in-workspace",
-        "api-reference/repository-workspace-manipulation/merge-base-branch-into-workspace",
-        "api-reference/repository-workspace-manipulation/get-preferences-of-the-current-user",
-        "api-reference/repository-workspace-manipulation/update-the-preferences-of-the-current-user",
-        "api-reference/repository-workspace-manipulation/get-list-of-potential-clashes-with-files-in-other-users-workspaces-and-branches"
-      ]
-    },
-    {
-      "group": "Repository Branch Manipulation",
-      "pages": [
-        "api-reference/repository-branch-manipulation/get-repos-branches",
-        "api-reference/repository-branch-manipulation/post-repos-branches",
-        "api-reference/repository-branch-manipulation/get-the-current-branch-details",
-        "api-reference/repository-branch-manipulation/delete-repos-branches",
-        "api-reference/repository-branch-manipulation/update-a-branch"
-      ]
-    },
-    {
-      "group": "Repository Tag Manipulation",
-      "pages": [
-        "api-reference/repository-tag-manipulation/get-a-list-of-all-tags-in-the-repo",
-        "api-reference/repository-tag-manipulation/create-a-tag",
-        "api-reference/repository-tag-manipulation/get-tag-details",
-        "api-reference/repository-tag-manipulation/delete-a-tag",
-        "api-reference/repository-tag-manipulation/update-a-tag"
-      ]
-    },
-    {
-      "group": "Repository Shelves Manipulation",
-      "pages": [
-        "api-reference/repository-shelves-manipulation/get-a-list-of-all-shelves-in-the-repo",
-        "api-reference/repository-shelves-manipulation/create-a-shelf",
-        "api-reference/repository-shelves-manipulation/get-shelf-details",
-        "api-reference/repository-shelves-manipulation/delete-a-shelf",
-        "api-reference/repository-shelves-manipulation/apply-a-shelf-onto-a-workspace"
-      ]
-    },
-    {
-      "group": "File Mutation",
-      "pages": [
-        "api-reference/file-mutation/upload-file-to-a-new-or-existing-path",
-        "api-reference/file-mutation/delete-a-file-from-an-existing-path",
-        "api-reference/file-mutation/move-a-file-to-a-different-path",
-        "api-reference/file-mutation/request-an-upload-link-for-async-blob-upload-from-client-side"
-      ]
-    },
-    {
-      "group": "Repository Merge Manipulation",
-      "pages": [
-        "api-reference/repository-merge-manipulation/details-of-a-specific-merge-in-progress",
-        "api-reference/repository-merge-manipulation/after-all-conflicts-are-resolved-finalizes-the-merge-with-a-commit",
-        "api-reference/repository-merge-manipulation/close-an-open-merge-without-resolving-it",
-        "api-reference/repository-merge-manipulation/accepts-a-change-from-one-of-the-branches-base-or-other",
-        "api-reference/repository-merge-manipulation/update-a-conflicting-file-potentially-resolving-the-conflict",
-        "api-reference/repository-merge-manipulation/retrieve-conflicted-merges-in-this-repo",
-        "api-reference/repository-merge-manipulation/merge-ref-into-a-branch"
-      ]
-    },
-    {
-      "group": "Collaborators",
-      "pages": [
-        "api-reference/collaborators/get-repos-collaborators",
-        "api-reference/collaborators/delete-repos-collaborators",
-        "api-reference/collaborators/patch-repos-collaborators",
-        "api-reference/collaborators/put-repos-invites",
-        "api-reference/collaborators/post-repos-invites",
-        "api-reference/collaborators/delete-repos-invites"
-      ]
-    },
-    {
-      "group": "Repository Content Comparison",
-      "pages": [
-        "api-reference/repository-content-comparison/compare-two-refs-commitbranchworkspacetagtree-in-this-repo"
-      ]
-    },
-    {
-      "group": "Debug",
-      "pages": [
-        "api-reference/debug/check-server-is-alive"
-      ]
-    },
-    {
-      "group": "Support",
-      "pages": [
-        "api-reference/support/get-a-presigned-url-that-will-be-used-to-upload-a-support-bundle"
-      ]
-    },
-    {
-      "group": "Analytics",
-      "pages": [
-        "api-reference/analytics/ingest-analytics-events",
-        "api-reference/analytics/ingest-analytics-events-without-user-context"
-      ]
-    },
-    {
-      "group": "Github App Integration",
-      "pages": [
-        "api-reference/github-app-integration/an-endpoint-for-github-app-installation-callbacks"
-      ]
-    }
+    "group": "Authentication",
+    "pages": [
+      "api-reference/authentication/test-token"
+    ]
+  },
+  {
+    "group": "Account",
+    "pages": [
+      "api-reference/account/get-billing-information"
+    ]
+  },
+  {
+    "group": "API Reference",
+    "pages": [
+      "api-reference/update-current-users-tier",
+      "api-reference/create-organization",
+      "api-reference/get-organization-details",
+      "api-reference/rename-organization",
+      "api-reference/list-all-notifications-for-the-user"
+    ]
+  },
+  {
+    "group": "Content Generation",
+    "pages": [
+      "api-reference/content-generation/generate-content"
+    ]
+  },
+  {
+    "group": "Repository Management",
+    "pages": [
+      "api-reference/repository-management/list-users-repositories",
+      "api-reference/repository-management/create-a-repo"
+    ]
+  },
+  {
+    "group": "Repository Manipulation",
+    "pages": [
+      "api-reference/repository-manipulation/get-repository-details",
+      "api-reference/repository-manipulation/delete-repository",
+      "api-reference/repository-manipulation/import-git-repository",
+      "api-reference/repository-manipulation/verify-git-repository-import",
+      "api-reference/repository-manipulation/sync-git-repository",
+      "api-reference/repository-manipulation/set-default-branch",
+      "api-reference/repository-manipulation/get-file-tree",
+      "api-reference/repository-manipulation/get-tree-content-stream",
+      "api-reference/repository-manipulation/get-file-history",
+      "api-reference/repository-manipulation/get-file-entry",
+      "api-reference/repository-manipulation/get-blob-contents"
+    ]
+  },
+  {
+    "group": "Repository Commit Manipulation",
+    "pages": [
+      "api-reference/repository-commit-manipulation/list-commits",
+      "api-reference/repository-commit-manipulation/get-commits-bulk",
+      "api-reference/repository-commit-manipulation/get-commit-details",
+      "api-reference/repository-commit-manipulation/update-commit-message",
+      "api-reference/repository-commit-manipulation/count-commit-changes",
+      "api-reference/repository-commit-manipulation/commit-workspace",
+      "api-reference/repository-commit-manipulation/revert-commit",
+      "api-reference/repository-commit-manipulation/revert-to-commit"
+    ]
+  },
+  {
+    "group": "Repository Workspace Manipulation",
+    "pages": [
+      "api-reference/repository-workspace-manipulation/list-workspaces",
+      "api-reference/repository-workspace-manipulation/create-a-workspace",
+      "api-reference/repository-workspace-manipulation/get-workspace-details",
+      "api-reference/repository-workspace-manipulation/delete-workspace",
+      "api-reference/repository-workspace-manipulation/update-workspace-name",
+      "api-reference/repository-workspace-manipulation/checkout-workspace-ref",
+      "api-reference/repository-workspace-manipulation/workspace-status",
+      "api-reference/repository-workspace-manipulation/workspace-changes-stream",
+      "api-reference/repository-workspace-manipulation/reset-changes-in-workspace",
+      "api-reference/repository-workspace-manipulation/merge-base-branch-into-workspace",
+      "api-reference/repository-workspace-manipulation/get-workspace-preferences",
+      "api-reference/repository-workspace-manipulation/update-workspace-preferences",
+      "api-reference/repository-workspace-manipulation/other-workspaces-statuses"
+    ]
+  },
+  {
+    "group": "Repository Branch Manipulation",
+    "pages": [
+      "api-reference/repository-branch-manipulation/list-branches",
+      "api-reference/repository-branch-manipulation/create-branch",
+      "api-reference/repository-branch-manipulation/get-branch-details",
+      "api-reference/repository-branch-manipulation/delete-branch",
+      "api-reference/repository-branch-manipulation/update-a-branch"
+    ]
+  },
+  {
+    "group": "Repository Tag Manipulation",
+    "pages": [
+      "api-reference/repository-tag-manipulation/list-tags",
+      "api-reference/repository-tag-manipulation/create-a-tag",
+      "api-reference/repository-tag-manipulation/get-tag-details",
+      "api-reference/repository-tag-manipulation/delete-a-tag",
+      "api-reference/repository-tag-manipulation/update-a-tag"
+    ]
+  },
+  {
+    "group": "Repository Shelves Manipulation",
+    "pages": [
+      "api-reference/repository-shelves-manipulation/list-shelves",
+      "api-reference/repository-shelves-manipulation/create-a-shelf",
+      "api-reference/repository-shelves-manipulation/get-shelf-details",
+      "api-reference/repository-shelves-manipulation/delete-a-shelf",
+      "api-reference/repository-shelves-manipulation/apply-shelf"
+    ]
+  },
+  {
+    "group": "File Mutation",
+    "pages": [
+      "api-reference/file-mutation/upload-file",
+      "api-reference/file-mutation/delete-file",
+      "api-reference/file-mutation/move-file"
+    ]
+  },
+  {
+    "group": "Repository Merge Manipulation",
+    "pages": [
+      "api-reference/repository-merge-manipulation/get-merge-details",
+      "api-reference/repository-merge-manipulation/list-open-merges",
+      "api-reference/repository-merge-manipulation/merge-refs",
+      "api-reference/repository-merge-manipulation/merge-request-preview"
+    ]
+  },
+  {
+    "group": "Collaborators",
+    "pages": [
+      "api-reference/collaborators/list-collaborators",
+      "api-reference/collaborators/revoke-collaborator-access",
+      "api-reference/collaborators/update-collaborator-access",
+      "api-reference/collaborators/invite-collaborator"
+    ]
+  },
+  {
+    "group": "Repository Content Comparison",
+    "pages": [
+      "api-reference/repository-content-comparison/compare-refs"
+    ]
+  },
+  {
+    "group": "Organization Management",
+    "pages": [
+      "api-reference/organization-management/list-users-organizations",
+      "api-reference/organization-management/list-organization-repositories",
+      "api-reference/organization-management/list-organization-members",
+      "api-reference/organization-management/get-organization-member-details",
+      "api-reference/organization-management/delete-a-member-from-the-organization",
+      "api-reference/organization-management/list-repositories-a-member-has-access-to-within-the-organization",
+      "api-reference/organization-management/invite-a-new-member-to-the-organization",
+      "api-reference/organization-management/change-an-organization-members-role",
+      "api-reference/organization-management/leave-organization",
+      "api-reference/organization-management/list-organization-subscription-information"
+    ]
+  },
+  {
+    "group": "User Management",
+    "pages": [
+      "api-reference/user-management/get-user-information",
+      "api-reference/user-management/patch-user"
+    ]
+  }
   ],
   "redirects": [
     {
