@@ -165,6 +165,7 @@ paths:
         - Account
   /account/tier:
     post:
+      x-excluded: true
       operationId: src.handlersv2.account.update_tier
       summary: Update current user's tier
       requestBody:
@@ -185,6 +186,8 @@ paths:
       security:
         - OAuth2:
             - coreapi/write
+      tags:
+        - Account
   /content/generate:
     post:
       operationId: src.handlersv2.content.generate
@@ -666,7 +669,7 @@ paths:
     get:
       x-excluded: true
       operationId: src.handlersv2.workspace.get_client_should_upload_logs
-      summary: Check log upload requirement
+      summary: Check if client should upload logs
       description: Check whether the agent should upload the logs
       responses:
         '200':
@@ -742,8 +745,8 @@ paths:
     get:
       x-excluded: true
       operationId: src.handlersv2.workspace.get_workspace_updates
-      summary: Workspace updates
-      description: Get updates needed to be applied by the client to this workspace
+      summary: Get remote workspace updates
+      description: Get updates needed to be applied by the client to sync the local copy this remote workspace
       parameters:
         - in: query
           name: from_ordinal_id
@@ -772,7 +775,7 @@ paths:
     patch:
       x-excluded: true
       operationId: src.handlersv2.workspace.apply_client_updates
-      summary: Apply workspace updates
+      summary: Apply local updates to remote workspace
       requestBody:
         required: true
         content:
@@ -804,7 +807,7 @@ paths:
       x-excluded: true
       operationId: src.handlersv2.workspace.get_workspace_updates_iter
       summary: Workspace updates stream
-      description: Get updates needed to be applied by the client to this workspace
+      description: Get updates needed to be applied by the client to sync the local copy with this remote workspace
       parameters:
         - in: query
           name: from_ordinal_id
@@ -866,8 +869,10 @@ paths:
       - $ref: '#/components/parameters/RepoParam'
       - $ref: '#/components/parameters/WorkspaceParam'
     get:
+      x-excluded: true
       operationId: src.handlersv2.workspace.get_changes
-      summary: Workspace changes stream
+      summary: Workspace status stream
+      description: Get updates needed to be applied by the client to sync the local copy with this remote workspace
       parameters:
         - in: query
           name: limit
@@ -1124,8 +1129,8 @@ paths:
       - $ref: '#/components/parameters/FileWalkRecurseParam'
     get:
       operationId: src.handlersv2.workspace.get_other_statuses
-      summary: Other workspaces statuses
-      description: Get list of potential clashes with files in other users' workspaces and branches
+      summary: Other workspace statuses
+      description: Get list of potential conflicts with files in other users' workspaces and branches
       responses:
         '200':
           description: By path description of file statuses in other workspaces and branches
@@ -1549,7 +1554,7 @@ paths:
     get:
       operationId: src.handlersv2.tree.filetree
       summary: Get file tree
-      description: Get file tree snapshot. Either one of workspace, branch or commit ID needs to be specified as ref ID. (Executed on secondary shard)
+      description: Get file tree snapshot. Either one of workspace, branch or commit ID needs to be specified as ref ID
       parameters:
         - $ref: '#/components/parameters/RepoParam'
         - $ref: '#/components/parameters/RefParam'
@@ -1587,7 +1592,7 @@ paths:
     get:
       operationId: src.handlersv2.tree_content.tree_content
       summary: Get tree content stream
-      description: Get file tree snapshot. Either one of workspace, branch or commit ID needs to be specified as ref ID. (Executed on secondary shard)
+      description: Get file tree snapshot. Either one of workspace, branch or commit ID needs to be specified as ref ID
       parameters:
         - $ref: '#/components/parameters/RepoParam'
         - $ref: '#/components/parameters/RefParam'
@@ -1795,8 +1800,8 @@ paths:
     get:
       x-hidden: true
       operationId: src.handlersv2.files.download_blob
-      summary: Download blob
-      description: Get blob contents using storage information, as retrieved from other APIs
+      summary: Download file
+      description: Download file contents using blob storage information, as retrieved from other APIs
       parameters:
         - $ref: '#/components/parameters/RepoParam'
         - name: storage_backend
@@ -2109,6 +2114,7 @@ paths:
     post:
       operationId: src.handlersv2.merge.post
       summary: Merge refs
+      description: Merge branch / workspace / commit into target branch
       parameters:
         - in: query
           name: base_id
@@ -2164,9 +2170,10 @@ paths:
     parameters:
       - $ref: '#/components/parameters/RepoParam'
     get:
+      x-hidden: true
       operationId: src.handlersv2.merge.merge_request
-      summary: Merge request preview
-      description: Preview merging two branches and request a review
+      summary: Merge request
+      description: WIP - Preview merging two branches and request a review
       parameters:
         - in: query
           name: base_id
@@ -2426,7 +2433,7 @@ paths:
     get:
       operationId: src.handlersv2.tree.compare
       summary: Compare refs
-      description: Compare two refs (commit/branch/workspace/tag/tree) in this repo. (Executed on secondary shard)
+      description: Compare two refs (commit/branch/workspace/tag/tree) in this repo
       parameters:
         - in: query
           name: base_id
@@ -2498,6 +2505,8 @@ paths:
       security:
         - OAuth2:
             - coreapi/write
+      tags:
+        - Organization Management
     get:
       operationId: src.handlersv2.organization.list_all
       summary: List user's organizations
@@ -2537,6 +2546,8 @@ paths:
       security:
         - OAuth2:
             - coreapi/read
+      tags:
+        - Organization Management
     patch:
       operationId: src.handlersv2.organization.rename_organization
       summary: Rename organization
@@ -2565,7 +2576,8 @@ paths:
       security:
         - OAuth2:
             - coreapi/write
-
+      tags:
+        - Organization Management
   /organizations/{org_id}/repos:
     get:
       operationId: src.handlersv2.organization.list_repos
@@ -2689,7 +2701,7 @@ paths:
       - $ref: '#/components/parameters/UserIdParam'
     get:
       operationId: src.handlersv2.organization.list_member_repos
-      summary: List repositories a member has access to within the organization
+      summary: List accessible repos
       description: Returns a list of repositories the member will lose access to if removed.
       responses:
         '200':
@@ -3066,6 +3078,7 @@ paths:
         - Stripe Integration
   /notifications:
     get:
+      x-hidden: true
       operationId: src.handlersv2.notifications.list_all
       summary: List all notifications for the user
       responses:
@@ -3080,6 +3093,8 @@ paths:
       security:
         - OAuth2:
             - coreapi/read
+      tags:
+        - Notifications
 components:
   securitySchemes:
     OAuth2: # arbitrary name

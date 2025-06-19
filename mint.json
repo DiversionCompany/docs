@@ -149,16 +149,6 @@
     ]
   },
   {
-    "group": "API Reference",
-    "pages": [
-      "api-reference/update-current-users-tier",
-      "api-reference/create-organization",
-      "api-reference/get-organization-details",
-      "api-reference/rename-organization",
-      "api-reference/list-all-notifications-for-the-user"
-    ]
-  },
-  {
     "group": "Content Generation",
     "pages": [
       "api-reference/content-generation/generate-content"
@@ -210,12 +200,11 @@
       "api-reference/repository-workspace-manipulation/update-workspace-name",
       "api-reference/repository-workspace-manipulation/checkout-workspace-ref",
       "api-reference/repository-workspace-manipulation/workspace-status",
-      "api-reference/repository-workspace-manipulation/workspace-changes-stream",
       "api-reference/repository-workspace-manipulation/reset-changes-in-workspace",
       "api-reference/repository-workspace-manipulation/merge-base-branch-into-workspace",
       "api-reference/repository-workspace-manipulation/get-workspace-preferences",
       "api-reference/repository-workspace-manipulation/update-workspace-preferences",
-      "api-reference/repository-workspace-manipulation/other-workspaces-statuses"
+      "api-reference/repository-workspace-manipulation/other-workspace-statuses"
     ]
   },
   {
@@ -261,8 +250,7 @@
     "pages": [
       "api-reference/repository-merge-manipulation/get-merge-details",
       "api-reference/repository-merge-manipulation/list-open-merges",
-      "api-reference/repository-merge-manipulation/merge-refs",
-      "api-reference/repository-merge-manipulation/merge-request-preview"
+      "api-reference/repository-merge-manipulation/merge-refs"
     ]
   },
   {
@@ -284,11 +272,14 @@
     "group": "Organization Management",
     "pages": [
       "api-reference/organization-management/list-users-organizations",
+      "api-reference/organization-management/create-organization",
+      "api-reference/organization-management/get-organization-details",
+      "api-reference/organization-management/rename-organization",
       "api-reference/organization-management/list-organization-repositories",
       "api-reference/organization-management/list-organization-members",
       "api-reference/organization-management/get-organization-member-details",
       "api-reference/organization-management/delete-a-member-from-the-organization",
-      "api-reference/organization-management/list-repositories-a-member-has-access-to-within-the-organization",
+      "api-reference/organization-management/list-accessible-repos",
       "api-reference/organization-management/invite-a-new-member-to-the-organization",
       "api-reference/organization-management/change-an-organization-members-role",
       "api-reference/organization-management/leave-organization",

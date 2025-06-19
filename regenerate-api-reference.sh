@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 
-# This script is used to regenerate the API reference docs
+find ./api-reference/ -mindepth 1 -maxdepth 1 -type d -exec rm -rf {} \; || exit 1
 
-find api-reference -maxdepth 1 -type d -exec rm -rf {} \;
+cp ../diversion/core/api/coreapi.yml api-reference/openapi.yml || exit 1
 
-cp ../diversion/core/api/coreapi.yml api-reference/openapi.yml
-
-ENDPOINTS=$(npx @mintlify/scraping@latest openapi-file api-reference/openapi.yml -o api-reference)
+ENDPOINTS=$(npx --yes @mintlify/scraping@latest openapi-file api-reference/openapi.yml -o api-reference --yes)
 
 #MDX_SPEC=$(echo "$ENDPOINTS" | jq -r '.endpoints | keys | join(" ")')
 
