@@ -1,0 +1,239 @@
+# Webhooks
+
+Diversion supports webhooks to notify external services when events occur in your repositories. This enables integration with CI/CD systems, notification services, and custom automation workflows.
+
+## Overview
+
+Webhooks are HTTP callbacks that are triggered by specific repository events. When an event occurs, Diversion sends a POST request to the configured endpoint URL with event details in the request body.
+
+### Key Features
+
+- **Event-driven notifications**: Real-time notifications for repository events
+- **Secure delivery**: HMAC-SHA256 signature verification for request authenticity
+- **Reliable delivery**: Automatic retries with exponential backoff
+- **Flexible configuration**: Subscribe to specific event types per webhook
+- **Admin-only management**: Repository admin access required
+
+## Supported Events
+
+Currently, Diversion supports the following webhook events:
+
+| Event | Description | Payload |
+|-------|-------------|---------|
+| `commit_created` | Triggered when a new commit is created | Commit details, repository info, author |
+
+## Managing Webhooks
+
+Webhooks can be managed through the web application. Access requires repository admin permissions.
+
+### Web Interface
+
+Navigate to **Settings → Webhooks** for repository-specific webhooks
+
+![Webhook Management Interface](/images/webhooks/webhook-list.png)
+
+### Creating a Webhook
+
+1. Click **"Create Webhook"**
+2. Fill in the webhook details:
+   - **Name**: Descriptive name for the webhook
+   - **Description**: Optional description of the webhook's purpose
+   - **Endpoint URL**: HTTPS URL where events will be sent
+   - **Secret**: Webhook secret for signature verification (auto-generated if not provided)
+   - **Events**: Select which events should trigger the webhook
+3. Click **"Create"** to save the webhook
+
+![Create Webhook Form](/images/webhooks/webhook-create.png)
+
+### Webhook Secret
+
+The webhook secret is used to generate HMAC-SHA256 signatures for request verification. Secrets must be:
+- Between 24-75 characters long
+- Stored encrypted in the database
+- Only visible during webhook creation
+
+**Auto-generation**: If no secret is provided, Diversion generates a cryptographically secure 32-byte secret in the format: `whsec_<base64-encoded-random-bytes>`
+
+## Webhook Payload
+
+All webhook payloads follow a consistent structure:
+
+```json
+{
+  "id": "evt_1234567890",
+  "timestamp": "2025-01-17T12:34:56.789Z",
+  "type": "v1.repo.commit.created",
+  "data": {
+    // Event-specific data
+  }
+}
+```
+
+### Commit Created Event Payload
+
+```json
+{
+  "id": "evt_2KtGQeeJhtF5qQ",
+  "timestamp": "2025-01-17T08:23:15.123Z",
+  "type": "v1.repo.commit.created",
+  "data": {
+    "repository": {
+      "id": "dv.repo.12345678-1234-1234-1234-123456789abc",
+      "name": "my-project",
+      "owner_id": "Google_12345678901234567890"
+    },
+    "commit": {
+      "id": "dv.commit.123456",
+      "url": "https://app.diversion.dev/r/my-project/commit/dv.commit.123456",
+      "message": "Add new feature",
+      "timestamp": "2025-01-17T08:23:14.567Z",
+      "branch": {
+        "id": 42,
+        "name": "feature-branch"
+      },
+      "author": {
+        "id": "Google_12345678901234567890",
+        "name": "John Doe",
+        "email": "john.doe@example.com"
+      },
+      "parents": ["dv.commit.123455"]
+    },
+    "correlation_id": "abc123-def456-ghi789"
+  }
+}
+```
+
+## Request Signature Verification
+
+All webhook requests include signature headers for verification:
+
+- `webhook-id`: Unique message identifier
+- `webhook-timestamp`: Request timestamp (Unix epoch in seconds)
+- `webhook-signature`: HMAC-SHA256 signature (format: `v1,base64signature`)
+
+### Signature Verification Example
+
+Diversion provides a reference implementation for webhook signature verification. Here's an example in Python:
+
+```python
+import base64
+import hashlib
+import hmac
+
+def verify_webhook_signature(webhook_id, webhook_timestamp, sig_header, secret, payload_body):
+    # Svix signature format: v1,base64signature
+    if not sig_header.startswith('v1,'):
+        print(f"Invalid signature format: {sig_header}")
+        return False
+    
+    # Extract the signature part after v1,
+    v1_signature = sig_header[3:]  # Skip "v1,"
+    
+    # Extract the base64 part of the secret (after whsec_ prefix)
+    if secret.startswith('whsec_'):
+        signing_secret = secret[6:]  # Remove 'whsec_' prefix
+    else:
+        print("Warning: Secret doesn't start with whsec_, using as-is")
+        signing_secret = secret
+    
+    # Decode the base64 signing secret to get the raw key
+    try:
+        signing_key = base64.b64decode(signing_secret)
+    except Exception as e:
+        print(f"Failed to decode signing secret: {e}")
+        return False
+    
+    # Construct the signed content according to Svix docs
+    # Format: {id}.{timestamp}.{payload}
+    signed_content = f"{webhook_id}.{webhook_timestamp}.{payload_body.decode('utf-8')}"
+    
+    # Compute HMAC-SHA256
+    computed_hmac = hmac.new(
+        signing_key,  # Use the decoded bytes as key
+        signed_content.encode('utf-8'),
+        hashlib.sha256  
+    ).digest()
+    
+    # Base64 encode the result
+    expected_sig = base64.b64encode(computed_hmac).decode('utf-8')
+    
+    # Compare signatures
+    is_valid = hmac.compare_digest(expected_sig, v1_signature)
+    
+    if is_valid:
+        print("Svix signature verified successfully")
+    else:
+        print(f"Signature verification failed. Expected: {expected_sig}, Got: {v1_signature}")
+    
+    return is_valid
+```
+
+**Note**: A fully tested webhook validation implementation is available as an AWS Lambda function example. [Contact support](mailto:support@diversion.dev) if you need assistance with webhook signature verification.
+
+
+## Webhook Delivery
+
+Diversion ensures reliable webhook delivery with the following features:
+
+- **Automatic retries**: Failed deliveries are retried with exponential backoff
+- **Delivery tracking**: Monitor webhook delivery status
+- **Rate limiting**: Prevents overwhelming destination servers
+- **Circuit breaking**: Temporarily disables failing endpoints
+
+### Delivery Guarantees
+
+- Webhooks are delivered at least once
+- Events may arrive out of order
+- Use the `timestamp` field for event ordering
+- Implement idempotent handlers using the `id` field
+
+## Testing Webhooks
+
+To test your signature verification implementation:
+1. Create a test webhook with a known secret
+2. Use the example validation code provided above
+3. Compare against the reference AWS Lambda implementation
+
+## Best Practices
+
+1. **Use HTTPS endpoints**: HTTP endpoints are not supported for security
+2. **Verify signatures**: Always verify webhook signatures in production
+3. **Handle retries**: Make webhook handlers idempotent
+4. **Respond quickly**: Return 2xx status within 30 seconds
+5. **Queue processing**: For long-running tasks, queue work and respond immediately
+6. **Monitor failures**: Set up alerts for webhook delivery failures
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Webhook not triggering**
+   - Verify the webhook is active
+   - Check event type subscriptions
+   - Ensure you have admin access to the repository
+
+2. **Signature verification failing**
+   - Confirm you're using the correct secret
+   - Verify timestamp is within tolerance (5 minutes)
+   - Check signature format and parsing
+
+3. **Delivery failures**
+   - Ensure endpoint is publicly accessible
+   - Check for SSL/TLS certificate issues
+   - Verify endpoint returns 2xx status code
+   - Review server logs for errors
+
+### Debugging Tips
+
+- Use webhook testing tools like [webhook.site](https://webhook.site) for initial testing
+- Enable debug logging in your webhook handler
+- Test with curl using the expected payload format
+- [Contact support](mailto:support@diversion.dev) if you need help investigating delivery issues
+
+## Security Considerations
+
+1. **Secret management**: Store webhook secrets securely, never in code
+2. **Payload validation**: Validate all webhook data before processing
+3. **Rate limiting**: Implement rate limiting on webhook endpoints
+4. **Authentication**: Use webhook signatures as the only authentication method
+5. **HTTPS only**: Always use HTTPS endpoints for webhook delivery
