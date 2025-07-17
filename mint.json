@@ -129,8 +129,7 @@
             "cmd-ref/workspace"
           ]
         },
-        "ci-cd",
-        "webhooks"
+        "ci-cd"
       ]
     },
     {
