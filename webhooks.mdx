@@ -129,18 +129,12 @@ def verify_webhook_signature(webhook_id, webhook_timestamp, sig_header, secret, 
     # Extract the signature part after v1,
     v1_signature = sig_header[3:]  # Skip "v1,"
     
-    # Extract the base64 part of the secret (after whsec_ prefix)
-    if secret.startswith('whsec_'):
-        signing_secret = secret[6:]  # Remove 'whsec_' prefix
-    else:
-        print("Warning: Secret doesn't start with whsec_, using as-is")
-        signing_secret = secret
-    
-    # Decode the base64 signing secret to get the raw key
+    # Use raw hex format directly as the signing key
     try:
-        signing_key = base64.b64decode(signing_secret)
+        # Svix uses the literal hex string as UTF-8 bytes for signing
+        signing_key = secret.encode('utf-8')
     except Exception as e:
-        print(f"Failed to decode signing secret: {e}")
+        print(f"Failed to encode secret: {e}")
         return False
     
     # Construct the signed content according to Svix docs
@@ -149,7 +143,7 @@ def verify_webhook_signature(webhook_id, webhook_timestamp, sig_header, secret, 
     
     # Compute HMAC-SHA256
     computed_hmac = hmac.new(
-        signing_key,  # Use the decoded bytes as key
+        signing_key,  # Use the hex string encoded as UTF-8 bytes
         signed_content.encode('utf-8'),
         hashlib.sha256  
     ).digest()
