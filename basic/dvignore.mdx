@@ -21,7 +21,7 @@ The `.dvignore` file consists of patterns defining which files or directories to
 
 - A line starting with `#` serves as a comment. Put a backslash `\` in front of the first hash for patterns that begin with a hash.
 - Don’t mix comments and patterns on the same line. **Mixing them will cause the pattern to not have any effect.**
-- Wildcards `(*)` match multiple characters.
+- Wildcard `*` matches any sequence of characters (but does **not** cross `/` boundaries, unlike `**`).
 - Directories ending with `/` ignore all contents inside.
 - Negations `(!)` explicitly include files that might otherwise be ignored.
 
