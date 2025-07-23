@@ -13,7 +13,7 @@ Using a `.dvignore` file ensures that only relevant files are committed to the r
 - Improve performance by avoiding tracking large or frequently changing temporary files.
 - Avoid committing sensitive or auto-generated files.
 
-While `.dvignore` decides what the repository **tracks and stores**, [Selective Sync](advanced/selective-sync) controls which of those already‑tracked files your workspace actually downloads.
+While `.dvignore` decides what the repository **tracks and stores**, [Selective Sync](../advanced/selective-sync) controls which of those already‑tracked files your workspace actually downloads.
 
 ### File Structure
 
@@ -30,11 +30,11 @@ The `.dvignore` file consists of patterns defining which files or directories to
 - **Root‑anchored `/`** – a leading slash matches from the repository root; without it, the pattern can match anywhere.
 - **Double asterisk `**`** – matches across directory boundaries (e.g., `Assets/**/config.ini`).
 - **Negation precedence** – a `!pattern` only re‑includes a path if one of its ancestors was ignored by a prior rule.
-    ```text
-    Saved/*
-    !Content/**
+```text
+Saved/*
+!Content/**
     ```
-    `Saved/Windows/Content/file.txt` -> still ignored
+`Saved/Windows/Content/file.txt` -> still ignored
 - **Nested `.dvignore` files** – rules in nested directories override rules from parent directories.
 
 > **Git compatibility**: Diversion implements the same pattern‑matching semantics as Git’s `.gitignore`—including support for nested ignore files—so a source tree copied from Git will behave identically out of the box.
@@ -92,20 +92,22 @@ For example, if you use a custom build system, you might add:
 ```
 
 <Note>
-IMPORTANT NOTE: Files and directories that are already committed, will NOT be ignored by .dvignore.
+    IMPORTANT NOTE: Files and directories that are already committed, will NOT be ignored by .dvignore.
 
-1. If you wish to ignore a committed path, you need to first delete it and commit the deletion. If the content of that path can’t be auto-generated, you should back it up somewhere else and copy back after committing the deletion.
-2. Notify your collaborators to backup their copies before committing the deletion, because updating with that commit will delete their copies too.
-3. Example of auto-generated paths: build artifacts and intermediates, auto-generated code.
-4. Example of non-auto-generated paths: credentials files, local configuration files.
+    1. If you wish to ignore a committed path, you need to first delete it and commit the deletion. If the content of that path can’t be auto-generated, you should back it up somewhere else and copy back after committing the deletion.
+    2. Notify your collaborators to backup their copies before committing the deletion, because updating with that commit will delete their copies too.
+    3. Example of auto-generated paths: build artifacts and intermediates, auto-generated code.
+    4. Example of non-auto-generated paths: credentials files, local configuration files.
 </Note>
 
-<Note title="Directory negation and visibility">
-When a directory has a **negation** rule for one of its descendants, Diversion keeps that directory **tracked**, even if the descendant file doesn’t exist yet.
-```
-Build/*
-!Build/app.dll
-```
-Because !Build/app.dll re-includes a possible future file, the Build/ directory itself is tracked (and will show up empty until app.dll appears).
-If you really want to ignore Build/ altogether, remove the negation line (!Build/app.dll).
+<Note>
+    An empty directory will NOT be ignored if there is a **negation** rule for one of its descendants.
+
+    When a directory has a **negation** rule for one of its descendants, Diversion keeps that directory **tracked**, even if the descendant file doesn’t exist yet.
+    ```
+    Build/*
+    !Build/app.dll
+    ```
+    Because `!Build/app.dll` re-includes a possible future file, the `Build/` directory itself is tracked (and will show up empty until `app.dll` appears).
+    If you really want to ignore `Build/` altogether, remove the negation line (`!Build/app.dll`).
 </Note>
