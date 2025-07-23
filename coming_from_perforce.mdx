@@ -1,0 +1,328 @@
+HOW TO MIGRATE YOUR UNREAL ENGINE PROJECTS FROM PERFORCE TO DIVERSION
+
+This guide was made by Deodato Pechir, experienced technical artist. Learn more about his tools [here](https://deodatopr.github.io/deostools/).
+
+The Goals:
+
+This article is to give you all the necessary insights to make an informed decision about migrating your Unreal Engine projects from Perforce to Diversion.
+
+Analyzing Perforce:
+
+To do that, we’ll start by breaking down how Perforce works with ‘Unreal Engine’ starting from the general concepts and moving into the specific challenges that come with real world production workflows.
+
+In general Perforce is a powerful tool that enables collaborative workflows with Unreal Engine. However, it’s expensive, difficult to learn, and speaking from my experience as a technical artist, it's especially challenging for artists to use. The initial setup and configuration can be overwhelming for non-technical users, often creating more friction than support in their daily workflow.
+
+![](/images/perforce_comparison/image43.png)
+
+
+
+---
+
+This contains an overwhelming number of parameters, options, and convoluted configurations even for experienced users, in this case for artist that just to keep updating it.
+
+![](/images/perforce_comparison/image51.png)   ![](/images/perforce_comparison/image58.png)   ![](/images/perforce_comparison/image41.png)   ![](/images/perforce_comparison/image23.png)
+
+![](/images/perforce_comparison/image38.png)
+
+For 3D artists, animators, shader artists, VFX artists, and even game programmers, understanding how to use Perforce just to keep a project synced on the server can become an overwhelming task. The user experience is anything but intuitive, and navigating the system often feels like trying ZBrush for the first time you're immediately thrown into a sea of tools and panels that make the learning curve steep and frustrating, especially when errors occur during check-ins or updates.
+
+At this point, we’ll set aside the complexity involved in setting up a Perforce server and configuring your local environment with all its options. Let’s assume you already have an Unreal Engine project fully integrated with Perforce.
+
+![](/images/perforce_comparison/image28.png)
+
+![](/images/perforce_comparison/image27.png)
+
+Once everything is properly set up, these are the main tools available in Perforce: you can refresh your project, get the latest version from your branch, submit your changes, lock files to signal you're working on them, add or delete files, and finally, revert changes by navigating the history of your branch.
+
+---
+
+
+
+With both the server and local environments properly configured, we’re now ready to jump into Unreal Engine and explore the features available when working with Perforce. This will help us evaluate whether Diversion can match or even improve upon those key capabilities for managing robust, collaborative projects in an organized way.
+
+You can get the project content at :  [ [https://www.fab.com/listings/dc4dc139-f3a3-4375-875f-d1831506953e](https://www.google.com/url?q=https://www.fab.com/listings/dc4dc139-f3a3-4375-875f-d1831506953e&sa=D&source=editors&ust=1753288675884719&usg=AOvVaw0qxMC3ZSPuIbwzeUVLZd8E) ] 
+
+Unreal Engine ‘Old Mine’ Project 
+
+![](/images/perforce_comparison/image26.png)
+
+This is a project that uses more than 4 GB of disk space and took a while to upload to Perforce Helix Cloud.
+
+![](/images/perforce_comparison/image15.png)
+
+Since Perforce is already installed, the first step is to connect it within the Unreal Engine. This allows you to access, in a highly visual and intuitive way, the same core options available in the Perforce Desktop application.
+
+This integration is especially helpful for teams of all kinds whether you’re working in a creative, artistic, technical, or programming role because it streamlines collaboration directly within the editor.
+
+![](/images/perforce_comparison/image39.png)
+
+Now that everything is set up, you'll be able to see every change you push or pull from the project branch, and quickly review the content without ever leaving Unreal Engine.
+
+![](/images/perforce_comparison/image52.png)
+
+---
+
+
+
+For example, when you make changes directly to a map file and save it, Unreal Engine automatically detects the modification and prompts you with the option to check out the file just like in the Perforce Desktop app. This happens right inside the editor, allowing you to lock the file so others on the team cannot make changes to it while you're working on it.
+
+![](/images/perforce_comparison/image8.png)
+
+Now, you’ll also notice a green checkmark icon on the map file, indicating that it’s currently checked out by a user. This means the file is locked in the branch, preventing others from modifying it by mistake and avoiding potential merge conflicts. Once the changes are submitted, the file becomes available again for the rest of the team to use.
+
+![](/images/perforce_comparison/image32.png) ![](/images/perforce_comparison/image59.png)
+
+This visual feedback allows any team member to instantly see who is working on which file, without needing to ask around. It helps everyone stay informed and continue with their tasks without interruptions.
+
+Even if you open the P4V (Perforce Desktop) application, you’ll see that the file is already marked as Checked Out. This ensures that everyone on the team can see who is currently working on it, helping to prevent conflicts and improving communication across the project.
+
+---
+
+
+
+For each file, you have access to the same tools available in the P4V application, such as submitting changes, viewing file history, comparing differences between versions, performing merges, and more—all directly from within Unreal Engine.
+
+![](/images/perforce_comparison/image49.png)
+
+You can quickly access the general version control options in the lower-right corner of the Unreal Engine interface. From there, you can open the changelist panel to review what has been submitted or pulled, and even switch to a different version control system if needed.
+
+![](/images/perforce_comparison/image47.png)
+
+
+
+---
+
+Diversion allows you to perform visual diffs directly within Blueprints, letting you compare your local version with the one in the repository and instantly identify any changes.
+
+![](/images/perforce_comparison/image14.png)
+
+By right-clicking on a file, you can navigate to Revision Control > Diff Against Depot. In the left column, select the entry highlighted in green this indicates the current difference between your local file and the version on the Depot (server). This lets you visually inspect the changes and understand what has been modified.
+
+![](/images/perforce_comparison/image13.png)
+
+
+
+---
+
+Finally, you can submit your changes either by selecting individual files or multiple files at once. Simply right-click on the selected files, go to Revision Control > Check In, and your changes will be uploaded to the server.
+
+![](/images/perforce_comparison/image40.png)
+
+This will open the Submit panel with the changelist, where you can add a description of your changes and submit them right away.
+
+![](/images/perforce_comparison/image24.png)
+
+The second, faster option is to submit all project changes made by the user at once. To do this, go to Revision Control > View Changes, then simply right-click and select Submit Changelist. 
+
+![](/images/perforce_comparison/image34.png)
+
+This opens the submit panel, where you can either send the changes immediately or save the changelist with a description to submit later.
+
+  
+![](/images/perforce_comparison/image4.png)
+
+The End of the Perforce Workflow Inside Unreal Engine:    
+
+This covers the basic needs to sync, lock files you’re working on, and submit changes quickly and easily within Unreal Engine without having to leave the editor or open the P4V application. Most importantly, we can now evaluate the best features of Perforce in Unreal Engine to effectively compare them with Diversion.
+
+![](/images/perforce_comparison/image43.png)![](/images/perforce_comparison/image15.png)
+
+
+
+---
+
+Analyzing Diversion:
+
+Now that we’ve reviewed Perforce’s functionality and features, we can clearly assess what Diversion has to offer.
+
+Diversion is clearly focused on version control for collaborative projects, and in the context of Unreal Engine, it proves to be highly effective. Its user interface is built with a strong emphasis on UX (User Experience), making it extremely easy to use for any type of artist. While it offers a simplified set of visible options, Diversion handles the heavy lifting behind the scenes executing the same key operations as Perforce, but in a much more user-friendly and approachable way for the entire team.
+
+Right from the start, Diversion takes up 55% less disk space compared to Perforce, making the installation process significantly faster. It also offers a much simpler installer with fewer configuration options, which helps reduce setup time and complexity.
+
+![](/images/perforce_comparison/image55.png)  vs  ![](/images/perforce_comparison/image3.png)
+
+Diversion supports both Light and Dark themes, allowing users to choose the visual style that best suits their preferences or working environment.
+
+![](/images/perforce_comparison/image50.png)
+
+---
+
+
+
+Diversion’s UI focuses on core actions rather than overwhelming users with tool-heavy menus. Its context options are minimal and intuitive, streamlining everyday tasks.
+
+![](/images/perforce_comparison/image10.png)        ![](/images/perforce_comparison/image57.png)        ![](/images/perforce_comparison/image56.png)![](/images/perforce_comparison/image16.png)        ![](/images/perforce_comparison/image46.png) ![](/images/perforce_comparison/image45.png)
+
+The interface is divided into two primary sections: Workspaces on the lower-left, showing your cloud projects, and repository creation on the upper-right, where you can set the local storage path.
+
+![](/images/perforce_comparison/image31.png)
+
+---
+
+
+
+You can either import the entire project directory as-is, or start fresh by setting up a new repository and migrating only the necessary content.
+
+![](/images/perforce_comparison/image5.png)
+
+1. New repository: Import From P4 > If you want to bring over your full Perforce history, just choose “Import From P4” when creating a new repository—but keep in mind that you’ll need to reach out to the Diversion team to complete the process.
+
+2. New repository: Create New Repository > You can also start with a clean slate by creating a new branch without any history. It’s super easy and gets you up and running fast.
+
+Since I’ve chosen the second option, I’ll just browse to the local path where my Perforce project is located:
+
+![](/images/perforce_comparison/image1.png)
+
+After locating the project folder previously used with Perforce, choose ‘Create from Existing Folder’ option in Diversion.
+
+![](/images/perforce_comparison/image48.png)
+
+Once the workspace is created locally from the chosen path, you can invite collaborators by providing their email addresses.
+
+![](/images/perforce_comparison/image6.png)
+
+It’s simple to invite collaborators to your project.
+
+![](/images/perforce_comparison/image54.png)
+
+
+
+---
+
+Once your Workspace is set up, just select your project from the list. Diversion will automatically launch the project management panel, allowing you to choose exactly what to upload to the cloud.
+
+![](/images/perforce_comparison/image17.png)
+
+If you're using Unreal, Godot, or Unity, Diversion sets up the .divIGNORE file for you, skipping folders that are just temporary or rebuilt by the engine.
+
+![](/images/perforce_comparison/image11.png)
+
+---
+
+
+
+COMMIT TIME
+
+With your Diversion account ready, you can now select the files you want to include and push your project to the cloud, making it accessible for the rest of your team.  
+
+
+![](/images/perforce_comparison/image29.png)
+
+Compared to Perforce, the upload speed is significantly faster…
+
+The entire project was uploaded to the cloud in a fraction of the time !!!!
+
+![](/images/perforce_comparison/image19.png)
+
+---
+
+
+
+Now your project lives both on your machine and in the cloud, ready for collaborative work.
+
+![](/images/perforce_comparison/image36.png)
+
+To integrate Diversion with Unreal Engine, go to[https://www.fab.com](https://www.google.com/url?q=https://www.fab.com/&sa=D&source=editors&ust=1753288675908328&usg=AOvVaw2WzWMHdJEBw6kyjkJBsq59), search for “Diversion,” and download the plugin.
+
+![](/images/perforce_comparison/image42.png)
+
+
+
+---
+
+The plugin is downloaded and installed through the Diversion Version Control panel. Click “Install to Engine” to integrate it with Unreal Launcher and enable Diversion support across all your Unreal projects.
+
+![](/images/perforce_comparison/image44.png)
+
+Open the Plugins panel in Unreal Engine, type “Diversion Version Control” in the search bar, enable the plugin, and restart Unreal Engine to apply the changes.
+
+![](/images/perforce_comparison/image20.png)
+
+
+
+---
+
+From the main toolbar in Unreal Engine, navigate to Tools > Change Revision Control Settings… to configure your version control system to Diversion.
+
+![](/images/perforce_comparison/image7.png)
+
+Diversion is now active and ready to manage your project’s version control.
+
+![](/images/perforce_comparison/image21.png)
+
+---
+
+
+
+By selecting Diversion as your version control provider, Unreal Engine automatically detects the configuration and establishes the connection without requiring any manual setup.
+
+![](/images/perforce_comparison/image12.png)
+
+Just hit Revision Control > Check In, and the file gets locked so no one else on the team can touch it until you’re done, exactly like the Perforce feature !
+
+![](/images/perforce_comparison/image33.png)
+
+---
+
+
+
+File comparison is one of Perforce’s most powerful tools. In Diversion, you get the same benefit: go to Revision Control > Diff Against Depot to visually inspect differences between your local file and the version stored in the repository.
+
+![](/images/perforce_comparison/image22.png)
+
+In fact, Diversion provides a similar diff panel, allowing you to visually inspect changes made to each file… just as you would in Perforce.
+
+![](/images/perforce_comparison/image9.png)
+
+To view your pending changes, simply open the View Changes panel—located at the bottom-right of the interface—or navigate to it via the Tools menu… just as you would in Perforce.
+
+![](/images/perforce_comparison/image18.png)
+
+The View Changes panel shows a list of all modified assets in the scene. You can double-click any entry to automatically locate it in the Content Browser for quick access and review… just as you would in Perforce.
+
+![](/images/perforce_comparison/image53.png)
+
+Each file includes a complete interactive history, showing all changes made throughout the branch… just as you would in Perforce.
+
+![](/images/perforce_comparison/image37.png)
+
+You can quickly modify the Changelist description to clearly summarize your changes before submitting it to the repository… just as you would in Perforce.
+
+![](/images/perforce_comparison/image25.png)
+
+You can visually validate your Changelist or fully revert file changes directly from the Unreal Engine interface… just as you would in Perforce.
+
+![](/images/perforce_comparison/image2.png)
+
+It’s possible to commit your changes right away or save the changelist, along with a description, for submission at a later time… just as you would in Perforce.
+
+![](/images/perforce_comparison/image35.png)
+
+---
+
+
+
+General Summary:
+
+
+
+|  |  |
+| --- | --- |
+| PERFORCE (P4) | DIVERSION (DV) |
+| is not as Artist friendly as it might seem | Perforce’s GUI is very cluttered, with many options, making it difficult for artists and even programmers to use. |
+| is mainly for teams who run their own server | If you are cloud-first, then you don't consider spending a minute on setting up, administering and fixing a server. Perforce needs to be properly maintained to run smoothly. |
+| Branching in Perforce is slow | Most of the biggest studios using Perforce simply can't create branches because they can't wait half an hour for a big branch to be created. |
+| Is focus is not on version control anymore | solving version control for game developers is all we think about. |
+
+Why Diversion is the Version Control Tool Artists and Developers Actually Want
+
+If you’re tired of clunky, complex version control systems, Diversion is here to change the game. It’s designed with artists and modern developers in mind, offering a simple, intuitive interface that feels familiar, no overwhelming menus or outdated designs. Diversion just does the heavy lifting quietly in the background, letting you focus on what matters: your creative work.
+
+One of the biggest perks? It’s fully cloud-based. Say goodbye to the hassle of managing your own servers. Why waste time babysitting infrastructure when you could be pushing your project forward? Diversion handles the backend so you don’t have to.
+
+Speed is another game-changer. Branching in Diversion happens in milliseconds, no matter how massive your project is. Unlike traditional systems that duplicate full copies, Diversion’s smart branching means you can create as many branches as you want effortlessly and instantly.
+
+In short, Diversion brings powerful version control to your workflow with none of the headache, perfect for teams working with Unreal Engine, Unity, Godot, and more.
+
+![](/images/perforce_comparison/image30.png)
+
