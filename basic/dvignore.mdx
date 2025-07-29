@@ -4,14 +4,6 @@ description: 'Safely ignore files not needed in your repository'
 ---
 
 
-<Note>
-
-<strong>IMPORTANT NOTE:</strong> Diversion treats existing <code>.gitignore</code> files (both root and nested) the same way as <code>.dvignore</code> files.<br />
-This means that when a Git repository is transferred into Diversion, its original ignore rules will be preserved.<br />
-In some cases, such as transferring the Unreal Engine source repository from Git, you may want to remove the existing <code>.gitignore</code> files
-and replace them with a custom ignore file tailored to your needs.
-
-</Note>
 
 The `.dvignore` file is used by Diversion to specify files and directories that should be ignored when tracking changes. This helps keep the repository clean by excluding unnecessary or automatically generated files, such as build artifacts, temporary files, and cached data.
 
@@ -48,6 +40,15 @@ Saved/*
 - **Nested `.dvignore` files** – rules in nested directories override rules from parent directories.
 
 > **Git compatibility**: Diversion implements the same pattern‑matching semantics as Git’s `.gitignore`—including support for nested ignore files—so a source tree copied from Git will behave identically out of the box.
+
+<Note>
+
+<strong>IMPORTANT NOTE:</strong> Diversion treats existing <code>.gitignore</code> files (both root and nested) the same way as <code>.dvignore</code> files.<br />
+This means that when a Git repository is transferred into Diversion, its original ignore rules will be preserved.<br />
+In some cases, such as transferring the Unreal Engine source repository from Git, you may want to remove the existing <code>.gitignore</code> files
+and replace them with a custom ignore file tailored to your needs.
+
+</Note>
 
 For game‑engine projects Diversion ships a default **.dvignore** tailored to each engine. The snippets below are high‑level illustrations; check the actual **.dvignore** generated in your repo for the authoritative rules.
 
