@@ -5,51 +5,169 @@ description: 'Set up Diversion as your version control system.'
 
 We will be using the desktop app, but you can also interact with Diversion using the [Unreal Engine Plugin](https://www.unrealengine.com/marketplace/en-US/product/diversion), [CLI](/cmd-ref/about-cmd), and the [WebUI](https://app.diversion.dev/).
 
-<Steps>
-  <Step title="Install Diversion">
-
-    Choose your operating system.
-
-    <Tabs>
-      <Tab title="Windows">
+<Tabs>
+  <Tab title="Windows">
+    <Steps>
+      <Step title="Install Diversion">
         [Download the installer](https://get.diversion.dev/win) and follow the instructions.
-      </Tab>
-      <Tab title="MacOS">
+        
+        <sub>By installing Diversion you agree to the [Terms of Service](https://www.diversion.dev/terms-of-service)</sub>
+
+        After installing it, launch the Diversion desktop application.
+
+      </Step>
+
+      <Step title="Create an account and login">
+        You now need to create a new account (or sign up using a Google one).
+
+        <img src="/images/quickstart/DV_Install_01.png" alt="Create Repo" style={{width: '80%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
+
+        After creating your account, or if you had one already, login.
+      </Step>
+
+      <Step title="Create a new repository">
+        Diversion will show you an option to create a new repository if you don't have any. Click on `New Repository`.
+
+        <img src="/images/quickstart/DV_NewRepo_04.png" alt="Create Repo" style={{width: '80%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
+
+        You have an option to create a repository from an existing folder or to create a new folder. Choose `Create New Folder` and specify the directory in your computer where you want your repository to be saved at.
+
+        <img src="/images/quickstart/DV_NewRepo_03.png" alt="Create Repo" style={{width: '80%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
+
+        Your newly created repository is now listed both in the Cloned Repositories and All Repositories sections. Cloned, means it exists in your machine and you can start using it locally.
+
+        <img src="/images/quickstart/DV_RepoList_05.png" alt="Create Repo" style={{width: '80%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
+      </Step>
+    </Steps>
+  </Tab>
+
+  <Tab title="MacOS">
+    <Steps>
+      <Step title="Install Diversion">
         Open a terminal and run:
+
         ```bash
         curl -sL https://get.diversion.dev/unix | bash ; export PATH="$HOME/.diversion/bin:$PATH"
         ```
-      </Tab>
-      <Tab title="Linux">
-      Open a terminal and run:
+         <sub>By installing Diversion you agree to the [Terms of Service](https://www.diversion.dev/terms-of-service)</sub>
+
+         After installing it, launch the Diversion desktop application.
+
+      </Step>
+
+      <Step title="Create an account and login">
+        You now need to create a new account (or sign up using a Google one).
+
+        <img src="/images/quickstart/DV_Install_01.png" alt="Create Repo" style={{width: '80%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
+
+        After creating your account, or if you had one already, login.
+      </Step>
+
+      <Step title="Create a new repository">
+        Diversion will show you an option to create a new repository if you don't have any. Click on `New Repository`.
+
+        <img src="/images/quickstart/DV_NewRepo_04.png" alt="Create Repo" style={{width: '80%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
+
+        You have an option to create a repository from an existing folder or to create a new folder. Choose `Create New Folder` and specify the directory in your computer where you want your repository to be saved at.
+
+        <img src="/images/quickstart/DV_NewRepo_03.png" alt="Create Repo" style={{width: '80%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
+
+        Your newly created repository is now listed both in the Cloned Repositories and All Repositories sections. Cloned, means it exists in your machine and you can start using it locally.
+
+        <img src="/images/quickstart/DV_RepoList_05.png" alt="Create Repo" style={{width: '80%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
+      </Step>
+    </Steps>
+  </Tab>
+
+  <Tab title="Linux">
+    <Steps>
+      <Step title="Install Diversion">
+        Open a terminal and run:
+
         ```bash
         curl -sL https://get.diversion.dev/unix | bash ; export PATH="$HOME/.diversion/bin:$PATH"
         ```
-      </Tab>
-    </Tabs>
-    <sub>By installing Diversion you agree to the [Terms of Service](https://www.diversion.dev/terms-of-service)</sub>
 
-    After installing it, launch the Diversion desktop application. Regardless of the operating system, the workflow is the same.
-  </Step>
+        To make the path permanent, add it to your `.bashrc` or `.zshrc`:
 
-  <Step title="Create an account and login">
-    You now need to create a new account (or sign up using a Google one).
+        ```bash
+        echo 'export PATH="$HOME/.diversion/bin:$PATH"' >> ~/.bashrc
+        ```
 
-    <img src="/images/quickstart/DV_Install_01.png" alt="Create Repo" style={{width: '80%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
-  
-    After creating your account, or if you had one already, login.
-  </Step>
+        You can now use Diversion entirely through the terminal.
 
-  <Step title="Create a new repository">
+         <sub>By installing Diversion you agree to the [Terms of Service](https://www.diversion.dev/terms-of-service)</sub>
 
-    Diversion will show you an option to create a new repository if you don't have any. Click on `New Repository`.
-    <img src="/images/quickstart/DV_NewRepo_04.png" alt="Create Repo" style={{width: '80%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
+      </Step>
 
-    You have an option to create a repository from an existing folder or to create a new folder. Choose `Create New Folder` and specify the directory in your computer where you want your repository to be saved at.
-    <img src="/images/quickstart/DV_NewRepo_03.png" alt="Create Repo" style={{width: '80%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
+      <Step title="Create an account and login">
+        Run the following command to open the WebUI and create your account:
 
-    Your newly created repository is now listed both in the Cloned Repositories and All Repositories sections. Cloned, means it exists in your machine and you can start using it locally.
-    <img src="/images/quickstart/DV_RepoList_05.png" alt="Create Repo" style={{width: '80%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
-  </Step>
-</Steps>
+         ```bash
+        dv login
+        ```
+        A browser window will open so you can authenticate. Once logged in, you're good to go!
 
+         <img src="/images/quickstart/DV_Install_01.png" alt="Create Repo" style={{width: '80%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} />
+
+       
+      </Step>
+
+      <Step title="Create or clone a repository">
+        To create a new repository:
+
+        ```bash
+        dv create <repo-name>
+        ```
+
+       You can also create a repo from an existing local folder:
+        ```bash
+        dv create <repo-name> <path-to-your-folder>
+        ```
+        Or clone an existing one you've been added to:
+        ```bash
+        dv clone <repo-name-or-id> <destination-folder>
+        ```
+
+
+        This creates a new repo and workspace at the current directory.
+
+        </Step>
+        
+        <Step title="Start working">
+        Make changes to your files as usual. Diversion will track your changes in the background.
+
+        To check the status of your changes:
+
+        ```bash
+        dv status
+        ```
+
+        </Step>
+
+        <Step title="Commit your work">
+
+        Once you're ready to save a version of your progress:
+
+        ```bash
+        dv commit -a -m "your commit message"
+        ```
+        </Step>
+
+        <Step title="Push and sync">
+
+        By default, Diversion automatically syncs committed changes across the team. You don't need to push or pull manually, just commit your work and it gets shared.
+
+        </Step>
+
+        <Step title="That's it!">
+
+        You're now using Diversion on Linux. Everything works through the CLI, and we'll let you know if a GUI becomes available in the future.
+
+        
+
+        
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
