@@ -62,9 +62,25 @@ This feature is particularly useful for large repositories where you only need s
 
 We’ve introduced a new mechanism to help you manage sync conflicts more smoothly.
 
-If your workspace was paused or out of sync while others made commits to the same branch—and you edited the same file without syncing—your version of the file will now be automatically backed up locally with a .dv-conflict suffix.
-
-To resolve these changes, simply use your preferred local diff tool to compare the versions, apply your edits to the original file path, and commit once you’re ready.
-
+If your workspace was paused or out of sync while others made commits to the same branch—and you edited the same file without syncing—your version of the file will now be automatically backed up locally with a `.dv-conflict` suffix.
 This helps ensure you don’t lose your changes and keeps your workflow efficient.
 
+**Resolving Sync Conflicts**
+
+If this is an Unreal Engine resource, such as `uasset`, then it'll be impossible to open both versions inside the editor
+due to broken redirectors in the backed up file (because its name has changed).
+Please do the following:
+
+1. Make sure the original file has no changes (if there are, either commit or reset them before dealing with conflicts).
+2. Overwrite the original file with the `.dv-conflict` version.
+3. After the file is overwritten, you can open it in the editor and review the differences between the two versions.
+4. Once you have resolved the differences, you can commit the changes or reset if you don't want them.
+5. Delete the `.dv-conflict` file (if you left a copy when overwriting) to clean up your workspace.
+
+For other file types, such as text files or images, the process is as follows:
+
+1. Use your preferred local diff tool to compare the versions, such as Meld, WinMerge, VSCode, etc. or open the files side by side.
+2. Apply your edits to the original file path, and commit once you’re ready.
+3. Delete the `.dv-conflict` file to clean up your workspace.
+
+If you don't clean up the `.dv-conflict` file, it will remain in your workspace, which may accumulate several conflict backups, e.g. `file.dv-conflict.txt`, `file.dv-conflict-1.txt`, `file.dv-conflict-2.txt`, etc.
