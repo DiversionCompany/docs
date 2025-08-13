@@ -1,10 +1,11 @@
-This guide covers migrating your Unreal Engine projects from Perforce to Diversion, including feature comparison and step-by-step migration process.
+This guide covers migrating your Unreal Engine projects from Perforce to Diversion, including feature comparison and a step-by-step migration process.
 
 ## Why Consider Migration?
 
 Diversion offers the same core version control functionality as Perforce with key improvements:
-- Smaller installation footprint (for the client, no need to set up any sever)
-- Significantly faster upload speeds  
+- Smaller installation footprint (for the client, no need to set up any server)
+- Significantly faster **commit** speeds  
+  *(Diversion continuously uploads in the background; committing is the moment you save a snapshot into your history)*
 - Simplified UI focused on essential workflows
 - Better user experience for artists and non-technical team members
 
@@ -14,29 +15,46 @@ Diversion offers the same core version control functionality as Perforce with ke
 |---------|----------|-----------|
 | **Client Installation Size** | Large, complex installer | Small, easy installer |
 | **Learning Curve** | Steep, overwhelming UI | Intuitive, streamlined interface |
-| **Upload Speed** | Standard | Significantly faster |
+| **Commit Speed** | Standard | Significantly faster |
 | **Visual Diffs** | ✅ Available | ✅ Available |
 | **Changelist Management** | ✅ Available | ✅ Available |
+| **Locking Model** | Hard (exclusive) lock | Soft lock (non-blocking) |
 | **History Tracking** | ✅ Complete history | ✅ Complete history |
 | **Unreal Engine Integration** | ✅ Native plugin | ✅ Native plugin |
 | **User Experience** | Complex, tool-heavy | Clean, action-focused |
 | **Artist Friendliness** | Challenging for non-technical users | Designed for all skill levels |
 
+## Soft Locking vs. Hard Locking
+
+Diversion automatically indicates when a file is being edited (**soft lock**)—no one needs to explicitly take authorship.
+
+You’re **not blocked**: you can confirm editing via the prompt and proceed.
+
+If a teammate’s version was committed, you can merge it into your branch (auto-merge on same branch when there’s no conflict).
+
+Some teams require hard locks; Diversion will offer that option as well.
+
+**Why this matters:**  
+In Perforce, you must explicitly take authorship of a file (check-out). If someone else has it locked and is unavailable to release it (vacation, sick, etc.), you’re deadlocked.  
+In Diversion, the backend automatically and implicitly signals active edits without blocking your work.
+
+---
 
 ## Migration Options
-If you have a project in Perforce, and want to move over to Diversion, there are two options to do so: 
+
+If you have a project in Perforce and want to move over to Diversion, there are two options to do so: 
 
 ![](/images/perforce_comparison/image5.png)
 
-**Option 1: Import From P4** - Brings over your full Perforce history. Contact the Diversion team to complete this process.
+**Option 1: Import From P4** – Brings over your full Perforce history. Contact the Diversion team to complete this process.
 
-**Option 2: Create New Repository** - Start with a clean slate without history. Faster setup for immediate use.
+**Option 2: Create New Repository** – Start with a clean slate without history. Faster setup for immediate use.
 
 For this guide, we'll use Option 2. Browse to your local Perforce project path:
 
 ![](/images/perforce_comparison/image1.png)
 
-After locating the project folder previously used with Perforce, choose ‘Create from Existing Folder’ option in Diversion.
+After locating the project folder previously used with Perforce, choose **Create from Existing Folder** in Diversion.
 
 ![](/images/perforce_comparison/image48.png)
 
@@ -48,23 +66,25 @@ It’s simple to invite collaborators to your project.
 
 ![](/images/perforce_comparison/image54.png)
 
-Once your Workspace is set up, just select your project from the list. Diversion will automatically launch the project management panel, allowing you to choose exactly what to upload to the cloud.
+Once your Workspace is set up, just select your project from the list. Diversion will automatically launch the project management panel, allowing you to choose exactly what to commit to your history.
 
 ![](/images/perforce_comparison/image17.png)
 
-If you're using Unreal, Godot, or Unity, Diversion sets up the .dvignore file for you, skipping folders that are just temporary or rebuilt by the engine.
+If you're using Unreal, Godot, or Unity, Diversion sets up the `.dvignore` file for you, skipping folders that are temporary or rebuilt by the engine.
 
 ![](/images/perforce_comparison/image11.png)
 
 ## Commit Time
 
-With your Diversion account ready, you can now select the files you want to include and push your project to the cloud, making it accessible for the rest of your team.  
+With Diversion, your workspace is continuously synced to the cloud. **Committing** is the moment you choose to save a snapshot into history. Because of Diversion’s architecture, commit operations are fast, even for large UE projects.  
+
+As of 5.6, Diversion includes a dedicated **Commit** button for faster commits from the UI.
 
 ![](/images/perforce_comparison/image29.png)
 
-Compared to Perforce, the upload speed is significantly faster.
+Compared to Perforce, the commit speed is significantly faster.
 
-The entire project was uploaded to the cloud in a fraction of the time!
+The entire project was committed to history in a fraction of the time!
 
 ![](/images/perforce_comparison/image19.png)
 
@@ -72,11 +92,15 @@ Now your project lives both on your machine and in the cloud, ready for collabor
 
 ![](/images/perforce_comparison/image36.png)
 
+---
+
+## Unreal Engine Integration
+
 To integrate Diversion with Unreal Engine, go to [FAB](https://www.fab.com), search for “Diversion,” and download the plugin.
 
 ![](/images/perforce_comparison/image42.png)
 
-The plugin is downloaded and installed through the Diversion Version Control panel. Click “Install to Engine” to integrate it with Unreal Launcher and enable Diversion support across all your Unreal projects.
+The plugin is downloaded and installed through the Diversion Version Control panel. Click **Install to Engine** to integrate it with Unreal Launcher and enable Diversion support across all your Unreal projects.
 
 ![](/images/perforce_comparison/image44.png)
 
@@ -84,7 +108,7 @@ Open the Plugins panel in Unreal Engine, type “Diversion Version Control” in
 
 ![](/images/perforce_comparison/image20.png)
 
-From the main toolbar in Unreal Engine, navigate to Tools > Change Revision Control Settings… to configure your version control system to Diversion.
+From the main toolbar in Unreal Engine, navigate to **Tools > Change Revision Control Settings…** to configure your version control system to Diversion.
 
 ![](/images/perforce_comparison/image7.png)
 
@@ -98,11 +122,12 @@ By selecting Diversion as your version control provider, Unreal Engine automatic
 
 ![](/images/perforce_comparison/image12.png)
 
-Just hit Revision Control > Check In, and the file gets locked so no one else on the team can touch it until you’re done, exactly like the Perforce feature !
+In Unreal, **Revision Control > Check In** performs a **commit**.  
+In Perforce, an exclusive lock corresponds to **check-out**; Diversion uses **soft locking** (non-blocking indicators) and supports merge-based collaboration.
 
 ![](/images/perforce_comparison/image33.png)
 
-File comparison is one of Perforce’s most powerful tools. In Diversion, you get the same benefit: go to Revision Control > Diff Against Depot to visually inspect differences between your local file and the version stored in the repository.
+File comparison is one of Perforce’s most powerful tools. In Diversion, you get the same benefit: go to **Revision Control > Diff Against Depot** to visually inspect differences between your local file and the version stored in the repository.
 
 ![](/images/perforce_comparison/image22.png)
 
@@ -110,11 +135,11 @@ Diversion provides a similar diff panel for visually inspecting changes made to 
 
 ![](/images/perforce_comparison/image9.png)
 
-To view pending changes, open the View Changes panel at the bottom-right of the interface or navigate to it via the Tools menu.
+To view pending changes, open the **View Changes** panel at the bottom-right of the interface or navigate to it via the Tools menu.
 
 ![](/images/perforce_comparison/image18.png)
 
-The View Changes panel shows all modified assets in the scene. Double-click any entry to automatically locate it in the Content Browser.
+The **View Changes** panel shows all modified assets in the scene. Double-click any entry to automatically locate it in the Content Browser.
 
 ![](/images/perforce_comparison/image53.png)
 
@@ -133,4 +158,3 @@ You can visually validate your Changelist or revert file changes directly from t
 You can commit changes immediately or save the changelist with a description for later submission.
 
 ![](/images/perforce_comparison/image35.png)
-
