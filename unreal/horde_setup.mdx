@@ -9,7 +9,7 @@ description: Quickstart for wiring Diversion SCM to Horde and preparing a UE5 so
 ## Getting Horde installers
 
 
-Please [contact us](mailto:support@diversion.dev) in order to receive a copy of the horde installation files.
+Please [contact us](mailto:support@diversion.dev) in order to receive a copy of the Diversion Horde installation files.
 
 ---
 
@@ -27,7 +27,7 @@ Please [contact us](mailto:support@diversion.dev) in order to receive a copy of 
 ## 1) Install & sign in to Diversion (Server + Agents)
 
 1. Run the Diversion for Windows installer on the Horde Server and on **every Horde Agent**.
-2. Launch Diversion and **sign in** on both Server and Agents so the integration has proper access to the UE5 source repository.
+2. Launch Diversion and sign in on both Server and Agents so the integration has proper access to the UE5 source repository.
 
 ---
 
@@ -49,12 +49,12 @@ for /r %f in (.gitignore) do @del "%f"
 ```
 
 <Card title="Recommendation" icon="check" iconType="duotone" color="#0b8a42">
-You can remove the `.gitignore` files **by any method you prefer** (File Explorer search + delete, PowerShell, third‑party tools, etc.). The **CMD loop above** is our recommended approach because it’s **recursive, robust, and low‑friction on Windows**, it handles nested folders reliably and avoids common globbing quirks. Just make sure you run it from the **UE repo root**.
+You can remove the `.gitignore` files by any method you prefer (File Explorer search + delete, PowerShell, third‑party tools, etc.). The CMD loop above is our recommended approach because it’s recursive, robust, and low‑friction on Windows, it handles nested folders reliably and avoids common globbing quirks. Just make sure you run it from the UE repo root.
 </Card>
 
 ### 2.3 Create `.dvignore` (before Diversion init)
 
-Create **`.dvignore`** at the UE repo root with this **starter** (tune for your studio):
+Create **`.dvignore`** at the UE repo root with this starter (tune for your studio):
 
 ```ini
 # Epic's .dvignore file (converted from gitignore)
@@ -142,7 +142,7 @@ GenerateProjectFiles.bat
 
 ### 2.6 Add your UE **project** to this source tree
 
-Place your game project (that should compile against this source engine) in the expected path (often the **UE repo root** or a sibling path your BuildGraph expects). Commit required files to Diversion.
+Place your game project (that should compile against this source engine) in the expected path (often the UE repo root or a sibling path your BuildGraph expects). Commit required files to Diversion.
 
 ---
 
@@ -168,9 +168,9 @@ Ensure the **`name`** field targets your Diversion repo and branch:
 ## 4) Configure Horde for your UE source stream
 
 1. Confirm your Horde config files live under `C:\\ProgramData\\Epic\\Horde\\Server\\`.
-2. Ensure your **project** (`*.project.json`) references your **stream** (`*.stream.json`).
-3. In the **stream** JSON, include the **Diversion** mapping (see **Section 3**), then define **agent types**, **workspaces**, and **job templates** (BuildGraph).
-4. Start with a minimal Editor‑only BuildGraph job to validate the pipeline.
+2. Ensure your project (`*.project.json`) references your stream (`*.stream.json`).
+3. In the stream JSON, set the Diversion repo and branch mapping (*see Section 3*), then define the proper job templates (BuildGraph) and other general Horde requirements.
+4. Start with a minimal Editor‑only BuildGraph job to validate the pipeline was set correctly.
 
 > Horde’s config stack is **Globals → Projects → Streams**. Using the `.project.json`/`.stream.json` extensions enables JSON‑schema tooling.
 
@@ -179,7 +179,7 @@ Ensure the **`name`** field targets your Diversion repo and branch:
 ## 5) Smoke test
 
 * Restart or hot‑reload Horde after saving configs.
-* In **Horde Dashboard**, open your **project/stream**, queue a small **BuildGraph job**, confirm agents sync from Diversion and build.
+* In Horde Dashboard, open your project/stream, queue a small BuildGraph job based on your existing configuration, and confirm agents sync from Diversion and build.
 
 ---
 
