@@ -16,15 +16,17 @@ Please [contact us](mailto:support@diversion.dev) in order to receive a copy of 
 ## Prerequisites
 
 * Admin access to your **Horde Server** and **Horde Agent** machines (Windows).
-* Access to **UE source on GitHub** via your Epic↔GitHub linked accounts.
+* Access to **UE source on GitHub** via your Epic↔GitHub linked accounts. 
 
-This guide assumes adept familiarity with Horde and its general setup process.
+  This is a general Horde requirement, as Horde build steps require access to the engine source and tools such as UAT & UBT.
+
+**This guide assumes adept familiarity with Horde and its general setup process.**
 
 ---
 
 ## 1) Install & sign in to Diversion (Server + Agents)
 
-1. Run the **Diversion for Windows** installer on the **Horde Server** and on **every Horde Agent**.
+1. Run the Diversion for Windows installer on the Horde Server and on **every Horde Agent**.
 2. Launch Diversion and **sign in** on both Server and Agents so the integration has proper access to the UE5 source repository.
 
 ---
@@ -119,9 +121,9 @@ __pycache__/
 ```
 
 <Card title="Warning!" icon="triangle-exclamation" iconType="duotone" color="#ca8b04">
-Create the **`.dvignore`** **before** you initialize the Diversion repo for easier and faster initial scan.
+Create the `.dvignore` **before** you initialize the Diversion repo for easier and faster initial scan.
 
-The **`.dvignore`** must be under the root of the repo.
+The `.dvignore` must be under the root of the repo.
 </Card>
 
 ### 2.4 Run UE setup scripts (Windows)
