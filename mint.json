@@ -90,7 +90,8 @@
           "group": "Unreal Engine",
           "pages": [
             "unreal/unreal-engine-plugin",
-            "unreal/ue-plugin-merge-conflicts"
+            "unreal/ue-plugin-merge-conflicts",
+            "unreal/horde_setup"
           ]
         },
         {
