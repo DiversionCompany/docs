@@ -231,3 +231,54 @@ To test your signature verification implementation:
 3. **Rate limiting**: Implement rate limiting on webhook endpoints
 4. **Authentication**: Use webhook signatures as the only authentication method
 5. **HTTPS only**: Always use HTTPS endpoints for webhook delivery
+
+## Discord Webhook Integration
+
+At the moment, direct Discord webhook integration is not supported. However, you can still connect Discord using a middleware service such as Zapier or Pipedream, which act as bridges between Discord and our platform.
+
+### Using Pipedream to Integrate Discord Webhooks
+
+1. **Set Up Pipedream**
+    - Create a Pipedream account and a new project
+    - Name your project and click **Create Project**
+
+2. **Create a Workflow**
+    - Click + **New** → choose **Workflow**
+    - Name your workflow, uncheck "Send error notifications", and click **Create Workflow**
+
+3. **Add a Trigger**
+    - Click **Add Trigger** → select **New HTTP / Webhook Requests**
+    - Click **Save and Continue**
+
+4. **Add Discord Action**
+    - Click the **+** symbol below your trigger → search and select **Discord**.
+    - Choose **Send Message**
+    - Select your Discord account
+    - Log in to Discord and select your server and channel
+    - Enter your message (e.g., "New commit!") and close the action
+    - Here is a template for a more detailed message that includes the repo name, author, branch, commit id, commit message and a link to the commit:
+    ```
+        **New Commit to {{ JSON.parse(JSON.stringify(steps.trigger.event.body)).data?.repository_name || 'Unknown Repo' }}**
+
+        **Author:** {{ JSON.parse(JSON.stringify(steps.trigger.event.body)).data?.author?.full_name || 'Unknown Author' }}
+        **Branch:** {{ JSON.parse(JSON.stringify(steps.trigger.event.body)).data?.branch_name || 'Unknown Branch' }}
+        **Commit ID:** {{ JSON.parse(JSON.stringify(steps.trigger.event.body)).data?.commit_id || 'Unknown ID' }}
+        **Message:** {{ JSON.parse(JSON.stringify(steps.trigger.event.body)).data?.message || 'No message' }}
+        **Link:** {{ JSON.parse(JSON.stringify(steps.trigger.event.body)).data?.commit_url || 'No URL' }}
+    ```
+    - You can customize the message further by accessing other available fields from the commit created event payload
+
+5. **Test & Deploy**
+    - Click **Test** to confirm the message appears in Discord
+    - Click on the trigger → copy the webhook URL
+    - Use this URL as the Payload URL when configuring your webhook in the Diversion app
+    - Click **Deploy** to activate the workflow
+    - Go to Diversion and paste this URL into Diversion and add the webhook
+
+6. **Configure the Webhook in Diversion**
+     - Open the Diversion Desktop App or Web UI
+     - Navigate to **Settings** → **Webhooks**
+     - Click **Add Webhook**
+     - In the **Payload URL** field, paste the webhook URL you copied from Pipedream
+     - Fill in the other webhook details
+     - Click **Add webhook** to activate the webhook
