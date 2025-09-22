@@ -18,13 +18,13 @@ Before setting up Diversion with Unity, ensure you have:
 
 <Steps>
   <Step title="Configure Unity for version control">
-    Open your Unity project and navigate to `Edit > Project Settings > Editor`:
+    Open your Unity project and navigate to `Edit > Project Settings`:
 
     - Set **Version Control Mode** to `Visible Meta Files`
     - Set **Asset Serialization Mode** to `Force Text`
 
-    <img alt="Unity Project Settings" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unity-project-settings-vcs.png" />
-
+    <img alt="Unity Project Settings" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unity-project-settings-vcs-meta.jpg" />
+    <img alt="Unity Project Settings" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/unity-project-settings-vcs-force-text.jpg" />
     These settings ensure Unity's meta files are visible to Diversion and that assets are stored in a text-based format for better conflict resolution.
   </Step>
 
@@ -170,7 +170,7 @@ Unlike Git, Diversion proactively prevents conflicts before they happen:
   <Step title="Check for potential conflicts">
     Before editing a scene, open the Diversion desktop app and look for the **exclamation mark icon** (!) in the file tree. This warns you when someone else is currently editing the same files.
 
-    <img alt="Potential Conflicts Warning" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/diversion-potential-conflicts-unity.png" />
+    <img alt="Potential Conflicts Warning" style={{width: '90%', borderRadius: '1.5rem', border: '.3rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/branching-and-merging-merge-warning-icon.png" />
   </Step>
 
   <Step title="Communicate with your team">
