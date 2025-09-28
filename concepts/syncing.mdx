@@ -3,7 +3,7 @@ title: 'Syncing'
 description: 'Understand how to pause/resume, toggle automatic updates and selectively sync your repositories'
 ---
 
-#### Repositories
+## Repositories
 
 By default your workspaces are synced in full, but there will be cases when you might want to:
 
@@ -11,7 +11,7 @@ By default your workspaces are synced in full, but there will be cases when you 
 - just sync a subset of your workspaces.
 
 
-#### Pause workspace sync
+## Pause workspace sync
 
 You can temporarily pause syncing for any workspace through the desktop app:
 
@@ -32,7 +32,7 @@ Your commits won't be pushed to the repository
 
 This is useful when you need to work offline or want to prevent interruptions during intensive work sessions. Remember to resume syncing when you're ready to collaborate again.
 
-#### Workspace Automatic Update
+## Workspace Automatic Update
 
 <img style={{width: '87px', height: '49px', borderRadius: '0.5rem', border: '.1rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/syncing/AutoForwardingToggle.png" alt="Diversion's Desktop App Workspace's Auto-Update Toggle" />
 
@@ -53,7 +53,7 @@ While sync pause/resume controls the syncing between your local copy to the clou
     ```
 </div>
 
-**How it works:**
+#### How it works:
 
 <CardGroup cols={2}>
     <Card title="Auto-Update ON" icon="toggle-on">
@@ -68,17 +68,17 @@ While sync pause/resume controls the syncing between your local copy to the clou
 
 <Note>Toggling auto-update from off to on will trigger an automatic workspace update in case of pending updates.</Note>
 
-**When should I turn it off?**
+#### When should I turn it off?
 
-In most cases it is better to be in sync with the remote branch, it will allow to fix conflicts fast and avoid long merging processes in the future.
+In most cases it is better to be in sync with the remote branch, it allows finding and fixing conflicts fast and to avoid complex merges in the future.
 
-Turn it off if you don't want remote branch updates to automatically be synced into your cloud workspace (and if workspace sync is resumed then also to your local workspace), for example not to overload internet connection when large files are constantly updated.
+Turn it off if you don't want remote branch updates to automatically be synced into your cloud workspace, for example if you think that changes from other teammate's might break your current project state.
 
-**Alternative**
+#### Alternative
 
 It is possible to branch-out to a side branch in order to avoid constant syncing between local workspace and remote branch commits.
 
-#### Selective sync
+## Selective sync
 
 Control exactly which folders sync to your local workspace through Settings.
 <img style={{width: '350px', height: '54px', borderRadius: '0.5rem', border: '.1rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/syncing/SettingsMenu.png" alt="Diversion's Desktop App Settings Button" />
@@ -104,14 +104,14 @@ Each workspace can have different selective sync configurations
 
 This feature is particularly useful for large repositories where you only need specific assets or code sections for your current task.
 
-#### Sync Conflict Detection
+## Sync Conflict Detection
 
 We’ve introduced a new mechanism to help you manage sync conflicts more smoothly.
 
 If your workspace was paused or out of sync while others made commits to the same branch—and you edited the same file without syncing—your version of the file will now be automatically backed up locally with a `.dv-conflict` suffix.
 This helps ensure you don’t lose your changes and keeps your workflow efficient.
 
-#### The `.dv-conflict` Files
+## The `.dv-conflict` Files
 
 These files are only created to indicate conflicts and are not intended to be committed to the repository.
 Hence, they are not tracked by Diversion and you can't commit them.
@@ -125,7 +125,7 @@ It is currently not possible to delete them through the Diversion desktop app, b
 Use the context menu item _Show in Explorer/Finder_ to quickly locate the file and delete it.
 
 
-#### Resolving Sync Conflicts
+## Resolving Sync Conflicts
 
 If this is an Unreal Engine resource, such as `uasset`, then it'll be impossible to open both versions inside the editor
 due to broken redirectors in the backed up file (because its name has changed).
