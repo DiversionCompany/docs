@@ -1,9 +1,9 @@
 ---
 title: 'Syncing'
-description: 'Understand how to pause/resume and selectively sync your repositories'
+description: 'Understand how to pause/resume, toggle automatic updates and selectively sync your repositories'
 ---
 
-**Repositories**
+## Repositories
 
 By default your workspaces are synced in full, but there will be cases when you might want to:
 
@@ -11,18 +11,18 @@ By default your workspaces are synced in full, but there will be cases when you 
 - just sync a subset of your workspaces.
 
 
-**Pause workspace sync**
+## Pause workspace sync
 
 You can temporarily pause syncing for any workspace through the desktop app:
 
 Go to Settings
-<img src="/images/syncing/SettingsMenu.png" alt="Diversion's Desktop App Settings Button" />
+<img style={{width: '350px', height: '54px', borderRadius: '0.5rem', border: '.1rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/syncing/SettingsMenu.png" alt="Diversion's Desktop App Settings Button" />
 
 Pause sync
-<img src="/images/syncing/PauseSyncMenu.png" alt="Diversion's Desktop App Pause Sync" />
+<img style={{width: '182px', height: '136px', borderRadius: '0.5rem', border: '.1rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/syncing/PauseSyncMenu.png" alt="Diversion's Desktop App Pause Sync" />
 
 Confirm to pause syncing for the current workspace
-<img src="/images/syncing/ConfirmPauseSyncMenu.png" alt="Diversion's Desktop App Confirm Pause Sync" />
+<img style={{width: '264px', height: '145px', borderRadius: '0.5rem', border: '.1rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/syncing/ConfirmPauseSyncMenu.png" alt="Diversion's Desktop App Confirm Pause Sync" />
 
 While paused:
 
@@ -32,16 +32,62 @@ Your commits won't be pushed to the repository
 
 This is useful when you need to work offline or want to prevent interruptions during intensive work sessions. Remember to resume syncing when you're ready to collaborate again.
 
-**Selective sync**
+## Workspace Automatic Update
+
+<img style={{width: '87px', height: '49px', borderRadius: '0.5rem', border: '.1rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/syncing/AutoForwardingToggle.png" alt="Diversion's Desktop App Workspace's Auto-Update Toggle" />
+
+While sync pause/resume controls the syncing between your local copy to the cloud workspace, auto-update controls the merging of new commits from the shared branch into your cloud workspace.
+
+<div style={{width: '80%', margin: '0 auto'}}>
+    ```mermaid
+    flowchart TD
+
+    G[Local Workspace Updated] --> H{Sync Status}
+    H -->|Resumed| I[Local changes automatically synced with cloud workspace]
+    H -->|Paused| J[No sync to / with cloud workspace]
+
+    A[Remote Branch Commit] --> B{Auto-Update}
+    B -->|Enabled| C[New commits automatically merged to cloud workspace]
+    B -->|Disabled| K[No sync with cloud workspace]
+    C --> H{Sync Status}
+    ```
+</div>
+
+#### How it works:
+
+<CardGroup cols={2}>
+    <Card title="Auto-Update ON" icon="toggle-on">
+        Remote commits to the current branch will be automatically merged to the cloud workspace.
+    </Card>
+    <Card title="Auto-Update OFF" icon="toggle-off">
+        Remote commits to the current branch will **not** be automatically merged to the cloud workspace.
+
+        In case of remote commits to the branch, a notification "Pending workspace updates" will be displayed.
+    </Card>
+</CardGroup>
+
+<Note>Toggling auto-update from off to on will trigger an automatic workspace update in case of pending updates.</Note>
+
+#### When should I turn it off?
+
+In most cases it is better to be in sync with the remote branch, it allows finding and fixing conflicts fast and to avoid complex merges in the future.
+
+Turn it off if you don't want remote branch updates to automatically be synced into your cloud workspace, for example if you think that changes from other teammate's might break your current project state.
+
+#### Alternative
+
+It is possible to branch-out to a side branch in order to avoid constant syncing between local workspace and remote branch commits.
+
+## Selective sync
 
 Control exactly which folders sync to your local workspace through Settings.
-<img src="/images/syncing/SettingsMenu.png" alt="Diversion's Desktop App Settings Button" />
+<img style={{width: '350px', height: '54px', borderRadius: '0.5rem', border: '.1rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/syncing/SettingsMenu.png" alt="Diversion's Desktop App Settings Button" />
 
 Selective sync
-<img src="/images/syncing/SelectiveSyncMenu.png" alt="Diversion's Desktop App Selective Sync" />
+<img style={{width: '182px', height: '136px', borderRadius: '0.5rem', border: '.1rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/syncing/SelectiveSyncMenu.png" alt="Diversion's Desktop App Selective Sync" />
 
 Check (for sync) or uncheck (for unsync) the desired directories
-<img src="/images/syncing/ConfirmSelectiveSyncMenu.png" alt="Diversion's Desktop App Confirm Selective Sync" />
+<img style={{width: '308px', height: '200px', borderRadius: '0.5rem', border: '.1rem solid #555', boxShadow: '0 0 1rem #888' }} src="/images/syncing/ConfirmSelectiveSyncMenu.png" alt="Diversion's Desktop App Confirm Selective Sync" />
 
 How it works:
 
@@ -58,14 +104,14 @@ Each workspace can have different selective sync configurations
 
 This feature is particularly useful for large repositories where you only need specific assets or code sections for your current task.
 
-**Sync Conflict Detection**
+## Sync Conflict Detection
 
 We’ve introduced a new mechanism to help you manage sync conflicts more smoothly.
 
 If your workspace was paused or out of sync while others made commits to the same branch—and you edited the same file without syncing—your version of the file will now be automatically backed up locally with a `.dv-conflict` suffix.
 This helps ensure you don’t lose your changes and keeps your workflow efficient.
 
-**The `.dv-conflict` Files**
+## The `.dv-conflict` Files
 
 These files are only created to indicate conflicts and are not intended to be committed to the repository.
 Hence, they are not tracked by Diversion and you can't commit them.
@@ -79,7 +125,7 @@ It is currently not possible to delete them through the Diversion desktop app, b
 Use the context menu item _Show in Explorer/Finder_ to quickly locate the file and delete it.
 
 
-**Resolving Sync Conflicts**
+## Resolving Sync Conflicts
 
 If this is an Unreal Engine resource, such as `uasset`, then it'll be impossible to open both versions inside the editor
 due to broken redirectors in the backed up file (because its name has changed).
