@@ -58,6 +58,19 @@ Each workspace can have different selective sync configurations
 
 This feature is particularly useful for large repositories where you only need specific assets or code sections for your current task.
 
+**Workspace Automatic Update**
+
+<img src="/images/syncing/AutoForwardingToggle.png" alt="Diversion's Desktop App Workspace's Auto-Update Toggle" />
+
+How it works:
+
+On:  Remote commits to the current branch will be automatically merged to working the workspace.
+
+Off: Remote commits to the current branch will **not** be automatically merged to working the workspace.
+In case of remote commits to the branch a notification "Pending workspace updates" will be displayed.
+
+Note: toggling auto-update from off to on **will** trigger an automatic workspace update in case of pending updates.
+
 **Sync Conflict Detection**
 
 We’ve introduced a new mechanism to help you manage sync conflicts more smoothly.
