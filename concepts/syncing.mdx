@@ -38,21 +38,6 @@ This is useful when you need to work offline or want to prevent interruptions du
 
 While sync pause/resume controls the syncing between your local copy to the cloud workspace, auto-update controls the merging of new commits from the shared branch into your cloud workspace.
 
-<div style={{width: '80%', margin: '0 auto'}}>
-    ```mermaid
-    flowchart TD
-
-    G[Local Workspace Updated] --> H{Sync Status}
-    H -->|Resumed| I[Local changes automatically synced with cloud workspace]
-    H -->|Paused| J[No sync to / with cloud workspace]
-
-    A[Remote Branch Commit] --> B{Auto-Update}
-    B -->|Enabled| C[New commits automatically merged to cloud workspace]
-    B -->|Disabled| K[No sync with cloud workspace]
-    C --> H{Sync Status}
-    ```
-</div>
-
 #### How it works:
 
 <CardGroup cols={2}>
@@ -67,6 +52,21 @@ While sync pause/resume controls the syncing between your local copy to the clou
 </CardGroup>
 
 <Note>Toggling auto-update from off to on will trigger an automatic workspace update in case of pending updates.</Note>
+
+<div style={{width: '80%', margin: '0 auto'}}>
+    ```mermaid
+    flowchart TD
+
+    G[Local Workspace Updated] --> H{Sync Status}
+    H -->|Resumed| I[Local changes automatically synced with cloud workspace]
+    H -->|Paused| J[No sync to / with cloud workspace]
+
+    A[Remote Branch Commit] --> B{Auto-Update}
+    B -->|Enabled| C[New commits automatically merged to cloud workspace]
+    B -->|Disabled| K[No sync with cloud workspace]
+    C --> H{Sync Status}
+    ```
+</div>
 
 #### When should I turn it off?
 
