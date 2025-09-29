@@ -38,7 +38,7 @@ This is useful when you need to work offline or want to prevent interruptions du
 
 While sync pause/resume controls the syncing between your local copy to the cloud workspace, auto-update controls the merging of new commits from the shared branch into your cloud workspace.
 
-#### How it works:
+#### How it works
 
 <CardGroup cols={2}>
     <Card title="Auto-Update ON" icon="toggle-on">
@@ -74,9 +74,13 @@ In most cases it is better to be in sync with the remote branch, it allows findi
 
 Turn it off if you don't want remote branch updates to automatically be synced into your cloud workspace, for example if you think that changes from other teammate's might break your current project state.
 
-#### Alternative
+#### Alternative to disabling auto-update
 
-It is possible to branch-out to a side branch in order to avoid constant syncing between local workspace and remote branch commits.
+It is possible to branch-out to a side branch in order to avoid receiving new commits from the shared branch into your local workspace while you are working on a feature or a fix. The advantages of this approach are:
+
+- You can commit in more granular steps, and retain fine-grained control over your project history.
+- When you are ready to merge your changes into the shared branch, you can create a Review Request to have your changes reviewed by your team members.
+- Whenever you start working on a new feature, you can be sure that you are working on the latest version of the shared branch.
 
 ## Selective sync
 
