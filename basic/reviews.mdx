@@ -97,7 +97,7 @@ Use this when you're ready to merge but need approval first
    - Click **"Create review"**
 
 {/*
-### Method 2: Create Review from Draft Commit
+### Method 3: Create Review from Draft Commit
 
 Use this when you want to send uncommitted changes directly to review without creating a full commit yet.
 
@@ -254,12 +254,10 @@ Use inline comments to point out specific issues in particular lines of code.
 - **OPEN** (blue): Review is active, may still need approvals
 - **MERGED** (purple): Changes were approved and merged
 - **CLOSED** (gray): Review was closed without merging
-
+{/*
 ## Branch Reviews vs Commit Reviews
 
-### The Simple Explanation
-
-All reviews compare two things. Usually those "things" are branches, but they can also be specific commits or tags.
+All reviews compare two things. Usually those "things" are branches, but they can also be specific commits.
 
 ### Common Scenarios
 
@@ -303,7 +301,7 @@ This is less common, but useful when you want to see what changed between two sp
 - Investigating when a bug was introduced
 - Comparing two releases or versions
 - Analyzing historical changes
-
+*/}
 ## Working with Review Feedback
 
 ### When Changes Are Requested
@@ -360,40 +358,3 @@ You'll get email notifications for:
 - When a review is merged or closed
 
 All notifications include a link to view the review in Diversion.
-
-## Tips and Tricks
-
-### For Review Authors
-
-- Create reviews early, even for work-in-progress, to get feedback sooner
-- Use inline comments to explain tricky parts of your code preemptively
-- Add multiple commits that each do one thing - easier for reviewers to follow
-- Update the review description if your approach changes
-
-### For Reviewers
-
-- Review promptly - don't block your teammates
-- Start with the big picture before diving into details
-- Explain WHY something should change, not just WHAT to change
-- Approve when it's "good enough" - don't demand perfection
-- If you're not the right reviewer, suggest someone else
-
-## Common Questions
-
-**Q: Can I review my own code?**
-A: You're automatically part of the review as the author, but you should have at least one other person review it.
-
-**Q: How many approvals do I need?**
-A: This depends on your team's policy. At minimum, having one other person review catches most issues.
-
-**Q: Can I change who's reviewing after I create the review?**
-A: Yes! You can add or remove reviewers at any time while the review is open.
-
-**Q: What if I need to make changes after approval?**
-A: If you make significant changes, ask reviewers to take another look. Small fixes usually don't need re-approval.
-
-**Q: Can I close a review without merging?**
-A: Yes. Sometimes you realize you need a different approach, or the changes are no longer needed. Just close it.
-
-**Q: What happens to the review after I merge?**
-A: It becomes read-only and marked as MERGED. You can still view it for historical reference, but can't add more comments or change status.
