@@ -1,0 +1,179 @@
+---
+title: 'Reviews'
+description: 'Branch and commit code reviews'
+---
+
+Code reviews in Diversion let you request feedback on your changes before merging them into your main branch. Team members can review your code, leave comments, approve changes, or request modifications.
+
+
+## How Reviews Work
+
+A review compares two refs (branches or commits) in your repository:
+
+- Base ref: The target where changes will be merged (e.g., master)
+- Compare ref: The branch or commit containing your changes
+
+When you create a review, Diversion calculates the differences between these two refs and presents them to your team for feedback.
+
+## Two Types of Reviews
+
+### Draft Commit Reviews
+
+Create a review from uncommitted changes in your workspace.
+
+**When to use**:
+
+- You want feedback before creating a "real" commit
+- You're experimenting and want early input
+- You want to collaborate on changes before finalizing them
+
+
+### Branch-to-Branch Reviews
+
+Compare changes between two existing branches.
+
+**When to use**:
+
+    - You've already committed your changes to a feature branch
+    - You want to merge one branch into another
+    - You're working on a long-running feature branch
+
+
+## Creating a Review
+
+### From the Reviews Page
+
+1. Click Reviews in the left sidebar
+<img src="/images/reviews/create-review-step-1.png" alt="Click reviews in the top bar" />
+
+2. Click New Review
+3. Fill in the review details:
+- Title: Short description of your changes
+- Description: Detailed explanation of what you changed and why
+- Base branch: The branch you want to merge into (usually master)
+- Compare branch: Your branch with the changes
+- Reviewers: Team members you want to review your code
+4. Click Create Review
+
+Your reviewers will receive an email notification asking them to review your changes.
+
+**How it works**:
+
+    1. Your changes already exist on a branch (e.g 'my-branch')
+    2. You create a review comparing 'my-branch' (compare) → master (base)
+    3. As you push more commits to 'my-branch', the review automatically updates to show all changes
+
+
+
+How it works:
+
+    1. You have uncommitted changes in your workspace
+    2. Click "Commit as Draft" instead of regular commit
+    3. Diversion creates:
+    - A temporary hidden branch (named draft-commit/your-id/abc123)
+    - A commit on that branch with your changes
+    - A review comparing the draft branch to your source branch
+    4. Your workspace is reset to a clean state (changes are safely stored in the draft)
+    5. You can continue working while reviewers examine your draft
+
+
+From a Draft Commit
+
+Draft commits let you create a review before committing your changes to a branch:
+
+1. Make changes in your workspace
+2. Click Commit as Draft instead of the regular commit button
+3. Enter a commit message and select reviewers
+4. Click Create Draft & Review
+
+Diversion creates a temporary branch with your changes and opens a review automatically. This lets you get feedback before finalizing your commit.
+
+Reviewing Changes
+
+When someone requests your review:
+
+1. View the Changes
+
+Open the review and click the Files Changed tab to see what was modified. You can:
+
+- Browse all changed files
+- See side-by-side diffs showing before and after
+- Expand/collapse files to focus on specific changes
+1. Leave Comments
+
+General comments: Switch to the Conversation tab and type your feedback in the comment box at the bottom.
+
+Inline comments: In the Files Changed tab, click on any line number to add a comment about that specific line. This is helpful for pointing out specific issues or suggestions.
+
+1. Approve or Request Changes
+
+When you're done reviewing, update your status:
+
+- Approve: Click Approve if the changes look good
+- Request Changes: Click Request Changes if issues need to be addressed
+- Reject: Use this if the changes shouldn't be merged at all
+
+The author will receive an email notification of your decision.
+
+Responding to Feedback
+
+If reviewers request changes:
+
+1. Make the necessary updates in your branch
+2. Reply to comments in the review to explain your changes
+3. Once addressed, you can request another review or mark comment threads as resolved
+
+Merging a Review
+
+Once your review is approved:
+
+1. Open the review
+2. Click Merge
+3. Confirm the merge
+
+Your changes will be merged into the base branch, and the review will be marked as completed.
+
+Closing a Review
+
+If you no longer need a review (e.g., you decided not to proceed with the changes):
+
+1. Open the review
+2. Click Close Review
+
+This marks the review as closed without merging.
+
+Review Statuses
+
+Review Status
+
+- Open: Review is active and awaiting feedback or merge
+- Closed: Review was closed without merging
+
+Reviewer Status
+
+- Review requested: You've been assigned to review (default state)
+- Approved: You approved the changes
+- Changes requested: You want the author to make modifications
+- Rejected: You don't think these changes should be merged
+
+Email Notifications
+
+You'll receive email notifications when:
+
+- Someone requests your review
+- A reviewer approves or requests changes on your review
+- Someone comments on a review you're involved in
+
+Tips for Effective Reviews
+
+For authors:
+
+- Write clear titles and descriptions explaining what changed and why
+- Keep reviews focused - smaller reviews are easier to review
+- Respond to comments promptly and be open to feedback
+
+For reviewers:
+
+- Review changes in a timely manner
+- Leave constructive, specific feedback
+- Approve when changes look good, even if you have minor suggestions

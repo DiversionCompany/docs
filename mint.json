@@ -75,7 +75,8 @@
             "basic/import-from-git",
             "basic/import-from-git-lfs",
             "basic/sync-pause-resume",
-            "basic/dvignore"
+            "basic/dvignore",
+            "basic/reviews"
           ]
         },
         {
@@ -92,12 +93,6 @@
             "unreal/unreal-engine-plugin",
             "unreal/ue-plugin-merge-conflicts",
             "unreal/horde_setup"
-          ]
-        },
-        {
-          "group": "Unity",
-          "pages": [
-            "unity/unity-best-practices"
           ]
         },
         {
