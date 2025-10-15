@@ -19,7 +19,7 @@ When you create a review, Diversion calculates the differences between these two
 
 ## Creating a Review
 
-There are three ways to create a review in Diversion:
+There are two ways to create a review in Diversion:
 
 ### Method 1: Create Review from Branch (Most Common)
 
@@ -64,6 +64,7 @@ Use this when you want to compare two branches and get feedback before merging.
    - Assigned reviewers will receive email notifications
    - You'll be taken to the review page
 
+<img src="/images/reviews/review-before-submit.png" alt="Review form before submitting" />
 
 ### Method 2: Create Review from Merge Dialog
 
@@ -100,8 +101,8 @@ Use this when you're ready to merge but need approval first
 ### What You Need for All Methods
 
 Every review requires:
-- **Base branch or commit**: Where you want to merge your changes (e.g., `master`)
-- **Compare branch or commit**: The branch/commit with your changes
+- **Base branch**: Where you want to merge your changes (e.g., `master`)
+- **Compare branch**: The branch with your changes
 - **Title**: A clear, concise description (required)
 - **Description**: More detailed explanation (optional but recommended)
 - **Reviewers**: Teammates who should review (optional, can add later)
@@ -117,7 +118,7 @@ You'll get an email notification when someone requests your review.
 1. **Open the review**
    - Click the link in your email notification, OR
    - Go to Diversion web app → **"Reviews"** section
-   <img src="/images/reviews/create-review-step-1.png" alt="Click reviews in the top header bar" />
+   <img src="/images/reviews/create-review-step-1.png" alt="Reviews section in top header bar" />
    - Find the review in the list (you'll see your name as a reviewer)
    - You can filter reviews by status (Open, Closed) and by whether they're your reviews
    <img src="/images/reviews/create-review-merge-4.png" alt="Review list" />
@@ -130,29 +131,35 @@ You'll get an email notification when someone requests your review.
      - Which branches/commits are being compared
      - Current status and other reviewers
 
+
 3. **Review the changes**
    - You'll see two tabs:
      - **"Conversation"**: Shows all comments and discussion
      - **"Files Changed"**: Shows the code diff
    - Click **"Files Changed"** to see what code changed
 
+   <img src="/images/reviews/files-changed.png" alt="Files changed tab showing code diff" />
+
 4. **Leave comments** (explained below)
    - Add general comments about the overall changes
    - Add inline comments on specific lines of code
 
+    <img src="/images/reviews/review-changes-conversation.png" alt="Conversation tab with comments" />
+
 5. **Make your decision**
    - Go to the **"Files Changed"** tab
-   - Click **Review changes**
+   - Click **"Review changes"**
    <img src="/images/reviews/review-changes.png" alt="Review changes" />
    - Choose one of these options:
      - **"Approve"**: Changes look good, ready to merge
      - **"Request Changes"**: Something needs to be fixed
      <img src="/images/reviews/review-actions.png" alt="Review actions" />
-   - Click the button to submit your decision
+   - Add an optional comment to explain your decisio
+   - Click the **"Submit review"** to submit your decision
 
 6. **Done!**
    - The review author receives notification of your decision
-   - Your reviewer status updates to APPROVED or CHANGES_REQUESTED
+   - Your review status will be updated and appear both in the conversation and on your avatar under the "Reviewers" section
 
 ### Adding Comments
 
@@ -168,7 +175,13 @@ Use general comments for big-picture feedback about the whole review.
 4. Type your comment
 5. Click **"Comment"** button
 
-<img src="/images/reviews/review-changes-conversation.png" alt="Review general conversation" />
+**How to reply to a comment:**
+
+1. Find the comment you want to reply to in the **"Conversation"** tab
+2. Type your response
+4. Click **"Reply"** to post your reply
+
+<img src="/images/reviews/add-comments.png" alt="Adding and replying to comments" />
 
 **Examples of general comments:**
 - "The overall approach looks great!"
@@ -185,14 +198,22 @@ Use inline comments to point out specific issues in particular lines of code.
 1. Open the review page
 2. Go to the **"Files Changed"** tab
 3. Find the file you want to comment on
-4. **Hover over a line number** in the diff view
-5. A **"+"** icon appears next to the line number
-6. **Click the "+" icon**
-7. A comment box opens
-8. Type your comment about that specific line
-9. Click **"Add comment"** button
+4. **Click the line number** in the diff view
+5. A comment box appears on the right side of the screen
+6. Type your comment about that specific line
+7. Click **"Comment"** button
 
-<img src="/images/reviews/file-comments.png" alt="Review file" />
+**How to add a file-level comment:**
+
+1. Open the review page
+2. Go to the **"Files Changed"** tab
+3. Find the file you want to comment on
+4. Click the **"+"** button above the changed version of the fil
+5. A comment box appears on the right side of the screen
+6. Type your comment about the entire file
+7. Click **"Comment"** button
+
+<img src="/images/reviews/file-comments.png" alt="Adding inline and file-level comments" />
 
 **Examples of inline comments:**
 - "This function should handle the case where user is null"
@@ -203,14 +224,20 @@ Use inline comments to point out specific issues in particular lines of code.
 ### Viewing Review Status
 
 **Your status as a reviewer:**
-- **REQUESTED** (gray): You haven't responded yet - review is waiting for you
-- **APPROVED** (green): You approved the changes
-- **CHANGES REQUESTED** (red): You requested modifications
+- **REQUESTED**: You haven't responded yet - review is waiting for you
+- **APPROVED**: You approved the changes
+- **CHANGES REQUESTED**: You requested modifications
 
 **The review's overall status:**
 - **OPEN** (blue): Review is active, may still need approvals
 - **MERGED** (purple): Changes were approved and merged
 - **CLOSED** (gray): Review was closed without merging
+
+<img src="/images/reviews/review-status.png" alt="Review status indicators" />
+
+## Editing Review Details
+
+After creating a review, you can edit the title and description by clicking the pencil icon next to them, or edit reviewers by clicking the settings icon next to the reviewers section.
 
 ## Working with Review Feedback
 
@@ -233,31 +260,8 @@ If you're using a branch review, any new commits you push will automatically app
 
 Once all reviewers have approved (or enough approvals based on your team's policy):
 1. Do a final check that everything looks good
-2. Merge the changes
+2. Click the **"Merge review"** button on the review page to merge the changes
 3. The review status will automatically change to MERGED
-
-## Best Practices
-
-### Creating Reviews
-
-- **Write clear titles**: "Add user authentication" not "Update files"
-- **Explain context**: Use the description to explain WHY you made these changes
-- **Keep changes focused**: Smaller reviews are easier to review thoroughly
-- **Assign the right reviewers**: Pick people familiar with the code you're changing
-
-### Giving Feedback
-
-- **Be specific**: Point to exact lines and explain what should change
-- **Be constructive**: Suggest improvements, don't just criticize
-- **Distinguish priorities**: "This must be fixed" vs "Nice to have"
-- **Respond promptly**: Don't leave people waiting for days
-
-### Receiving Feedback
-
-- **Don't take it personally**: Code review is about the code, not you
-- **Ask questions**: If feedback is unclear, ask for clarification
-- **Be open to suggestions**: Sometimes there's a better approach
-- **Say thanks**: Reviewing takes time and effort
 
 ## Notifications
 
